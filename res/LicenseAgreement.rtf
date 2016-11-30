@@ -1,0 +1,943 @@
+{\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff0\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\fbidi \froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f10\fbidi \fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+{\f40\fbidi \fswiss\fcharset0\fprq2{\*\panose 020b0604030504040204}Tahoma;}{\f41\fbidi \fnil\fcharset128\fprq2{\*\panose 00000000000000000000}?????? Pro W3{\*\falt MS Mincho};}
+{\f471\fbidi \fnil\fcharset128\fprq2{\*\panose 00000000000000000000}@?????? Pro W3;}{\flomajor\f31500\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbmajor\f31501\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fhimajor\f31502\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria;}
+{\fbimajor\f31503\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\flominor\f31504\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbminor\f31505\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fhiminor\f31506\fbidi \fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri;}
+{\fbiminor\f31507\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f472\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\f473\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\f475\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\f476\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\f477\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f478\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\f479\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\f480\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\f492\fbidi \fmodern\fcharset238\fprq1 Courier New CE;}{\f493\fbidi \fmodern\fcharset204\fprq1 Courier New Cyr;}
+{\f495\fbidi \fmodern\fcharset161\fprq1 Courier New Greek;}{\f496\fbidi \fmodern\fcharset162\fprq1 Courier New Tur;}{\f497\fbidi \fmodern\fcharset177\fprq1 Courier New (Hebrew);}{\f498\fbidi \fmodern\fcharset178\fprq1 Courier New (Arabic);}
+{\f499\fbidi \fmodern\fcharset186\fprq1 Courier New Baltic;}{\f500\fbidi \fmodern\fcharset163\fprq1 Courier New (Vietnamese);}{\f812\fbidi \froman\fcharset238\fprq2 Cambria Math CE;}{\f813\fbidi \froman\fcharset204\fprq2 Cambria Math Cyr;}
+{\f815\fbidi \froman\fcharset161\fprq2 Cambria Math Greek;}{\f816\fbidi \froman\fcharset162\fprq2 Cambria Math Tur;}{\f819\fbidi \froman\fcharset186\fprq2 Cambria Math Baltic;}{\f820\fbidi \froman\fcharset163\fprq2 Cambria Math (Vietnamese);}
+{\f872\fbidi \fswiss\fcharset238\fprq2 Tahoma CE;}{\f873\fbidi \fswiss\fcharset204\fprq2 Tahoma Cyr;}{\f875\fbidi \fswiss\fcharset161\fprq2 Tahoma Greek;}{\f876\fbidi \fswiss\fcharset162\fprq2 Tahoma Tur;}
+{\f877\fbidi \fswiss\fcharset177\fprq2 Tahoma (Hebrew);}{\f878\fbidi \fswiss\fcharset178\fprq2 Tahoma (Arabic);}{\f879\fbidi \fswiss\fcharset186\fprq2 Tahoma Baltic;}{\f880\fbidi \fswiss\fcharset163\fprq2 Tahoma (Vietnamese);}
+{\f881\fbidi \fswiss\fcharset222\fprq2 Tahoma (Thai);}{\flomajor\f31508\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\flomajor\f31509\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\flomajor\f31511\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\flomajor\f31512\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\flomajor\f31513\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\flomajor\f31514\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\flomajor\f31515\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\flomajor\f31516\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\fdbmajor\f31518\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\fdbmajor\f31519\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fdbmajor\f31521\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\fdbmajor\f31522\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fdbmajor\f31523\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fdbmajor\f31524\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\fdbmajor\f31525\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fdbmajor\f31526\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fhimajor\f31528\fbidi \froman\fcharset238\fprq2 Cambria CE;}
+{\fhimajor\f31529\fbidi \froman\fcharset204\fprq2 Cambria Cyr;}{\fhimajor\f31531\fbidi \froman\fcharset161\fprq2 Cambria Greek;}{\fhimajor\f31532\fbidi \froman\fcharset162\fprq2 Cambria Tur;}
+{\fhimajor\f31535\fbidi \froman\fcharset186\fprq2 Cambria Baltic;}{\fhimajor\f31536\fbidi \froman\fcharset163\fprq2 Cambria (Vietnamese);}{\fbimajor\f31538\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}
+{\fbimajor\f31539\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fbimajor\f31541\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fbimajor\f31542\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}
+{\fbimajor\f31543\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fbimajor\f31544\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fbimajor\f31545\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\fbimajor\f31546\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\flominor\f31548\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\flominor\f31549\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\flominor\f31551\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\flominor\f31552\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\flominor\f31553\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\flominor\f31554\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\flominor\f31555\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\flominor\f31556\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\fdbminor\f31558\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\fdbminor\f31559\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fdbminor\f31561\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\fdbminor\f31562\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fdbminor\f31563\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fdbminor\f31564\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\fdbminor\f31565\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fdbminor\f31566\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fhiminor\f31568\fbidi \fswiss\fcharset238\fprq2 Calibri CE;}
+{\fhiminor\f31569\fbidi \fswiss\fcharset204\fprq2 Calibri Cyr;}{\fhiminor\f31571\fbidi \fswiss\fcharset161\fprq2 Calibri Greek;}{\fhiminor\f31572\fbidi \fswiss\fcharset162\fprq2 Calibri Tur;}
+{\fhiminor\f31575\fbidi \fswiss\fcharset186\fprq2 Calibri Baltic;}{\fhiminor\f31576\fbidi \fswiss\fcharset163\fprq2 Calibri (Vietnamese);}{\fbiminor\f31578\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}
+{\fbiminor\f31579\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fbiminor\f31581\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fbiminor\f31582\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}
+{\fbiminor\f31583\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fbiminor\f31584\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fbiminor\f31585\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\fbiminor\f31586\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;
+\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red51\green51\blue51;}{\*\defchp \fs22 }
+{\*\defpap \ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 }\noqfpromote {\stylesheet{\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 
+\af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 \sqformat \spriority0 \styrsid16715749 Normal;}{\s1\ql \li0\ri0\keepn\widctlpar\wrapdefault\aspalpha\aspnum\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 
+\rtlch\fcs1 \ab\ai\af0\afs16\alang1025 \ltrch\fcs0 \b\i\fs16\ul\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \slink15 \sqformat heading 1;}{
+\s2\ql \li0\ri0\sa20\keepn\widctlpar\wrapdefault\aspalpha\aspnum\faauto\outlinelevel1\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \strike\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 
+\sbasedon0 \snext0 \slink16 \sqformat heading 2;}{\s3\ql \li0\ri0\sb20\sa20\keepn\widctlpar\wrapdefault\aspalpha\aspnum\faauto\outlinelevel2\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \ab\ai\af0\afs24\alang1025 \ltrch\fcs0 
+\b\i\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \slink17 \sqformat heading 3;}{\s4\ql \li0\ri0\keepn\widctlpar\wrapdefault\aspalpha\aspnum\faauto\outlinelevel3\adjustright\rin0\lin0\itap0 \rtlch\fcs1 
+\ab\ai\af0\afs22\alang1025 \ltrch\fcs0 \b\i\fs22\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \slink18 \sqformat heading 4;}{\s5\ql \li720\ri0\keepn\widctlpar
+\tx-1080\tx-720\tx1\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\tx9360\tx10080\tx10800\tx11520\tx12240\tx12960\tx13680\tx14400\tx15120\tx15840\tx16560\tx17280\tx18000\tx18720
+\wrapdefault\aspalpha\aspnum\faauto\outlinelevel4\adjustright\rin0\lin720\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\ul\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \slink19 \sqformat heading 5;}{
+\s8\ql \li0\ri0\keepn\widctlpar\wrapdefault\aspalpha\aspnum\faauto\outlinelevel7\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \ab\af0\afs20\alang1025 \ltrch\fcs0 \b\fs20\ul\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 
+\sbasedon0 \snext0 \slink20 \sqformat heading 8;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tblind0\tblindtype3\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\sa200\sl276\slmult1
+\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 \fs22\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext11 \ssemihidden \sunhideused Normal Table;}{\*\cs15 \additive \rtlch\fcs1 
+\ab\af0\afs32 \ltrch\fcs0 \b\fs32\kerning32\loch\f31502\hich\af31502\dbch\af31501 \sbasedon10 \slink1 \slocked \spriority9 Heading 1 Char;}{\*\cs16 \additive \rtlch\fcs1 \ab\ai\af0\afs28 \ltrch\fcs0 \b\i\fs28\loch\f31502\hich\af31502\dbch\af31501 
+\sbasedon10 \slink2 \slocked \ssemihidden \spriority9 Heading 2 Char;}{\*\cs17 \additive \rtlch\fcs1 \ab\af0\afs26 \ltrch\fcs0 \b\fs26\loch\f31502\hich\af31502\dbch\af31501 \sbasedon10 \slink3 \slocked \ssemihidden \spriority9 Heading 3 Char;}{\*\cs18 
+\additive \rtlch\fcs1 \ab\af0\afs28 \ltrch\fcs0 \b\fs28\loch\f31506\hich\af31506\dbch\af31505 \sbasedon10 \slink4 \slocked \ssemihidden \spriority9 Heading 4 Char;}{\*\cs19 \additive \rtlch\fcs1 \ab\ai\af0\afs26 \ltrch\fcs0 
+\b\i\fs26\loch\f31506\hich\af31506\dbch\af31505 \sbasedon10 \slink5 \slocked \ssemihidden \spriority9 Heading 5 Char;}{\*\cs20 \additive \rtlch\fcs1 \ai\af0\afs24 \ltrch\fcs0 \i\fs24\loch\f31506\hich\af31506\dbch\af31505 
+\sbasedon10 \slink8 \slocked \ssemihidden \spriority9 Heading 8 Char;}{\s21\qc \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs28\alang1025 \ltrch\fcs0 
+\fs28\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext21 \slink22 \sqformat Title;}{\*\cs22 \additive \rtlch\fcs1 \ab\af0\afs32 \ltrch\fcs0 \b\fs32\kerning28\loch\f31502\hich\af31502\dbch\af31501 
+\sbasedon10 \slink21 \slocked \spriority10 Title Char;}{\s23\qc \li0\ri0\sb20\sa20\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \ab\ai\af0\afs32\alang1025 \ltrch\fcs0 
+\b\i\fs32\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext23 \slink24 Body Text;}{\*\cs24 \additive \rtlch\fcs1 \af0\afs24 \ltrch\fcs0 \fs24 \sbasedon10 \slink23 \slocked \ssemihidden Body Text Char;}{\s25\ql \li0\ri0\widctlpar
+\tqc\tx4320\tqr\tx8640\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs20\alang1025 \ltrch\fcs0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext25 \slink26 header;}{\*\cs26 \additive \rtlch\fcs1 
+\af0\afs24 \ltrch\fcs0 \fs24 \sbasedon10 \slink25 \slocked \ssemihidden Header Char;}{\*\cs27 \additive \rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf2 \sbasedon10 Hyperlink;}{\s28\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 
+\rtlch\fcs1 \af2\afs20\alang1025 \ltrch\fcs0 \f2\fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext28 \slink29 Plain Text;}{\*\cs29 \additive \rtlch\fcs1 \af2\afs20 \ltrch\fcs0 \f2\fs20 \sbasedon10 \slink28 \slocked Plain Text Char;}
+{\s30\ql \li0\ri0\widctlpar\tqc\tx4320\tqr\tx8640\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext30 \slink31 footer;}{\*
+\cs31 \additive \rtlch\fcs1 \af0\afs24 \ltrch\fcs0 \fs24 \sbasedon10 \slink30 \slocked \ssemihidden Footer Char;}{\*\cs32 \additive \rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf12 \sbasedon10 FollowedHyperlink;}{\s33\ql \li0\ri0\sl289\slmult0\nowidctlpar
+\tx498\wrapdefault\faauto\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs20\alang1025 \ltrch\fcs0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext33 TxBr_p3;}{\s34\ql \li0\ri0\sl289\slmult0\nowidctlpar
+\tx204\wrapdefault\faauto\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs20\alang1025 \ltrch\fcs0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext34 TxBr_p9;}{
+\s35\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\cf6\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext35 \slink36 Body Text 2;}{\*\cs36 
+\additive \rtlch\fcs1 \af0\afs24 \ltrch\fcs0 \fs24 \sbasedon10 \slink35 \slocked \ssemihidden Body Text 2 Char;}{\s37\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af40\afs16\alang1025 \ltrch\fcs0 
+\f40\fs16\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext37 \slink38 \ssemihidden Balloon Text;}{\*\cs38 \additive \rtlch\fcs1 \af40\afs16 \ltrch\fcs0 \f40\fs16 \sbasedon10 \slink37 \slocked \ssemihidden Balloon Text Char;}{
+\s39\ql \fi720\li0\ri0\sa240\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon23 \snext39 \slink40 
+Body Text First Indent;}{\*\cs40 \additive \rtlch\fcs1 \af0\afs24 \ltrch\fcs0 \fs24 \sbasedon24 \slink39 \slocked \ssemihidden Body Text First Indent Char;}{\s41\qj \fi1440\li0\ri0\widctlpar
+\tx-1440\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext41 \slink42 Body Text Indent 3;}{\*\cs42 \additive \rtlch\fcs1 
+\af0\afs16 \ltrch\fcs0 \fs16 \sbasedon10 \slink41 \slocked \ssemihidden Body Text Indent 3 Char;}{\*\cs43 \additive \rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b \sbasedon10 \sqformat Strong;}{\s44\qj \fi-284\li284\ri0\sa240\widctlpar
+\tx0\tx284\tx576\tx1728\tx2016\tx2304\tx2592\tx2880\tx3168\tx3456\tx3744\tx4032\tx4320\tx4608\tx4896\tx5184\tx5472\tx5760\tx6048\tx6336\tx6624\tx6912\tx7200\tx7488\tx7776\tx8064\tx8352\tx8640\tx8860\tx8928\tx9216
+\wrapdefault\hyphpar0\aspalpha\aspnum\faauto\ls47\adjustright\rin0\lin284\itap0 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 \b\fs22\ul\cf1\lang1033\langfe1033\loch\f0\hich\af0\dbch\af41\cgrid\langnp1033\langfenp1033 
+\sbasedon0 \snext44 \sqformat \spriority0 \styrsid12478114 Nant Level 1;}{\s45\qj \fi-567\li851\ri0\sa240\widctlpar\tx810\jclisttab\tx1224\wrapdefault\hyphpar0\aspalpha\aspnum\faauto\ls47\ilvl1\adjustright\rin0\lin851\itap0 \rtlch\fcs1 
+\af0\afs22\alang1025 \ltrch\fcs0 \fs22\cf1\lang1033\langfe1033\loch\f0\hich\af0\dbch\af41\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext45 \sqformat \spriority0 \styrsid12478114 Nant Level 2;}{\s46\qj \fi-709\li1560\ri0\sa240\widctlpar
+\tx810\tx1560\jclisttab\tx2448\wrapdefault\hyphpar0\aspalpha\aspnum\faauto\ls47\ilvl2\adjustright\rin0\lin1560\itap0 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 \fs22\cf1\lang1033\langfe1033\loch\f0\hich\af0\dbch\af41\cgrid\langnp1033\langfenp1033 
+\sbasedon45 \snext46 \sqformat \spriority0 \styrsid12478114 Nant Level 3;}}{\*\listtable{\list\listtemplateid-1\listsimple{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext
+\'01*;}{\levelnumbers;}\rtlch\fcs1 \af0 \ltrch\fcs0 }{\listname ;}\listid-2}{\list\listtemplateid536879302\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li360\jclisttab\tx360\lin360 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6120\jclisttab\tx6120\lin6120 }{\listname ;}\listid96407085}{\list\listtemplateid1714328072\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid126049565}{\list\listtemplateid-1067168642\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat0\levelspace360\levelindent0{\leveltext\leveltemplateid975587474\'01\'96;}{\levelnumbers;}\loch\af0\hich\af0\dbch\af0\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat0\levelspace0\levelindent0{\leveltext\leveltemplateid-498952332\'01-;}{\levelnumbers;}\loch\af0\hich\af0\dbch\af0\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}
+\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760
+\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }
+{\listname ;}\listid177622906}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360
+\jclisttab\tx360\lin360 }{\listname ;}\listid256600614}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid275064917}{\list\listtemplateid1275618614\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\leveltext\leveltemplateid1017514578
+\'01\u-3986 ?;}{\levelnumbers;}\loch\af10\hich\af10\dbch\af0\fbias0 \fi-360\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691
+\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}
+\f10\fbias0 \fi-360\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li3240
+\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li6120\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6840\jclisttab\tx6840\lin6840 }{\listname ;}\listid284820737}{\list\listtemplateid1467249764\listhybrid{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\leveltext\leveltemplateid1017514578\'01\u-3986 ?;}{\levelnumbers;}\loch\af10\hich\af10\dbch\af0\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760
+\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }
+{\listname ;}\listid410273420}{\list\listtemplateid-537110334{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \b \s44\fi-360\li360
+\jclisttab\tx360\lin360 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'03\'00.\'01;}{\levelnumbers\'01\'03;}\rtlch\fcs1 \ab0\ai0\af0 \ltrch\fcs0 
+\b0\i0\strike0\outl0\shad0\embo0\impr0\scaps0\caps0\v0\f0\ulnone\expnd0\expndtw0\cf1\up0\nosupersub\kerning0\animtext0\striked0 \s45\fi-360\li1224\jclisttab\tx1224\lin1224 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'05\'00.\'01.\'02;}{\levelnumbers\'01\'03\'05;}\rtlch\fcs1 \af0 \ltrch\fcs0 \s46\fi-720\li2448\jclisttab\tx2448\lin2448 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\'07\'00.\'01.\'02.\'03;}{\levelnumbers\'01\'03\'05\'07;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-720\li3312\jclisttab\tx3312\lin3312 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\'09\'00.\'01.\'02.\'03.\'04;}{\levelnumbers\'01\'03\'05\'07\'09;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-1080\li4536\jclisttab\tx4536\lin4536 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\'0b\'00.\'01.\'02.\'03.\'04.\'05;}{\levelnumbers\'01\'03\'05\'07\'09\'0b;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-1080\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\'0d\'00.\'01.\'02.\'03.\'04.\'05.\'06;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-1440\li6624\jclisttab\tx6624\lin6624 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\'0f\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-1440\li7488\jclisttab\tx7488\lin7488 }{\listlevel\levelnfc0\levelnfcn0\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'11\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07.\'08;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f\'11;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-1440\li8352\jclisttab\tx8352\lin8352 }
+{\listname ;}\listid644316998}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360
+\jclisttab\tx360\lin360 }{\listname ;}\listid665596142}{\list\listtemplateid-1993077278\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat3\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid718936610}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid760875138}{\list\listtemplateid754099782\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat0\levelspace0\levelindent0{\leveltext\leveltemplateid1017514578\'01\u-3986 ?;}{\levelnumbers;}\loch\af10\hich\af10\dbch\af0\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698691
+\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}
+\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040
+\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid812982924}
+{\list\listtemplateid-1\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\lin360 }{\listname ;}\listid929659188}
+{\list\listtemplateid638385606\listsimple{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-720\li720
+\jclisttab\tx720\lin720 }{\listname ;}\listid942882166}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1223759073}{\list\listtemplateid1731504896\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1231965036}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1301575930}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1363870632}{\list\listtemplateid-1824721652\listsimple{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3983 ?;}{\levelnumbers;}\f10\fs32\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1451128778}{\list\listtemplateid67698689\listsimple
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1476558305}{\list\listtemplateid-1
+\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\lin360 }{\listname ;}\listid1539052690}
+{\list\listtemplateid-2028690588\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid1665061182\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 
+\strike0\ulnone\animtext0\striked0 \fi-360\li360\jclisttab\tx360\lin360 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 
+\af0 \ltrch\fcs0 \fi-360\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc2\levelnfcn2\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid-805142204\'03(\'02);}{\levelnumbers\'02;}\rtlch\fcs1 \af0 
+\ltrch\fcs0 \fi-720\li2340\jclisttab\tx2340\lin2340 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 
+\fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600
+\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li4320
+\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040
+\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760
+\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li6480
+\jclisttab\tx6480\lin6480 }{\listname ;}\listid1563633607}{\list\listtemplateid-984609202\listhybrid{\listlevel\levelnfc3\levelnfcn3\leveljc0\leveljcn0\levelfollow0\levelstartat2\levelspace0\levelindent0{\leveltext\leveltemplateid67698709
+\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid573322988
+\'02\'01);}{\levelnumbers\'01;}\rtlch\fcs1 \ai0\af0 \ltrch\fcs0 \i0\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703
+\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1683431249}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1705904410}{\list\listtemplateid-857186180\listhybrid{\listlevel\levelnfc0\levelnfcn0
+\leveljc0\leveljcn0\levelfollow0\levelstartat2\levelspace0\levelindent0{\leveltext\leveltemplateid-661222770\'02\'00);}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-720\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc4\levelnfcn4
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc2\levelnfcn2\leveljc2
+\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li6120\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6840\jclisttab\tx6840\lin6840 }{\listname ;}\listid1713382123}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1735738753}{\list\listtemplateid-1409276592\listhybrid{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691
+\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}
+\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040
+\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1736974900}
+{\list\listtemplateid-1\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\lin360 }{\listname ;}\listid1740470641
+}{\list\listtemplateid-1067168642\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext\leveltemplateid975587474\'01\'96;}{\levelnumbers;}\loch\af0\hich\af0\dbch\af0\fbias0 
+\fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext\leveltemplateid-498952332\'01-;}{\levelnumbers;}\loch\af0\hich\af0\dbch\af0\fbias0 \fi-360\li1440
+\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1742828580}{\list\listtemplateid-2136855604\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1773820730}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1813983373}{\list\listtemplateid1694425430\listhybrid{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0
+{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li6120
+\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6840\jclisttab\tx6840\lin6840 }
+{\listname ;}\listid1840775332}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360
+\jclisttab\tx360\lin360 }{\listname ;}\listid1851137759}{\list\listtemplateid67698703\listsimple{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 
+\af0 \ltrch\fcs0 \fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1871529203}{\list\listtemplateid-826795806{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat6\levelspace0\levelindent0{\leveltext
+\'01\'00;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-420\li420\jclisttab\tx420\lin420 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'03\'00.\'01;}{\levelnumbers
+\'01\'03;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-420\li420\jclisttab\tx420\lin420 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'05\'00.\'01.\'02;}{\levelnumbers\'01\'03\'05;}
+\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-720\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'07\'00.\'01.\'02.\'03;}{\levelnumbers\'01\'03\'05\'07;}
+\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-720\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'09\'00.\'01.\'02.\'03.\'04;}{\levelnumbers
+\'01\'03\'05\'07\'09;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-1080\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'0b\'00.\'01.\'02.\'03.\'04.\'05;}{\levelnumbers\'01\'03\'05\'07\'09\'0b;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-1080\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\'0d\'00.\'01.\'02.\'03.\'04.\'05.\'06;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-1440\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\'0f\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-1440\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0
+\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'11\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07.\'08;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f\'11;}\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\fbias0 \fi-1800\li1800
+\jclisttab\tx1800\lin1800 }{\listname ;}\listid1907260259}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}
+\f3\fbias0 \fi-360\li360\jclisttab\tx360\lin360 }{\listname ;}\listid1931312807}{\list\listtemplateid1606318818\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1939629527}{\list\listtemplateid1553653072\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}
+\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320
+\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1992981026}{\list\listtemplateid-1268605488
+\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fbias0 \fi-360\li720\jclisttab\tx720\lin720 }
+{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel
+\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0
+\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2
+\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\rtlch\fcs1 \af0 \ltrch\fcs0 \fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid2040429599}{\list\listtemplateid1002337608\listhybrid{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li6120
+\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6840\jclisttab\tx6840\lin6840 }
+{\listname ;}\listid2044671820}{\list\listtemplateid67698689\listsimple{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li360
+\jclisttab\tx360\lin360 }{\listname ;}\listid2099907623}}{\*\listoverridetable{\listoverride\listid1363870632\listoverridecount0\ls1}{\listoverride\listid1813983373\listoverridecount0\ls2}{\listoverride\listid1476558305\listoverridecount0\ls3}
+{\listoverride\listid-2\listoverridecount1{\lfolevel\listoverrideformat{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace0\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li360\lin360 }}\ls4}{\listoverride\listid1735738753\listoverridecount0\ls5}{\listoverride\listid1223759073\listoverridecount0\ls6}{\listoverride\listid929659188\listoverridecount0\ls7}{\listoverride\listid1539052690\listoverridecount0\ls8}
+{\listoverride\listid760875138\listoverridecount0\ls9}{\listoverride\listid275064917\listoverridecount0\ls10}{\listoverride\listid1931312807\listoverridecount0\ls11}{\listoverride\listid2099907623\listoverridecount0\ls12}{\listoverride\listid1851137759
+\listoverridecount0\ls13}{\listoverride\listid256600614\listoverridecount0\ls14}{\listoverride\listid1740470641\listoverridecount0\ls15}{\listoverride\listid665596142\listoverridecount0\ls16}{\listoverride\listid1451128778\listoverridecount0\ls17}
+{\listoverride\listid942882166\listoverridecount0\ls18}{\listoverride\listid1871529203\listoverridecount0\ls19}{\listoverride\listid1705904410\listoverridecount0\ls20}{\listoverride\listid1451128778\listoverridecount1{\lfolevel}\ls21}
+{\listoverride\listid1742828580\listoverridecount0\ls22}{\listoverride\listid177622906\listoverridecount0\ls23}{\listoverride\listid812982924\listoverridecount0\ls24}{\listoverride\listid2040429599\listoverridecount0\ls25}{\listoverride\listid284820737
+\listoverridecount0\ls26}{\listoverride\listid410273420\listoverridecount0\ls27}{\listoverride\listid1773820730\listoverridecount0\ls28}{\listoverride\listid1992981026\listoverridecount0\ls29}{\listoverride\listid2044671820\listoverridecount0\ls30}
+{\listoverride\listid1840775332\listoverridecount0\ls31}{\listoverride\listid1301575930\listoverridecount1{\lfolevel\listoverridestartat\levelstartat1}\ls32}{\listoverride\listid96407085\listoverridecount0\ls33}{\listoverride\listid1736974900
+\listoverridecount0\ls34}{\listoverride\listid126049565\listoverridecount0\ls35}{\listoverride\listid718936610\listoverridecount0\ls36}{\listoverride\listid1736974900\listoverridecount9{\lfolevel}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel
+\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat
+\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}\ls37}{\listoverride\listid1563633607\listoverridecount9{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}
+{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat
+\levelstartat1}\ls38}{\listoverride\listid1939629527\listoverridecount9{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}
+{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}\ls39}
+{\listoverride\listid1563633607\listoverridecount9{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel
+\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}\ls40}{\listoverride\listid1451128778
+\listoverridecount1{\lfolevel}\ls41}{\listoverride\listid1301575930\listoverridecount1{\lfolevel\listoverridestartat\levelstartat1}\ls42}{\listoverride\listid1907260259\listoverridecount0\ls43}{\listoverride\listid1713382123\listoverridecount0\ls44}
+{\listoverride\listid1683431249\listoverridecount0\ls45}{\listoverride\listid1231965036\listoverridecount9{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel
+\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat
+\levelstartat1}\ls46}{\listoverride\listid644316998\listoverridecount9{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}
+{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}{\lfolevel\listoverridestartat\levelstartat1}\ls47}}{\*\pgptbl {\pgp\ipgp0
+\itap0\li0\ri0\sb0\sa0}{\pgp\ipgp0\itap0\li0\ri0\sb0\sa0}{\pgp\ipgp0\itap0\li0\ri0\sb0\sa0}}{\*\rsidtbl \rsid220017\rsid1123861\rsid1322816\rsid1645966\rsid1861630\rsid1981277\rsid1990053\rsid2038823\rsid2502698\rsid2706820\rsid2760666\rsid4128922
+\rsid4218495\rsid4745168\rsid4929144\rsid6381401\rsid6564242\rsid7040039\rsid7946758\rsid8260603\rsid8329387\rsid8543454\rsid8551034\rsid9311760\rsid9861632\rsid10038871\rsid10358068\rsid10384941\rsid10438309\rsid11085327\rsid11095458\rsid11798393
+\rsid12072874\rsid12265626\rsid12405293\rsid12478114\rsid12528814\rsid12912809\rsid13126261\rsid13443550\rsid14113192\rsid14301969\rsid14510465\rsid14620822\rsid15479005\rsid16715749}{\mmathPr\mmathFont34\mbrkBin0\mbrkBinSub0\msmallFrac0\mdispDef1
+\mlMargin0\mrMargin0\mdefJc1\mwrapIndent1440\mintLim0\mnaryLim1}{\info{\title \'abDate\'bb}{\author Kamal Majeed}{\operator Robert Goldschmidt}{\creatim\yr2016\mo5\dy17\hr13}{\revtim\yr2016\mo5\dy27\hr13\min7}{\printim\yr2003\mo12\dy4\hr16\min35}
+{\version3}{\edmins22}{\nofpages13}{\nofwords7623}{\nofchars43452}{\*\company NexTech LLC}{\nofcharsws50974}{\vern57441}}{\*\xmlnstbl {\xmlns1 http://schemas.microsoft.com/office/word/2003/wordml}}
+\paperw12240\paperh15840\margl1152\margr1008\margt720\margb720\gutter0\ltrsect 
+\widowctrl\ftnbj\aenddoc\trackmoves0\trackformatting1\donotembedsysfont0\relyonvml0\donotembedlingdata1\grfdocevents0\validatexml0\showplaceholdtext0\ignoremixedcontent0\saveinvalidxml0\showxmlerrors0\noxlattoyen
+\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dgmargin\dghspace180\dgvspace180\dghorigin1152\dgvorigin720\dghshow1\dgvshow1
+\jexpand\viewkind1\viewscale100\pgbrdrhead\pgbrdrfoot\splytwnine\ftnlytwnine\htmautsp\nolnhtadjtbl\useltbaln\alntblind\lytcalctblwd\lyttblrtgr\lnbrkrule\rsidroot1981277 \fet0{\*\wgrffmtfilter 013f}\ilfomacatclnup0{\*\ftnsep \ltrpar \pard\plain \ltrpar
+\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid1123861 \chftnsep 
+\par }}{\*\ftnsepc \ltrpar \pard\plain \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid1123861 \chftnsepc 
+\par }}{\*\aftnsep \ltrpar \pard\plain \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid1123861 \chftnsep 
+\par }}{\*\aftnsepc \ltrpar \pard\plain \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid1123861 \chftnsepc 
+\par }}\ltrpar \sectd \ltrsect\psz1\linex0\headery0\footery0\endnhere\sectlinegrid360\sectdefaultcl\sftnbj {\headerr \ltrpar \pard\plain \ltrpar\s25\ql \li180\ri0\widctlpar\tqc\tx4320\tqr\tx8640\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin180\itap0 
+\rtlch\fcs1 \af0\afs20\alang1025 \ltrch\fcs0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0\afs16 \ltrch\fcs0 \fs16\insrsid1981277 
+\par }}{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}
+{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8
+\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 \rtlch\fcs1 
+\af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \ab\ai\af0\afs28 \ltrch\fcs0 \b\fs28\insrsid12478114\charrsid12478114 Nextech Master }{\rtlch\fcs1 \ab\af0\afs28 \ltrch\fcs0 
+\b\fs28\insrsid12478114\charrsid12478114 Software License Agreement
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 1.0  Introduction
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\tx540\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 1.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Acceptance}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: PLEASE READ THIS NEXTECH MASTER SOFTWARE LICENSE AGREEMENT CAREFULLY BEFORE USING THE SOFTWARE (AS DEFINED BELOW).  BY USING THE SOFTWARE, YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS AGREEMENT.  IF YOU DO NOT AGREE TO THE TERMS OF 
+THIS AGREEMENT, DO NOT INSTALL AND/OR USE THE SOFTWARE AND, IF PRESENTED WITH THE OPTION TO \'93AGREE\'94 OR \'93DISAGREE\'94 TO THE TERMS, CLICK \'93DISAGREE\'94
+, HOWEVER BY DOING SO, YOU MAY NOT ACCESS, USE OR INSTALL ANY PART OF THE SOFTWARE.  BY CLICKING THE ACCEPTANCE 
+BUTTON OR ACCESSING, USING OR INSTALLING ANY PART OF THE SOFTWARE, YOU HEREBY EXPRESSLY AGREE TO AND CONSENT TO BE BOUND BY ALL OF THE TERMS OF THIS AGREEMENT. 
+\par 
+\par 1.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Agreement}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : This Nextech Master Software License Agreement (this \'93Agreement\'94) is made betw
+een Nextech Systems, LLC, a Florida corporation located at 5550 West Executive Drive, Suite 350, Tampa, Florida 33609 (\'93Nextech\'94
+) and the person or company who is being licensed to use the Software in association with this Agreement (hereinafter referred to as \'93You\'94 or \'93Customer\'94
+).  This Agreement, together with each Supplemental Schedule, Purchase Agreement, Support Terms and/or any other annex or amendment made a part hereto, contains the terms and conditions under which the Customer acquires the right to
+ use the Nextech software. 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 2.0  Definitions
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 2.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Client Server License
+}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 :  means that the Software identified in the Supplemental Schedule is licensed to Customer under this Agreement for installation and use on Customer\rquote s own computer network.
+\par 
+\par 2.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Documentation:}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  means}{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114  }{\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid12478114\charrsid12478114 
+the relevant user guides, operational procedures, training materials, specifications and instruction material relating to the Software, including any copies thereof, in any form, as generally available from time to time to Customer in 
+the ordinary course of Nextech\rquote s business.
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 2.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Electronic Data}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: means all information regardless of form that the Customer has entered or transferred through the Software.  Electronic Data shall include, but is not limited to, digital information regardi
+ng client data, Electronic Protected Health Information (PHI) as defined by the Health Insurance Portability and Accountability Act of 1996, HITECH and HIPAA Omnibus Rules (HIPAA), and other information howsoever designated.
+\par 
+\par 2.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Hosted Services License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : 
+means that the Software identified in the Supplemental Schedule is licensed to Customer under this Agreement on a \'93software-as-a-service\'94 model where the Software resides on Nextech\rquote s (or its data center provider\rquote 
+s) networks and the Customer accesses the Software through the internet. 
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 2.5  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+License Term}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: means that period of time, as set forth in the applicable Supplemental Schedule, for which a license for the Software is effective. In the event that a Supplemental Schedule does not identify a specific Li
+cense Term: (i) the License Term shall be three (3) years for Software licensed under either a Hosted Services License or a Subscription License; and (ii) perpetual for Software licensed under a Client Server License.  The initial License Term shall comme
+nce upon the Effective Date of the Supplemental Schedule unless otherwise stated in the Supplemental Schedule.
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par 2.6  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Object Code}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : means the machine-readable form of the Software. 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 2.7  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Software}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 :}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 means (a) the practice management,}{\rtlch\fcs1 \af0 \ltrch\fcs0 \cf17\insrsid12478114\charrsid12478114  electronic medical records, and/or any other}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+ software product owned by Nextech as set forth in the Supplemental Schedule; (b) the related Documentation; (c) related Upgrades to the software and Documentation as provided hereunder; (d) all modifications, improvement, translations, a
+daptations or derivations of such software, Documentation, and Upgrades as may be provided to Customer hereunder; and (e) all copies of each of the foregoing.  For the avoidance of doubt, the term Software shall be deemed to include any version of the Sof
+tware made available to the Customer in accordance with the terms of this Agreement.
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par 2.8  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Subscription License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: means that the Software identified in the Supplemental Schedule is licensed to Customer under this Agreement for a specific period of time as set forth in the Supplemental Schedule.  Software licensed under a Subscription License is installed and used o
+n a Customer\rquote s own computer network unless otherwise set forth in the Supplemental Schedule.
+\par 
+\par 2.9  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Supplemental Schedule}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: means a Nextech generated form, attached to this Agreement or subsequently made a part hereof, including a Purchase Agreement, that set
+s forth which Software is being licensed by Customer (including, where applicable, the specific version of such Software), what type of license (Client Service License, Hosted Services License or Subscription License), the supply of Support, and/or agreem
+e
+nt to additional terms and conditions as may be entered into from time to time.  Additional terms and conditions set forth in each Supplemental Schedule shall apply only to the Software set forth in that Supplemental Schedule.  As an additional Supplement
+al Schedule, the Parties shall, concurrent with the entering into of this Agreement, enter into a separate Business Associate Agreement (\'93BAA\'94
+), as that term is defined in the HIPAA Privacy Rule, which shall apply only to PHI, including Electronic PHI, to which Nextech has been granted access by the Customer.  Nextech\rquote s BAA is available at <}{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\cf2\insrsid12478114\charrsid10384941 www.nextech.com/}{\rtlch\fcs1 \af0 \ltrch\fcs0 \cs27\ul\cf2\insrsid12478114\charrsid10384941 legal/BAA}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+> or such other location as Nextech shall make available to Customer.  
+\par 
+\par 2.10  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Support}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : means the provisi
+on of Upgrades together with the provision of bug/error fixes and technical advice and consulting regarding the Customer\rquote s access to and use of the Software, as may be available, from time to time in the ordinary course of Nextech\rquote 
+s business and subject to the Nextech standard Support Terms (as defined below).
+\par 
+\par 2.11  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Upgrades}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: means error corrections, maintenance releases and improvements made to the Software and as may be available from time to time in Nextech\rquote s discretion. Upgrades that include increased 
+or additional functionality to the Software may be provided as a part of Support as further set forth in Section 3.6 below or, at Nextech\rquote s sole discretion, may only be available to Customer as a separately licensed product. 
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 3.0  Software, Upgrades and Support
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Grant of License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : 
+\par }\pard \ltrpar\qj \fi-360\li360\ri0\sb120\sa120\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin360\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 a.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Software Licensed under a Client Server License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Subject to Customer\rquote 
+s compliance with the terms and conditions of this Agreement, including the timely payment of all fees, Nextech hereby gran
+ts Customer a personal, non-exclusive, non-sublicensable, non-transferable and perpetual right and license to install, execute and otherwise use the Software, including any Upgrades to such Software provided under Support, and to use any related Documenta
+tion solely for the internal purposes of Customer.
+\par b.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Software Licensed under a Subscription License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Subject to Customer\rquote 
+s compliance with the terms and conditions of this Agreement, including the timely payment of all fees, Nextech hereby grants Customer 
+a personal, limited, non-exclusive, non-sublicensable and non-transferable right and license to install, execute and otherwise use the Software during the License Term, including any Upgrades to such Software provided under Support, and to use any related
+ Documentation, solely for the internal purposes of Customer.
+\par c.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Software Licensed under a Hosted Services License}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Subject to Customer\rquote 
+s compliance with the terms and conditions of this Agreement, including the timely payment of all fees, Nextech hereby gr
+ants Customer a personal, limited, non-exclusive, non-sublicensable and non-transferable right and license to access and use the Software during the License Term, and to use any related Documentation, solely for the internal purposes of Customer.  Nextech
+ will provide such Software in accordance with the performance levels set forth in Nextech\rquote s standard Service Level Agreement (\'93SLA\'94) as such may be changed by Nextech from time to time.  Nextech\rquote s SLA is available at <}{\rtlch\fcs1 
+\af0 \ltrch\fcs0 \ul\cf2\insrsid12478114\charrsid10384941 www.nextech.com/}{\rtlch\fcs1 \af0 \ltrch\fcs0 \cs27\ul\cf2\insrsid12478114\charrsid10384941 legal/ServiceAgreement}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+> or such other location as Nextech shall make available to Customer.
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Additional Restrictions and Metrics:}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  The Software may have additional restrictions or metrics that will be set forth in the Supplemental Sche
+dule, such as being licensed on a per server or limited to use in a single location or by a single legal entity.  For Software licensed on a \'93Per-Physician\'94 basis, Customer must purchase a license for each physician in the practice (each a \'93
+Physician\'94) and only that particular named Physician and that Physician\rquote s staff (on the Physician\rquote 
+s behalf) may access or use that particular license for the Software.  Per-Physician licenses cannot be shared between or used on behalf of, more than one Physician.  For fu
+rther clarity, unless otherwise agreed in writing, (i) all treating and billing providers must have purchased their own individual license to the \'93Practice Management\'94 and \'93Electronic Medical Records\'94
+ modules of the Software; and (ii) for Software licensed
+ under a Hosted Services License, Customer must purchase a separate license for each individual user of the Software, each of whom must their own unique account name in order to access the Software.  \'93Account names\'94
+ may not be shared between users of the Software.   For the avoidance of doubt, any third parties allowed to access the Software under this Agreement may not include any competitors of Nextech.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Other Obligations of Customer}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : 
+\par }\pard \ltrpar\qj \fi-360\li360\ri0\sb120\sa120\nowidctlpar\tx360\wrapdefault\faauto\rin0\lin360\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 a.\tab Customer is responsible for providing all hardware necessary i
+n order to operate or access the Software.  The Customer agrees that it will not itself, or through any parent, subsidiary, affiliate, agent or other third party: i) copy (except for back-up or archival purposes), modify, adapt, translate, create derivati
+v
+e works, disassemble, decompile or otherwise reverse engineer the Software and related services, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation; (ii) access to Nextech's proprietar
+y
+ database fields and the data contained in the Software to any party for whatever purpose without the prior written consent of Nextech; (iii) sell, lease, license, sublicense, or otherwise encumber any portion of the Software or Documentation; (iv) use th
+e Software to provide processing services to third parties, commercial timesharing, rental or sharing arrangements, or on a \'93service bureau\'94
+ basis or otherwise use or allow others to use the Software for the benefit of any third party; (v) provide, disclose, divulge or make available to, or permit use of the Software by persons other than Customer\rquote 
+s employees or agents who have signed a confidentiality agreement consistent with the terms and provisions herein, without Nextech\rquote s prior written consent; or (vi)
+ use the Software, or allow the transfer, transmission, export, or re-export of the Software or portion thereof in violation of any export control laws or regulations administered by the U.S. Commerce Department, OFAC, or any other government agency.}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \fi-360\li360\ri0\sb120\sa120\widctlpar\tx360\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin360\itap0\pararsid12478114 {\rtlch\fcs1 \ai\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 b.}{\rtlch\fcs1 \ai\af0 \ltrch\fcs0 
+\b\insrsid12478114\charrsid12478114 \tab }{\rtlch\fcs1 \ai\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 In
+ addition, Customer agrees that it will not use the Software to take any action that: (i) intentionally or knowingly violates any applicable law or regulation or is legally libelous, defamatory, indecent, obscene or pornographic; (ii) would violate copyri
+g
+ht, trademark, trade secret or other property right of any third party; (iii) involves the addition, removal or modification of identifying network header information in an effort to deceive; (iv) uses the Software to access, or attempt to access, the acc
+o
+unts of others, or to penetrate, or attempt to penetrate, security measures of Nextech's or another entity's computer software or hardware, electronic communications system, or telecommunications system, whether or not the intrusion results in access to o
+r the corruption or loss of data; (vi) uses the Software to collect, or attempt to collect, personal information about third parties without their valid consent; (vii)}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+ interferes with or disrupts the integrity or performance of the Software or the data contained therein or (viii) harasses or interferes with another customer\rquote s or user's use of the Software.}{\rtlch\fcs1 \ai\af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114 
+\par c.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 Customer is responsible for assigning account credentials (including login information and passwords) for each of its users.  Customer will be responsi
+ble to ensure that all users keep the account credentials confidential and secure and that Customer implements and maintains appropriate administrative, physical and technical safeguards to prevent unauthorized use of the Software.  If someone accesses th
+e
+ Software using the account credentials of a Customer user, Nextech will rely on those account credentials and will assume that user is authorized to access the Software.  Customer is solely responsible for any and all use of user account credentials and 
+a
+ll activities that occur under or in connection with such account credentials or by any Customer users.  Without limiting any rights which Nextech may otherwise have, Nextech reserves the right to take any and all actions that it deems appropriate to addr
+e
+ss account credential security issues, including, without limitation, terminating account credentials, changing a password, or requesting additional information to authorize activities related to a user.  In no event and under no circumstances will Nextec
+h be liable for any damages or other liability arising from any such action or any compromise of the confidentiality of any account credentials arising from Customer\rquote 
+s or its users acts or omissions.  Customer will notify Nextech immediately if it becomes aware that any account credentials have been or are being used without authorization.
+\par }\pard\plain \ltrpar\s46\qj \fi-360\li360\ri0\sb120\sa120\widctlpar\tx360\tx810\wrapdefault\hyphpar0\aspalpha\aspnum\faauto\adjustright\rin0\lin360\itap0\pararsid12478114 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 
+\fs22\cf1\lang1033\langfe1033\loch\af0\hich\af0\dbch\af41\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0\afs24 \ltrch\fcs0 \fs24\insrsid12478114\charrsid12478114 \hich\af0\dbch\af41\loch\f0 d.\tab 
+Customer is responsible for the uploading of data (including patient data) to the Software.  In uploading data, Customer shall comply with the specifications set forth \hich\af0\dbch\af41\loch\f0 
+in the applicable Documentation.  Customer will have sole responsibility for the accuracy, quality, integrity, legality, reliability, and appropriateness of all data uploaded or otherwise made available by Customer and its users.  Prior to making any data
+\hich\af0\dbch\af41\loch\f0  \hich\af0\dbch\af41\loch\f0 
+available to the Software Customer will ensure that all third party consents and/or permissions that may be necessary and appropriate with respect to such data have been obtained. Customer represents and warrants that data made available to Nextech throug
+\hich\af0\dbch\af41\loch\f0 h\hich\af0\dbch\af41\loch\f0 
+ the Software is not the primary source or repository of the data.  Accordingly, Nextech will not be liable for the loss of any data, except that Nextech will cover the reasonable out-of-pocket cost of re-uploading into the Software data that is lost by N
+\hich\af0\dbch\af41\loch\f0 e\hich\af0\dbch\af41\loch\f0 xtech in a negligent manner or otherwise in breach of this Agreement.
+\par }\pard\plain \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 \rtlch\fcs1 \af0\afs24\alang1025 \ltrch\fcs0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\rtlch\fcs1 \af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114 3.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Verification and Audit}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: For Software licensed under a Client Server License or a Subscription License, Customer shall keep and maintain full, accurate and detailed records regarding the license and the number of end users of the Software.  At Nextech\rquote 
+s written request, Customer shall furnish Nextech with a signed certification verifying that the Software is being used in accordance with the terms of this Agreement and applicable Supplemental Schedules. Nextech may audit Customer\rquote 
+s use of such Software to ensure that Customer is in compliance with the terms of this Agreement and applicable Supplemental Schedules. Any such audit shall be conducted during regular business hours at Customer\rquote 
+s facilities and shall not unreasonably interfere with Customer\rquote s business activities; Customer shall provide Nextech reasonable access to the relevant Customer records and facilities. If an audit re
+veals that Customer has underpaid fees to Nextech, Customer shall be invoiced for such underpaid fees based on the Nextech\rquote 
+s price list in effect at the time the audit is completed. If the underpaid fees exceed five percent (5%) of the license fees previously paid by Customer, then Customer shall also pay Nextech\rquote s reasonable costs of conducting the audit.}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.5  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Ownership and Intellectual Property}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: The Customer acknowledges that the Software, any derivative works of or modifications to the Software and all 
+copyrights, patents, trade secrets and other rights, title and interest therein, are the sole property of Nextech and agrees that the Customer shall gain no right, title or interest in the Software by virtue of this Agreement and any Supplemental Schedule
+ 
+other than the non-exclusive right of use and access granted herein and therein. Without limiting the foregoing, Customer specifically acknowledges that Nextech has exclusive ownership rights to the intellectual property embodied in the Software and by op
+eration of this Agreement assigns to Nextech any customer suggestions and/or content resulting in modification, improvement, translation, adaptation or derivation of the Software, therein.  {\*\bkmkstart _Ref382228944}
+ Customer agrees to take all reasonable steps to prote
+ct the Software from unauthorized copying, possession, access or use.  Upon Customer becoming aware of any such unauthorized copying, possession, access or use, Customer shall promptly notify Nextech and provide Nextech with complete details, assist Nexte
+ch in preventing the recurrence thereof, and cooperate with Nextech in any litigation or proceedings reasonably necessary to protect the rights of Nextech.{\*\bkmkend _Ref382228944}
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.6  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Compliance}{\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid12478114\charrsid12478114 : Nextech shall use commercially reasonable efforts to maintain complian
+ce with Federal laws and regulations for software used by medical practices, including HIPAA, the International Classification of Diseases (\'93ICD\'94
+) and Meaningful Use (as defined in the relevant Medicare and Medicaid regulations).  Nextech meets the standards of Meaningful Use certification for Stage I and Stage II (2014 Complete Electronic Healthcare Records (\'93EHR\'94
+) Standards). In the event the Federal Government issues standards for Stages III and IV, Nextech shall make all commercially reasonable efforts to ensure the Nextech product is eligible to meet and maintain all of the required certifications. }{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \expnd0\expndtw-1\insrsid12478114\charrsid12478114  
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.7  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Support}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : If the Customer has acquired Support and is current on its payment obligations (which for Software licensed under a Hosted Services License 
+is included in the fees paid for such Hosted Services License), Nextech shall, unless specified otherwise in the Supplemental Schedule, make available remote technical support for the Software as set forth in Nextech\rquote s standard support terms (\'93
+Support Terms\'94) as such may be changed by Nextech from time to time.  Nextech\rquote s Support Terms are available at <}{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf2\insrsid12478114\charrsid10384941 www.nextech.com/legal/SupportAgreement}{\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid12478114\charrsid12478114 > or such other location as Nextech shall make available to Customer.   
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 3.8  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Integration of Third Party Intellectual Property}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+:  The Software may include functionality, software code, data or other information obtained from third-party providers and therefore may be subject to additional third-party terms, conditions and requirements (\'93Third Party Terms\'94
+).  The applicable Third Party Terms are available at <}{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf2\insrsid12478114\charrsid10384941 www.nextech.com/}{\rtlch\fcs1 \af0 \ltrch\fcs0 \cs27\ul\cf2\insrsid12478114\charrsid10384941 legal/ThirdPartyAgreement}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 > or such other location as Nextech shall make available to Customer.  Use 
+of the Software constitutes agreement to the applicable Third Party Terms.  The Third Party Terms may be changed by Nextech from time to time.  Nextech shall use commercially reasonable efforts to provide notice to Customer in the event of any change to t
+he Third Party Terms.   
+\par 
+\par 3.9  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Nextech Online Content}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: For Software licensed under the Client Server License, certain integrated modules, functionality, services and content including but not limited to Lab and third party interfaces, NexWeb Patient Portal,
+ NexReminder, ePrescribing, Nextech Analytics and Nextech Webinars (\'93Nextech Online Content\'94), may not be installed on Customer\rquote 
+s networks but will reside on Nextech servers.  This Nextech Online Content will be accessed directly through the Software and such access may be subject to Customer\rquote 
+s continued purchase of Support Services.  Nextech reserves all rights of ownership and availability of use for the Nextech Online Content, including but not limited to, the right to discontinue access to the Nextech O
+nline Content in the event of breach of this Agreement or to suspend or terminate access to the Nextech Online Content in the event the Customer is not current on, or fails to renew, Support Services.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \cf1\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 4.0  Term and Termination
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 4.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Term of Agreement}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The term of this Agreement shall be deemed effective on the date of signed acceptance by Nextech (the \'93Effective Date\'94
+ of the Agreement) and shall continue in effect until terminated in accordance with the terms below.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 4.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Term of Supplemental Schedule
+s}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The term of each Supplemental Schedule shall be deemed effective on the date of signed acceptance by Nextech (the \'93Effective Date\'94
+ of the Supplemental Schedule) and shall continue in effect for the term set forth in the Supplemental Schedule or, if no term is stated in the Supplemental Schedule, then for the License Term of the Software set forth in the Supplemental Schedule.
+\par 
+\par 4.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Renewal of License Terms}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Subject to Section 2.5, the License Term for the Software shall commence on the Effective Date of 
+the Supplemental Schedule (unless otherwise agreed to by the parties) and shall continue for the License Term set forth in the Supplemental Schedule.  For Software licensed under a Hosted Services License or a Subscription License, the License Term shall 
+automatically renew for additional one (1) year periods, unless either party provides notice to the other party no less than sixty (60) days prior to the end of the then current License Term of that party\rquote 
+s intention to not renew the License Term, in which case the License Term shall expire at the end of the then current License Term.
+\par 
+\par 4.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Termination}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : 
+\par }\pard \ltrpar\qj \fi-360\li360\ri0\sb120\sa120\widctlpar\tx360\wrapdefault\faauto\rin0\lin360\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 a.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 For Cause}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Nextech reserves the right to terminate this Agreement or an applicable Supplemental Schedule for cause upon thirty (30) calendar days written notice if the Customer breaches any of its material obligations under this Agreement or the applicable Supplem
+ental Schedule and thereafter fails to cure such breach, if curable, to the reasonable satisfaction of Nextech within the first ten (10) days following the Customer\rquote s receipt of such notice of termination.  Nextech\rquote 
+s termination of a particular Supplemental Schedule for cause shall not affect separate, unrelated Supplemental Schedules, which shall continue in full force and effect, unless otherwise terminated hereunder.  Nextech\rquote 
+s termination of the Agreement for cause shall automatically terminate all outstanding Supplemental Schedules.
+\par b.\tab }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 By Either Party}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Either party may terminate this Agreement upon thirty (30) days prior written notice to the other party in the event that there are no active Supplemental Schedules.
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 4.5  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Effects of Termination}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Upon termi
+nation of this Agreement or a Supplemental Schedule, the Customer shall, no later than the effective date of such termination: (a) discontinue the use of and purge all Software from all computer systems, terminals, personal computers, storage media, and a
+ny and all other devices and files with which the Software is used; (b) if applicable, return to Nextech all copies (including partial copies) of the Software (and all other Confidential Materials as defined in Section 8.2, below) in Customer\rquote 
+s possession; and (c) if requested by Nextech, certify to Nextech in writing that it has complied with the foregoing obligations.  The termination of this Agreement for any reason shall not extinguish or diminish the Customer\rquote 
+s obligation under Section 8 to maintain the confidentiality of the Software (and all other Confidential Materials as defined in Section 8.2, below), which obligation shall continue and survive termination of this Agreement or any Supplemental Schedule.
+
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 4.6  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Return of Electronic Data}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : In the event 
+of the termination or expiration of a Hosted Service License, Nextech shall keep all Electronic Data available to Customer for a period of sixty (60) days after such termination or expiration, after which, Nextech may destroy or delete such Electronic Dat
+a
+ with no liability to Customer.  During such sixty (60) day period, upon written request by Customer, Nextech shall provide Customer with electronic files containing all available Electronic Data.  Nextech will deliver the data files in accordance with in
+d
+ustry standards. For Client Server Licenses and Subscription Licenses, if the Customer decides to discontinue using the Software; Nextech expects that the Customer will extract the needed data from the Software on their own. Provided that a Customer is cu
+rrent on Support, Customer may, at any time, request a backup copy of the Patient Demographics and Patient Charts and Nextech shall use commercially reasonable efforts to provide such services for a reasonable and customary fee. 
+\par 
+\par 4.7  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Suspension of Hosted and Subscription Service Licenses}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Nextech}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114  reserves the right to suspend access to Hosted and Subscription Services Licenses if Customer has undisputed amounts more than ten (10) days past due, until all such undisputed amounts are paid in full.  Nextech a
+lso reserves the right to suspend Customer\rquote s access to the Software }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 if Nextech reasonably determines that Customer or any users: (i) use of the}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114  Software}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  disrupts or poses a security risk to the Software, may harm Nextech\rquote s systems or may subject Nextech or
+ any third-party to liability; (ii) are using the }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 Software }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 for fraudulent or illegal activities; (iii) are using the }{
+\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 Software }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+in breach of this Agreement; or (iv) Nextech is required by law, or a regulatory or government body to suspend access to the Software.
+\par 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 5.0  Limited Warranties, Disclaimers and Remedies, Indemnification
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 5.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Intellectual Property Rights}
+{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Nextech warrants to the Customer that the Software does not violate any United States patent, copyright or other third party intellectual property 
+right. If an action is brought against the Customer claiming a breach of such warranty, Nextech will defend the Customer in the infringement action (provided that Nextech is given prompt written notice of any third party claim and is given information, re
+asonable assistance and sole authority to defend or settle the claim). In connection therewith and as Nextech\rquote 
+s sole obligation in respect of a breach of this warranty, Nextech shall either, at its option: (a) obtain for the Customer the right to continue u
+sing the affected Software or (b) modify or replace such Software so as to eliminate the infringement. Nextech shall not have any liability hereunder if any claim of infringement: (i) is asserted by a subsidiary or affiliate of the Customer; (ii) results 
+f
+rom the Customer's alteration of the Software; (iii) relates to a third party Software product not owned by Nextech; or (iv) results from use of any Software in combination with any non-Nextech product. This paragraph states the entire liability of Nextec
+h and the Customer\rquote s sole and exclusive remedies with regards to intellectual property infringement.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 5.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Software Limited Warranty and Disclaimer}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Nextech warrants for a period of ninety (90) days from the Effective Date of the Supplemental Schedule (\'93Warranty Period\'94
+) that the Software will materially comply with the specifications for the Software set forth in the Documentation.  Any warranty claim must be initiated by Licensee, in writing, during the Warranty Period.  Provided that the warranty issue is
+ reproducible by Nextech, Nextech shall, within thirty (30) days of its receipt of Licensee\rquote 
+s written notice: (i) correct such error; (ii) provide Customer with a plan for correcting the error; or (iii) if neither (i) nor (ii) can be accomplished with reas
+onable commercial efforts from Nextech, then Nextech may terminate the license and refund the amounts paid for such Software to Customer.
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par 5.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Exclusions}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The foregoing warranties shall not apply to the extent that any alleged infringement or defect deriv
+es from: (a) a combination of the Software with any program, equipment or device not supplied by Nextech or identified in a Supplemental Schedule; (b) any modification or customization of the Software by or on behalf of the Customer; or (c) the Customer
+\rquote s failure to properly use or access the Software, as appropriate, or access or install any Upgrades.  No employee or agent of Nextech is authorized to give a greater or different warranty than as expressly provided for herein.
+\par 
+\par 5.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Disclaimer of Other Warranties}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+Except as provided in this Section 5, all other warranties, conditions,}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+representations, indemnities and guarantees, whether express or implied, arising by law, custom, oral or written statements of Nextech or otherwise (including, without limitatio
+n, any warranties of merchantability, fitness for a particular purpose, or of error-free and uninterrupted use) of the Software, services and any related Support are hereby superseded, excluded and disclaimed by Nextech.  Neither this Agreement, any Suppl
+e
+mental Schedule nor any documentation furnished in relation to this Agreement is intended to provide, either express or implied, any warranty that the Software, Support and/or any other services provided by Nextech will be uninterrupted, timely or error f
+ree.}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par 
+\par 5.5  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Customer Undertakings}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: The Customer assumes all rights and liabilities for results obtained by its use, access and/or implementation of the Software, whether such results are used singly or in combination with
+ other hardware, software or products.  For Software licensed under a Client Server License or a Subscription License, the Customer will be responsible for use of all hardware, including but not limited to, operating procedures, audit controls, accuracy a
+nd security of input or output data, restart and recovery routines and other procedures necessary for the Customer\rquote 
+s intended use of the Software.  In addition, the Customer: (i) shall maintain back-up data necessary to replace critical Customer Data in the
+ event of loss or damage to such data from any cause and regardless of the cause of loss, Nextech shall not in any way be liable thereof; and (ii) Customer shall ensure that its users are, at all times, educated and properly trained in the proper use, acc
+ess and operation of the Software and that the Software are used in accordance with any and all applicable manuals, documentation and instructions.  
+\par 
+\par 5.6 }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Additional Customer Warranty Rights}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+This Section 5 provides the Customer with specific legal rights and the parties acknowledge that the Customer may also have other rights which vary from state to state.
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par 5.7  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Nextech Indemnification}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Nextech shall indemnify and hold harmless Customer from and against any third party claims, including reasonable legal fe
+es and expenses Customer actually incurs, based upon infringement of any United States copyright or patent by the Software.  Customer agrees to notify Nextech of any such claim promptly in writing and to allow Nextech to control the proceedings.  Customer
+ 
+agrees to cooperate fully with Nextech during such proceedings.  Nextech shall defend and settle at its sole expense all proceedings arising out of the foregoing.  In the event of such infringement, Nextech may replace, in whole or in part, the Software w
+ith a substantially compatible and functionally equivalent computer program or modify the Software to avoid the infringement.
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\tx540\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 5.8  }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Customer Indemnity}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Customer will indemnify, defend, and hold Nextech, its}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+ individual directors, officers, employees and agents,}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  harmless }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 from and }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114 against any claims, actions or proceedings, arising out of any third-party claim:  (a) resulting from Customer's reliance on results obtained through the use of the Software; and (b) that the Electronic Data or Nextech
+\rquote s transmission to Customer or hosting of the Electronic Data infringes or violates the rights of a third party or violates an applicable law.
+\par 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 6.0  Remedy Limitations
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 6.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Limitation of Liability}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 IN NO EVENT SHALL NEXTECH BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT
+, PUNITIVE OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, 3RD PARTY COST, PRACTICE STAFF TIME COSTS INCLUDING BUT NOT LIMITED TO THOSE COSTS RE
+LATED TO ADAPTING NEXTECH SOFTWARE TO CUSTOMER\rquote 
+S HARDWARE AND NETWORK SYSTEM, OR ANY OTHER PECUNIARY LOSS), WHETHER FORESEEABLE OR NOT FORESEEABLE AND WHETHER ARISING OUT OF BREACH OF ANY EXPRESS OR IMPLIED WARRANTY, BREACH OF CONTRACT, NEGLIGENCE, MISREPRE
+SENTATION, STRICT LIABILITY IN TORT OR OTHERWISE, AND WHETHER BASED ON THIS AGREEMENT, ANY SUPPLEMENTAL SCHEDULE OR ANY TRANSACTION PERFORMED OR UNDERTAKEN UNDER OR IN CONNECTION WITH THIS AGREEMENT INCLUDING, BUT NOT LIMITED TO: (I) THE USE OR ACCESS OF 
+O
+R THE INABILITY TO USE OR GAIN ACCESS TO THE SOFTWARE, EVEN IF NEXTECH HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND (II) THE USE BY THE CUSTOMER AND THE CUSTOMER'S PRACTICE OF ANY DOCUMENTS, DOCUMENT TEMPLATES AND/OR PROCEDURE SPECIFIC CONTENT 
+PROVIDING PATIENT EDUCATION AND/OR INFORMED CONSENT INFORMATION EITHER PROVIDED BY NEXTECH IN ITS ORIGINAL FORM OR AS MODIFIED BY THE CUSTOMER, WHETHER OR NOT DISTRIBUTED TO CUSTOMER'S PATIENT(S).
+\par }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 6.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Remedies}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : THE CUSTOMER AGREES THAT NEXTECH'S TOTAL LIABILITY TO THE CUSTOMER OR ANY THIRD PARTY FOR DAMAGES, REGARDLESS OF THE FORM OF ACTION, SHALL, IN ANY EVENT, }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114 NOT EXCEED ONE YEAR\rquote S ONGOING FEES FOR USING THE SOFTWARE.}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 6.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Applicable Law}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 :}{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+Notwithstanding the foregoing, this Section 6 will not apply when and to the limited extent that applicable law specifically requires liability despite the foregoing exclusions and limitations.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 7.0  Electronic Data
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 7.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Ownership of Electronic Data}
+{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Customer is the sole and exclusive owner of all Electronic Data, whet
+her or not provided to any other party under this Agreement.  Nextech will not use Electronic Data for any purpose other than that of providing the Software or rendering the Services under this Agreement, nor sell, assign, lease, or dispose of Electronic 
+Data.  }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 Customer assumes full responsibility for its employees, vendors, representatives, agents, and its clients (\'93}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\b\insrsid12478114\charrsid12478114 Customer Representatives}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 \'94) with respect to the transmission of Electronic Data sent directly by Customer to Nextech.  Customer must ensure tha
+t all Customer Representatives provide such Electronic Data to Nextech via }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+either an encryption process or a secure transport mechanism.  Customer assumes full responsibility to safeguard against unauthorized access and provide appropria
+te protection of its Electronic Data prior to and during the transmission or transfer of its Electronic Data to Nextech.  Customer and Nextech acknowledge that the accuracy of delivering the results from the Software depends upon the accuracy and complete
+n
+ess of the Electronic Data.  Customer accepts sole responsibility for errors in the Software to the extent resulting from inaccurate or incomplete Electronic Data supplied to Nextech by Customer or Customer Representatives.  Notwithstanding the foregoing,
+ 
+Nextech has the right to use: (i) the Electronic Data for benchmarking purposes provided that Nextech completely de-identifies all such Electronic Data; and (ii) anonymous aggregated patient-level data which may be used by Nextech for any reason; either o
+f
+ which may be accessed and used by Nextech without notice to Customer.  Aggregated patient-level data is consolidated data relating to multiple patients, and therefore cannot be traced back to a specific patient, practice or any level not permitted by the
+ HIPAA Omnibus Rules, (such as incidences of diseases).  Aggregated patient-level data is typically used for the generation of routine reports and indicators, and most importantly, strategic planning within the health system.
+\par 
+\par 7.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Liability}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 :  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 For Software 
+licensed under a Client Server or a Subscription License, Nextech shall not be liable to Customer for any loss of any Electronic Data unless caused by Nextech willful misconduct or gross negligence.    For Software licensed under a Hosted Services License
+s
+, Nextech shall implement reasonable and appropriate security procedures as set forth below to protect Electronic Data from unauthorized access by physical and electronic intrusion. Unless Nextech fails to perform the foregoing obligations, the Parties ag
+r
+ee that Nextech shall not, under any circumstances, be held responsible or liable for situations (1) where data or transmissions are accessed by third parties through illegal or illicit means or (2) where the data or transmissions are accessed through the
+ exploitation of security gaps, weaknesses or flaws unknown to Nextech at the time.  Nextech will promptly report to Customer any unauthorized access to Electronic Data promptly upon discovery by Nextech.}{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\insrsid12478114\charrsid12478114 
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\tx360\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 7.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Security Generally}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 Nextech repre
+sents and warrants that Nextech, its partners, and/or its vendors, will maintain the Electronic Data in a manner that conforms to applicable laws, utilizing generally accepted industry standard data management practices and no less than reasonable measure
+s
+ in the circumstances as it concerns environmental stability, data backup, backup frequency, media retention, data loss prevention, data/system security, and contingency plans/disaster recovery.  Access to Electronic Data will be restricted to those who h
+ave been properly trained and instructed as to security and privacy policies, controls and procedures.
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 7.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Access to Electronic Data}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Nextech may access Electronic Data as necessary to identify or resolve technical problems or respond to problems with the
+ Services.  Notwithstanding any other provision, Nextech may disclose Electronic Data if Nextech determines that such action is reasonably necessary: (i) to comply with the law, regulatory requirements, or legal or regulatory process; (ii) to enforce this
+ 
+Agreement; or (iii) to respond to claims that you are using the Services to perform or support activities that violate the law or the rights of others.  Unless prohibited by law or legal process, Nextech will use its commercially reasonable efforts to not
+ disclose your Electronic Data without giving you prior notice of the request for such disclosure and a reasonable period of time to respond to such request.
+\par }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 8.0}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid1990053  }{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 
+\b\ul\insrsid12478114\charrsid12478114  Confidentiality
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 8.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Confidentiality}{\rtlch\fcs1 
+\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The Customer acknowledges that the information and the
+ intellectual property contained in the Software and content (and other Confidential Material, as defined in Section 8.3, below) is confidential and contains trade secrets and proprietary data belonging to Nextech or its licensors, and that the presence o
+f any copyright notices on the medium containing the Software does not constitute publication or otherwise impair the confidential nature thereof.  The Customer shall implement all reasonable measures necessary to safeguard Nextech\rquote 
+s ownership in, and the c
+onfidentiality of the Software, including, without limitation (a) allowing its employees, agents and third parties, to the limited extent permitted herein, access to the Software only to the extent necessary to permit the performance of their ordinary ser
+vices to the Customer and to require, as a condition to such access, that such persons comply with the provisions of this Section 8; (b) cooperating with Nextech in the enforcement of such compliance by the Customer\rquote 
+s employees, agents and third parties; (c
+) prohibiting the removal or alteration of any copyright or confidentiality labels or notices contained in the Software; (d) prohibiting the copying and use of the Software except as permitted in this Agreement and (e) refrain from building a competitive 
+p
+roduct or service or otherwise copying any ideas, features, functions or graphics of the Software. The Customer acknowledges that use or disclosure of the Software in violation of this Agreement may cause irreparable harm to Nextech. The Customer agrees t
+h
+erefore, that without limiting any other rights and remedies, including collection of monetary damages, in the event of a perceived breach by the Customer of this Section 8, Nextech shall be entitled to seek immediate injunction relief without posting of 
+a bond.  In addition, the Customer agrees to not (a) permit access to the Software by any third party or (b) otherwise disclose the Software to any party other than Nextech whose function is to provide the Customer with day-to-day support of the Software.
+
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 8.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Confidential Materials}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: For purposes of this Section 8, "Confidential Materials\'94 shall mean (i) this Agreement, each Supplemental Schedule, all price proposals, order forms, estimates and invoices sent to Customer by Nextech and any Software products,
+ Support, Upgrades, the method of access to the Software and other services made available by Nextech, intellectual property, know-how, show how, technical data, specifications, product capabilities, instructions, manuals, guides, systems, processes, desi
+g
+ns, methods, practices, trade secrets, software, firmware, devices, diagrams, drawings, notes, sketches, videos, sales and technical bulletins, and all copies and electronic files thereof, and (ii) all other information, whether or not reduced to writing,
+ 
+relating to the design, creation, use, marketing, license, support and service related to the Software and the method of access to the Software, as well as any other information relating to the business of Nextech that may be divulged to the Customer that
+ 
+is not generally known in the trade and is confidential and/or proprietary to Nextech.  No information or materials shall qualify as Confidential Materials if they (i) are or become, through no fault of the Customer, available to the public, (ii) are obta
+ined by the Customer from a third party without breach of any agreement with, or obligation of confidentiality to, Nextech, or (iii) are required by law or a court or government agency to be disclosed.
+\par 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 {\*\bkmkstart _DV_M152}{\*\bkmkstart _DV_M153}{\*\bkmkend _DV_M152}{\*\bkmkend _DV_M153}
+9.0  Payment
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\ai\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 9.1  }{\rtlch\fcs1 \ab\ai\af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Payment of fees}{\rtlch\fcs1 \ab\ai\af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: All fees are due and payable upon the payment terms specified in each Supplemental Schedule and/or Purchase Agreement signed by the Customer }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+without regard to any equity, set-off or counterclaim.
+\par 
+\par All prices are exclusive of taxes and other duties and charges howsoever designated, which, to the extent applicable, shall be borne exclusively by the Customer and, to the extent required by law, collected by Nextech from the Customer.
+\par 
+\par If the Customer fails to pay any amount payable by it, Nextech 
+shall be entitled to: (a) charge the Customer interest on the overdue amount, from the due date up to the date of actual payment, after as well as before judgment, at the rate of one percent (1%) per month and/or (b) }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\cf1\insrsid12478114\charrsid12478114 suspend all further service under this Agreement and/or any Supplemental Schedule, including Support, until payment has been made in full.
+\par 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 The fees paid by the Customer are non-refundable and the Customer understands and acknowledges that Nextech has a \'93no return\'94 and \'93no refund\'94 policy.}{\rtlch\fcs1 \af0 
+\ltrch\fcs0 \cf1\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qc \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid1990053 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 10.0  Other Provisions
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\ul\insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.1  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 
+Software and Documents Do Not Constitute Medical or Legal Advice}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: The Customer acknowledges and agrees that nothing contained in the Software, Support and any other services made available by Nextech or in any of the documents, document templates or procedure-specific content provided in the Software database which is
+ 
+merged with document templates, is to be construed as medical and/or legal advice, and the Customer shall, with the Customer's specialized professional judgment and with competent legal counsel where appropriate, review such documents, document templates 
+or procedure-specific content provided in the Software database before providing the output to any patient (or other party) of the Customer.  
+\par 
+\par 10.2  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Identification of Nextech}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The Customer may not display the name, trademark, logo or other identifying mark
+ of Nextech on any output to any patient (or other third party) of the Customer.}{\rtlch\fcs1 \ab\af0 \ltrch\fcs0 \b\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.3  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Transferability}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : This Agreement (including each Supplemental Schedule), any rights under it, including without limitation the Software, Support and any other services p
+rovided by Nextech, may be assigned by Nextech without notice to the Customer. This Agreement (including each Supplemental Schedule), any rights under it, including without limitation the Software, Support and any other services made available by Nextech,
+ 
+may not be assigned, granted, sublicensed, or transferred by the Customer  without prior written consent from Nextech, which consent shall not be unreasonably withheld.  Nextech agrees that upon request of the Customer providing full details of the contem
+plated transaction, and after Nextech\rquote s determination in its reasonable discretion that the contemplated transaction will not jeopardize Nextech\rquote 
+s intellectual property, ownership of any licenses by the Customer may be transferred or assigned in cases such 
+as purchase, merger, acquisition, buy-out, name change, corporate reorganization, and successor organization.  Customer may also transfer the licenses from an out-going provider to an incoming provider. Nextech\rquote 
+s consent shall be contingent upon (i) the Customer being in good financial standing with the Nextech and not having any account balance beyond 90 days and (ii) payment by Customer of a customary transfer fee.
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.4  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Governing Laws:}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114  This Agreement and each Supplemental Schedule will be considered as 
+having been entered into in the State of Florida, and will be interpreted exclusively in accordance with the laws of the State of Florida without regards to its conflict of law provisions.  The parties to this Agreement irrevocably and unconditionally con
+s
+ent to the exclusive jurisdiction and venue of the state and Federal courts located in Hillsborough County, Florida in connection with any action related to this Agreement. Acknowledging that the damages sustained by Nextech as a consequence of any materi
+a
+l breach by the Customer of any of its obligations under this Agreement (including each Supplemental Schedule and/or Purchase Agreement) may be difficult or impossible to measure in monetary terms, the Customer hereby agrees that Nextech shall be entitled
+ 
+to an injunction temporarily and/or permanently restraining the commission or continuation of any such breach without any requirement to give an undertaking as to damages or in any way providing a bond or security for costs. Except as otherwise set forth 
+herein, all remedies under this Agreement are cumulative.
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.5  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Notice and Delivery}
+{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Notice under this Agreement and each Supplemental Schedule shall be in writing and addressed to the parties as indicated below, or as appropriately updated. Delivery under
+ this Agreement occurs upon actual delivery or three (3) days after deposit with the U.S. Postal Service as Certified Mail, whichever is earlier.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.6  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Force Majeure}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : Except for the Customer\rquote s payment obligations, a party shall not be liable for any delay
+ or failure to perform its obligations in this Agreement and each Supplemental Schedule if such delay or failure to perform is due to any cause or condition reasonably beyond that party's control.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.7  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Headings}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The headings for the various Sections and 
+sub-Sections shall not be considered part of this Agreement (or a Supplemental Schedule) and shall not be used in interpreting this Agreement (or a Supplemental Schedule).
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.8  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Unenforceability}{
+\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : It is intended that this Agreement and each Supplemental Sc
+hedule shall not violate any applicable law. If, at any time or for any reason, any provision becomes unenforceable or invalid, the remaining provisions shall remain unaffected and continue with the same effect as if such unenforceable or invalid provisio
+n had not have been inserted herein.
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \cf1\insrsid12478114\charrsid12478114 
+\par 10.9  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf1\insrsid12478114\charrsid12478114 Compliance With Laws}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: The Customer shall, at its own expense, use the Software in a careful and proper manner and both Parties shall comply with and conform to all laws, ordinances and regulations in any way relat
+ing to the possession, use and/or maintenance of the Software and Electronic Data, including but not limited to the applicable standards of the Health Insurance Portability and Accountability Act of 1996 (HIPAA) as amended and as published by the United S
+t
+ates Department of Health and Human Services and those related to data privacy, international communications, consumer transactions and communications decency. If applicable, each party shall comply in all respects with the European Union Member State Dat
+a
+ Protection Act (the "DPA"),  and all subordinate legislation made pursuant thereto including all applicable amendments, revisions and re-enactments when processing all personal data (as defined in the DPA).  Use of the Software is unauthorized in any jur
+isdiction that does not give effect to all provisions of these terms and conditions, including without limitation this Section 10.9. 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \b\ul\cf1\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \cf1\insrsid12478114\charrsid12478114 10.10  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf1\insrsid12478114\charrsid12478114 Survival}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Sections 3.2, 5, 6, 8 and 10 shall survive the expiration or termination of this Agreement and each Supplemental Schedule for any reason.
+\par 
+\par }\pard \ltrpar\qj \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 10.11  }{\rtlch\fcs1 \af0 \ltrch\fcs0 
+\ul\insrsid12478114\charrsid12478114 Disclosure of Agreement}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 : The Customer shall not disclose the terms and conditions of this Agreement,  all pr
+ice proposals, estimates and invoices sent to Customer by Nextech, or any Supplemental Schedule to third parties (except the Customer\rquote 
+s auditors, legal counsel or third parties whose review is mandated by law) without the prior written authorization of Nex
+tech.  Nextech may announce the entering into of this Agreement or any Supplemental Schedule with the Customer in a press release and at any time after its Effective Date, refer to the Customer business relationship in marketing literature and any other p
+ublication.
+\par 
+\par 10.12  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Performance}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: Nextech shall use its reasonable endeavors to perform its obligations within any time stated in this Agreement and/or each Supplemental Schedule.  Any such time is, however, approximate only and time for such performance shall not be of the essence. 
+
+\par 
+\par 10.13  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114 Inconsistent terms}{\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid12478114\charrsid12478114 
+: The terms and conditions set forth herein shall prevail over any inconsistent terms or conditions contained in or referred to in the Customer's purchase order, confirmation of order, or other document 
+presented by Customer in connection with the entering of this Agreement or the subject matter hereof, or otherwise implied by law, trade custom, practice or course of dealing.  In addition, in the event of conflict between the terms of a Supplemental Sche
+dule and the provisions of this Agreement, the terms of a Supplemental Schedule shall govern and control.
+\par }\pard \ltrpar\qj \li0\ri0\nowidctlpar\tx498\wrapdefault\faauto\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf1\insrsid12478114\charrsid12478114 
+\par }{\rtlch\fcs1 \af0 \ltrch\fcs0 \cf1\insrsid12478114\charrsid12478114 10.14  }{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\cf1\insrsid12478114\charrsid12478114 Entire}{\rtlch\fcs1 \af0 \ltrch\fcs0 \ul\insrsid12478114\charrsid12478114  Agreement}{\rtlch\fcs1 \af0 
+\ltrch\fcs0 \insrsid12478114\charrsid12478114 : This Agreement and each Supplemental Schedule is the complete and exclusive agreement between the Customer and Nextech relati
+ng to the Software, Services, Warranty, Support, and other subject matter as provided for herein, and supersedes any proposal or prior agreement, oral or written, and any other communications relating to the subject matter of this Agreement. No variation 
+o
+f the terms of this Agreement or any different terms will be enforceable against the parties unless both parties give their express consent, including an express waiver of the terms of this Agreement, in writing signed by an authorized representative of e
+ach party.
+\par }\pard \ltrpar\ql \li0\ri0\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12478114 {\rtlch\fcs1 \af0 \ltrch\fcs0 \insrsid1981277\charrsid12478114 
+\par }{\*\themedata 504b030414000600080000002100e9de0fbfff0000001c020000130000005b436f6e74656e745f54797065735d2e786d6cac91cb4ec3301045f748fc83e52d4a
+9cb2400825e982c78ec7a27cc0c8992416c9d8b2a755fbf74cd25442a820166c2cd933f79e3be372bd1f07b5c3989ca74aaff2422b24eb1b475da5df374fd9ad
+5689811a183c61a50f98f4babebc2837878049899a52a57be670674cb23d8e90721f90a4d2fa3802cb35762680fd800ecd7551dc18eb899138e3c943d7e503b6
+b01d583deee5f99824e290b4ba3f364eac4a430883b3c092d4eca8f946c916422ecab927f52ea42b89a1cd59c254f919b0e85e6535d135a8de20f20b8c12c3b0
+0c895fcf6720192de6bf3b9e89ecdbd6596cbcdd8eb28e7c365ecc4ec1ff1460f53fe813d3cc7f5b7f020000ffff0300504b030414000600080000002100a5d6
+a7e7c0000000360100000b0000005f72656c732f2e72656c73848fcf6ac3300c87ef85bd83d17d51d2c31825762fa590432fa37d00e1287f68221bdb1bebdb4f
+c7060abb0884a4eff7a93dfeae8bf9e194e720169aaa06c3e2433fcb68e1763dbf7f82c985a4a725085b787086a37bdbb55fbc50d1a33ccd311ba548b6309512
+0f88d94fbc52ae4264d1c910d24a45db3462247fa791715fd71f989e19e0364cd3f51652d73760ae8fa8c9ffb3c330cc9e4fc17faf2ce545046e37944c69e462
+a1a82fe353bd90a865aad41ed0b5b8f9d6fd010000ffff0300504b0304140006000800000021006b799616830000008a0000001c0000007468656d652f746865
+6d652f7468656d654d616e616765722e786d6c0ccc4d0ac3201040e17da17790d93763bb284562b2cbaebbf600439c1a41c7a0d29fdbd7e5e38337cedf14d59b
+4b0d592c9c070d8a65cd2e88b7f07c2ca71ba8da481cc52c6ce1c715e6e97818c9b48d13df49c873517d23d59085adb5dd20d6b52bd521ef2cdd5eb9246a3d8b
+4757e8d3f729e245eb2b260a0238fd010000ffff0300504b03041400060008000000210096b5ade296060000501b0000160000007468656d652f7468656d652f
+7468656d65312e786d6cec594f6fdb3614bf0fd87720746f6327761a07758ad8b19b2d4d1bc46e871e698996d850a240d2497d1bdae38001c3ba618715d86d87
+615b8116d8a5fb34d93a6c1dd0afb0475292c5585e9236d88aad3e2412f9e3fbff1e1fa9abd7eec70c1d1221294fda5efd72cd4324f1794093b0eddd1ef62fad
+79482a9c0498f184b4bd2991deb58df7dfbb8ad755446282607d22d771db8b944ad79796a40fc3585ee62949606ecc458c15bc8a702910f808e8c66c69b9565b
+5d8a314d3c94e018c8de1a8fa94fd05093f43672e23d06af89927ac06762a049136785c10607758d9053d965021d62d6f6804fc08f86e4bef210c352c144dbab
+999fb7b4717509af678b985ab0b6b4ae6f7ed9ba6c4170b06c788a705430adf71bad2b5b057d03606a1ed7ebf5babd7a41cf00b0ef83a6569632cd467faddec9
+699640f6719e76b7d6ac355c7c89feca9cccad4ea7d36c65b258a206641f1b73f8b5da6a6373d9c11b90c537e7f08dce66b7bbeae00dc8e257e7f0fd2badd586
+8b37a088d1e4600ead1ddaef67d40bc898b3ed4af81ac0d76a197c86826828a24bb318f3442d8ab518dfe3a20f000d6458d104a9694ac6d88728eee2782428d6
+0cf03ac1a5193be4cbb921cd0b495fd054b5bd0f530c1931a3f7eaf9f7af9e3f45c70f9e1d3ff8e9f8e1c3e3073f5a42ceaa6d9c84e5552fbffdeccfc71fa33f
+9e7ef3f2d117d57859c6fffac327bffcfc793510d26726ce8b2f9ffcf6ecc98baf3efdfdbb4715f04d814765f890c644a29be408edf3181433567125272371be
+15c308d3f28acd249438c19a4b05fd9e8a1cf4cd296699771c393ac4b5e01d01e5a30a787d72cf1178108989a2159c77a2d801ee72ce3a5c545a6147f32a9979
+3849c26ae66252c6ed637c58c5bb8b13c7bfbd490a75330f4b47f16e441c31f7184e140e494214d273fc80900aedee52ead87597fa824b3e56e82e451d4c2b4d
+32a423279a668bb6690c7e9956e90cfe766cb37b077538abd27a8b1cba48c80acc2a841f12e698f13a9e281c57911ce298950d7e03aba84ac8c154f8655c4f2a
+f074481847bd804859b5e696007d4b4edfc150b12addbecba6b18b148a1e54d1bc81392f23b7f84137c2715a851dd0242a633f900710a218ed715505dfe56e86
+e877f0034e16bafb0e258ebb4faf06b769e888340b103d3311da9750aa9d0a1cd3e4efca31a3508f6d0c5c5c398602f8e2ebc71591f5b616e24dd893aa3261fb
+44f95d843b5974bb5c04f4edafb95b7892ec1108f3f98de75dc97d5772bdff7cc95d94cf672db4b3da0a6557f70db629362d72bcb0431e53c6066acac80d699a
+6409fb44d08741bdce9c0e4971624a2378cceaba830b05366b90e0ea23aaa241845368b0eb9e2612ca8c742851ca251ceccc70256d8d87265dd96361531f186c
+3d9058edf2c00eafe8e1fc5c509031bb4d680e9f39a3154de0accc56ae644441edd76156d7429d995bdd88664a9dc3ad50197c38af1a0c16d684060441db0256
+5e85f3b9660d0713cc48a0ed6ef7dedc2dc60b17e92219e180643ed27acffba86e9c94c78ab90980d8a9f0913ee49d62b512b79626fb06dccee2a432bbc60276
+b9f7dec44b7904cfbca4f3f6443ab2a49c9c2c41476dafd55c6e7ac8c769db1bc399161ee314bc2e75cf8759081743be1236ec4f4d6693e5336fb672c5dc24a8
+c33585b5fb9cc24e1d4885545b58463634cc5416022cd19cacfccb4d30eb45296023fd35a458598360f8d7a4003bbaae25e331f155d9d9a5116d3bfb9a95523e
+51440ca2e0088dd844ec6370bf0e55d027a012ae264c45d02f708fa6ad6da6dce29c255df9f6cae0ec38666984b372ab5334cf640b37795cc860de4ae2816e95
+b21be5ceaf8a49f90b52a51cc6ff3355f47e0237052b81f6800fd7b802239daf6d8f0b1571a8426944fdbe80c6c1d40e8816b88b8569082ab84c36ff0539d4ff
+6dce591a26ade1c0a7f669880485fd484582903d284b26fa4e2156cff62e4b9265844c4495c495a9157b440e091bea1ab8aaf7760f4510eaa69a6465c0e04ec6
+9ffb9e65d028d44d4e39df9c1a52ecbd3607fee9cec7263328e5d661d3d0e4f62f44acd855ed7ab33cdf7bcb8ae889599bd5c8b3029895b6825696f6af29c239
+b75a5bb1e6345e6ee6c28117e73586c1a2214ae1be07e93fb0ff51e133fb65426fa843be0fb515c187064d0cc206a2fa926d3c902e907670048d931db4c1a449
+59d366ad93b65abe595f70a75bf03d616c2dd959fc7d4e6317cd99cbcec9c58b34766661c7d6766ca1a9c1b327531486c6f941c638c67cd22a7f75e2a37be0e8
+2db8df9f30254d30c1372581a1f51c983c80e4b71ccdd28dbf000000ffff0300504b0304140006000800000021000dd1909fb60000001b010000270000007468
+656d652f7468656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73848f4d0ac2301484f78277086f6fd3ba109126dd88d0add40384e4
+350d363f2451eced0dae2c082e8761be9969bb979dc9136332de3168aa1a083ae995719ac16db8ec8e4052164e89d93b64b060828e6f37ed1567914b284d2624
+52282e3198720e274a939cd08a54f980ae38a38f56e422a3a641c8bbd048f7757da0f19b017cc524bd62107bd5001996509affb3fd381a89672f1f165dfe5141
+73d9850528a2c6cce0239baa4c04ca5bbabac4df000000ffff0300504b01022d0014000600080000002100e9de0fbfff0000001c020000130000000000000000
+0000000000000000005b436f6e74656e745f54797065735d2e786d6c504b01022d0014000600080000002100a5d6a7e7c0000000360100000b00000000000000
+000000000000300100005f72656c732f2e72656c73504b01022d00140006000800000021006b799616830000008a0000001c0000000000000000000000000019
+0200007468656d652f7468656d652f7468656d654d616e616765722e786d6c504b01022d001400060008000000210096b5ade296060000501b00001600000000
+000000000000000000d60200007468656d652f7468656d652f7468656d65312e786d6c504b01022d00140006000800000021000dd1909fb60000001b01000027
+00000000000000000000000000a00900007468656d652f7468656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73504b050600000000050005005d0100009b0a00000000}
+{\*\colorschememapping 3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d225554462d3822207374616e64616c6f6e653d22796573223f3e0d0a3c613a636c724d
+617020786d6c6e733a613d22687474703a2f2f736368656d61732e6f70656e786d6c666f726d6174732e6f72672f64726177696e676d6c2f323030362f6d6169
+6e22206267313d226c743122207478313d22646b3122206267323d226c743222207478323d22646b322220616363656e74313d22616363656e74312220616363
+656e74323d22616363656e74322220616363656e74333d22616363656e74332220616363656e74343d22616363656e74342220616363656e74353d22616363656e74352220616363656e74363d22616363656e74362220686c696e6b3d22686c696e6b2220666f6c486c696e6b3d22666f6c486c696e6b222f3e}
+{\*\latentstyles\lsdstimax371\lsdlockeddef0\lsdsemihiddendef0\lsdunhideuseddef0\lsdqformatdef0\lsdprioritydef99{\lsdlockedexcept \lsdqformat1 \lsdpriority0 \lsdlocked0 Normal;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 1;
+\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 2;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 3;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 4;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 5;
+\lsdsemihidden1 \lsdunhideused1 \lsdqformat1 \lsdpriority9 \lsdlocked0 heading 6;\lsdsemihidden1 \lsdunhideused1 \lsdqformat1 \lsdpriority9 \lsdlocked0 heading 7;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 8;
+\lsdsemihidden1 \lsdunhideused1 \lsdqformat1 \lsdpriority9 \lsdlocked0 heading 9;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 1;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 2;
+\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 3;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 4;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 5;
+\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 6;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 7;\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 8;
+\lsdsemihidden1 \lsdunhideused1 \lsdpriority39 \lsdlocked0 toc 9;\lsdsemihidden1 \lsdunhideused1 \lsdqformat1 \lsdpriority35 \lsdlocked0 caption;\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 List Number;\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 List 4;
+\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 List 5;\lsdqformat1 \lsdpriority10 \lsdlocked0 Title;\lsdsemihidden1 \lsdunhideused1 \lsdpriority1 \lsdlocked0 Default Paragraph Font;\lsdqformat1 \lsdpriority11 \lsdlocked0 Subtitle;
+\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 Salutation;\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 Date;\lsdsemihidden1 \lsdunhideused1 \lsdlocked0 Body Text First Indent;\lsdqformat1 \lsdpriority22 \lsdlocked0 Strong;
+\lsdqformat1 \lsdpriority20 \lsdlocked0 Emphasis;\lsdpriority59 \lsdlocked0 Table Grid;\lsdsemihidden1 \lsdlocked0 Placeholder Text;\lsdqformat1 \lsdpriority1 \lsdlocked0 No Spacing;\lsdpriority60 \lsdlocked0 Light Shading;
+\lsdpriority61 \lsdlocked0 Light List;\lsdpriority62 \lsdlocked0 Light Grid;\lsdpriority63 \lsdlocked0 Medium Shading 1;\lsdpriority64 \lsdlocked0 Medium Shading 2;\lsdpriority65 \lsdlocked0 Medium List 1;\lsdpriority66 \lsdlocked0 Medium List 2;
+\lsdpriority67 \lsdlocked0 Medium Grid 1;\lsdpriority68 \lsdlocked0 Medium Grid 2;\lsdpriority69 \lsdlocked0 Medium Grid 3;\lsdpriority70 \lsdlocked0 Dark List;\lsdpriority71 \lsdlocked0 Colorful Shading;\lsdpriority72 \lsdlocked0 Colorful List;
+\lsdpriority73 \lsdlocked0 Colorful Grid;\lsdpriority60 \lsdlocked0 Light Shading Accent 1;\lsdpriority61 \lsdlocked0 Light List Accent 1;\lsdpriority62 \lsdlocked0 Light Grid Accent 1;\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 1;
+\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 1;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 1;\lsdsemihidden1 \lsdlocked0 Revision;\lsdqformat1 \lsdpriority34 \lsdlocked0 List Paragraph;\lsdqformat1 \lsdpriority29 \lsdlocked0 Quote;
+\lsdqformat1 \lsdpriority30 \lsdlocked0 Intense Quote;\lsdpriority66 \lsdlocked0 Medium List 2 Accent 1;\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 1;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 1;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 1;
+\lsdpriority70 \lsdlocked0 Dark List Accent 1;\lsdpriority71 \lsdlocked0 Colorful Shading Accent 1;\lsdpriority72 \lsdlocked0 Colorful List Accent 1;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 1;\lsdpriority60 \lsdlocked0 Light Shading Accent 2;
+\lsdpriority61 \lsdlocked0 Light List Accent 2;\lsdpriority62 \lsdlocked0 Light Grid Accent 2;\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 2;\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 2;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 2;
+\lsdpriority66 \lsdlocked0 Medium List 2 Accent 2;\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 2;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 2;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 2;\lsdpriority70 \lsdlocked0 Dark List Accent 2;
+\lsdpriority71 \lsdlocked0 Colorful Shading Accent 2;\lsdpriority72 \lsdlocked0 Colorful List Accent 2;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 2;\lsdpriority60 \lsdlocked0 Light Shading Accent 3;\lsdpriority61 \lsdlocked0 Light List Accent 3;
+\lsdpriority62 \lsdlocked0 Light Grid Accent 3;\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 3;\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 3;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 3;\lsdpriority66 \lsdlocked0 Medium List 2 Accent 3;
+\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 3;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 3;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 3;\lsdpriority70 \lsdlocked0 Dark List Accent 3;\lsdpriority71 \lsdlocked0 Colorful Shading Accent 3;
+\lsdpriority72 \lsdlocked0 Colorful List Accent 3;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 3;\lsdpriority60 \lsdlocked0 Light Shading Accent 4;\lsdpriority61 \lsdlocked0 Light List Accent 4;\lsdpriority62 \lsdlocked0 Light Grid Accent 4;
+\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 4;\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 4;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 4;\lsdpriority66 \lsdlocked0 Medium List 2 Accent 4;
+\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 4;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 4;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 4;\lsdpriority70 \lsdlocked0 Dark List Accent 4;\lsdpriority71 \lsdlocked0 Colorful Shading Accent 4;
+\lsdpriority72 \lsdlocked0 Colorful List Accent 4;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 4;\lsdpriority60 \lsdlocked0 Light Shading Accent 5;\lsdpriority61 \lsdlocked0 Light List Accent 5;\lsdpriority62 \lsdlocked0 Light Grid Accent 5;
+\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 5;\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 5;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 5;\lsdpriority66 \lsdlocked0 Medium List 2 Accent 5;
+\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 5;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 5;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 5;\lsdpriority70 \lsdlocked0 Dark List Accent 5;\lsdpriority71 \lsdlocked0 Colorful Shading Accent 5;
+\lsdpriority72 \lsdlocked0 Colorful List Accent 5;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 5;\lsdpriority60 \lsdlocked0 Light Shading Accent 6;\lsdpriority61 \lsdlocked0 Light List Accent 6;\lsdpriority62 \lsdlocked0 Light Grid Accent 6;
+\lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 6;\lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 6;\lsdpriority65 \lsdlocked0 Medium List 1 Accent 6;\lsdpriority66 \lsdlocked0 Medium List 2 Accent 6;
+\lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 6;\lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 6;\lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 6;\lsdpriority70 \lsdlocked0 Dark List Accent 6;\lsdpriority71 \lsdlocked0 Colorful Shading Accent 6;
+\lsdpriority72 \lsdlocked0 Colorful List Accent 6;\lsdpriority73 \lsdlocked0 Colorful Grid Accent 6;\lsdqformat1 \lsdpriority19 \lsdlocked0 Subtle Emphasis;\lsdqformat1 \lsdpriority21 \lsdlocked0 Intense Emphasis;
+\lsdqformat1 \lsdpriority31 \lsdlocked0 Subtle Reference;\lsdqformat1 \lsdpriority32 \lsdlocked0 Intense Reference;\lsdqformat1 \lsdpriority33 \lsdlocked0 Book Title;\lsdsemihidden1 \lsdunhideused1 \lsdpriority37 \lsdlocked0 Bibliography;
+\lsdsemihidden1 \lsdunhideused1 \lsdqformat1 \lsdpriority39 \lsdlocked0 TOC Heading;\lsdpriority41 \lsdlocked0 Plain Table 1;\lsdpriority42 \lsdlocked0 Plain Table 2;\lsdpriority43 \lsdlocked0 Plain Table 3;\lsdpriority44 \lsdlocked0 Plain Table 4;
+\lsdpriority45 \lsdlocked0 Plain Table 5;\lsdpriority40 \lsdlocked0 Grid Table Light;\lsdpriority46 \lsdlocked0 Grid Table 1 Light;\lsdpriority47 \lsdlocked0 Grid Table 2;\lsdpriority48 \lsdlocked0 Grid Table 3;\lsdpriority49 \lsdlocked0 Grid Table 4;
+\lsdpriority50 \lsdlocked0 Grid Table 5 Dark;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful;\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful;\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 1;\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 1;
+\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 1;\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 1;\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 1;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 1;
+\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 1;\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 2;\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 2;\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 2;
+\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 2;\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 2;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 2;\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 2;
+\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 3;\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 3;\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 3;\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 3;
+\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 3;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 3;\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 3;\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 4;
+\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 4;\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 4;\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 4;\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 4;
+\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 4;\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 4;\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 5;\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 5;
+\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 5;\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 5;\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 5;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 5;
+\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 5;\lsdpriority46 \lsdlocked0 Grid Table 1 Light Accent 6;\lsdpriority47 \lsdlocked0 Grid Table 2 Accent 6;\lsdpriority48 \lsdlocked0 Grid Table 3 Accent 6;
+\lsdpriority49 \lsdlocked0 Grid Table 4 Accent 6;\lsdpriority50 \lsdlocked0 Grid Table 5 Dark Accent 6;\lsdpriority51 \lsdlocked0 Grid Table 6 Colorful Accent 6;\lsdpriority52 \lsdlocked0 Grid Table 7 Colorful Accent 6;
+\lsdpriority46 \lsdlocked0 List Table 1 Light;\lsdpriority47 \lsdlocked0 List Table 2;\lsdpriority48 \lsdlocked0 List Table 3;\lsdpriority49 \lsdlocked0 List Table 4;\lsdpriority50 \lsdlocked0 List Table 5 Dark;
+\lsdpriority51 \lsdlocked0 List Table 6 Colorful;\lsdpriority52 \lsdlocked0 List Table 7 Colorful;\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 1;\lsdpriority47 \lsdlocked0 List Table 2 Accent 1;\lsdpriority48 \lsdlocked0 List Table 3 Accent 1;
+\lsdpriority49 \lsdlocked0 List Table 4 Accent 1;\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 1;\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 1;\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 1;
+\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 2;\lsdpriority47 \lsdlocked0 List Table 2 Accent 2;\lsdpriority48 \lsdlocked0 List Table 3 Accent 2;\lsdpriority49 \lsdlocked0 List Table 4 Accent 2;
+\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 2;\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 2;\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 2;\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 3;
+\lsdpriority47 \lsdlocked0 List Table 2 Accent 3;\lsdpriority48 \lsdlocked0 List Table 3 Accent 3;\lsdpriority49 \lsdlocked0 List Table 4 Accent 3;\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 3;
+\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 3;\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 3;\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 4;\lsdpriority47 \lsdlocked0 List Table 2 Accent 4;
+\lsdpriority48 \lsdlocked0 List Table 3 Accent 4;\lsdpriority49 \lsdlocked0 List Table 4 Accent 4;\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 4;\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 4;
+\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 4;\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 5;\lsdpriority47 \lsdlocked0 List Table 2 Accent 5;\lsdpriority48 \lsdlocked0 List Table 3 Accent 5;
+\lsdpriority49 \lsdlocked0 List Table 4 Accent 5;\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 5;\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 5;\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 5;
+\lsdpriority46 \lsdlocked0 List Table 1 Light Accent 6;\lsdpriority47 \lsdlocked0 List Table 2 Accent 6;\lsdpriority48 \lsdlocked0 List Table 3 Accent 6;\lsdpriority49 \lsdlocked0 List Table 4 Accent 6;
+\lsdpriority50 \lsdlocked0 List Table 5 Dark Accent 6;\lsdpriority51 \lsdlocked0 List Table 6 Colorful Accent 6;\lsdpriority52 \lsdlocked0 List Table 7 Colorful Accent 6;}}{\*\datastore 010500000200000018000000
+4d73786d6c322e534158584d4c5265616465722e362e3000000000000000000000060000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff090006000000000000000000000001000000010000000000000000100000feffffff00000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdfffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffffffffffff0c6ad98892f1d411a65f0040963251e5000000000000000000000000000d
+61443ab8d101feffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000105000000000000}}

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<!-- (a.walling 2012-08-28 08:37) - PLID 52319 - StampSearch - HTML interface -->
+<title>StampSearch</title>
+
+<style type="text/css">
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Calibri, Verdana, sans-serif
+}
+
+#expandCats {
+	max-height: 100%;
+	overflow: hidden;
+}
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	background-color: #fafaff;
+	/*padding: 5px;*/
+}
+#tooltip h3, #tooltip div { margin: 0; }
+
+.viewport-top {
+	border-top: none;
+	border-bottom: 1px solid #0090C0;
+}
+
+.viewport-bottom {
+	border-top: 1px solid #0090C0;
+	border-bottom: none;
+}
+
+#softHeader {
+	height: 2.6em;
+	//position: absolute;
+	position: fixed;
+	top: 0px;
+	margin-top: 0px;
+	text-align: left;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid #0090C0;
+	z-index: 3010;
+}
+
+.searchInput {
+	width: 100%;
+}
+
+.searchArea {
+	width: 100%;
+}
+
+#searchClear {
+	display: inline-block;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 3020;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	color: #CCC;
+}
+
+#searchClear:hover {
+	color: #000;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#list {
+	text-align: center;
+	cursor: pointer;
+	border-bottom: 1px solid #0090C0;
+	width: 100%;
+}
+
+.category {
+}
+
+.categoryHeaderRow {
+	clear: both;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #0090C0;
+	background-color: #e0e0ff;
+	color: #300020;
+	cursor: pointer;
+}
+
+.stampRow {
+	clear: both;
+	width: 100%;
+	min-height: 2em;
+	overflow: hidden;
+	text-align: left;
+	border-top: 1px solid #0090C0;
+}
+
+.stampRowState {
+	background-color: #ffffff;
+}
+.stampRowState:hover {
+	background-color: #fafaff;
+}
+
+.stampRow > div {
+	pointer-events: none;
+}
+
+.stampType {
+	float: left;
+	font-size: 1.6em;
+	padding-right: 5px;
+}
+
+.stampImage {
+	float: left;
+	border: none;
+	padding-right: 2px;
+	max-width: 3em;
+	height: auto;
+}
+
+.stampText {
+	clear: none;
+}
+
+.stampDescription {
+	display: none;
+	clear: left;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+</style>
+
+<script type="text/javascript" src="JS/jquery.js"></script>
+<script type="text/javascript" src="JS/jquery-nicescroll.js"></script>
+<script type="text/javascript">
+
+// (a.walling 2012-08-28 08:37) - PLID 52323 - Tips class
+;(function($) {
+	
+		// the tooltip element
+	var helper = {},
+		// the current tooltipped element
+		current,
+		// the title of the current element, used for restoring
+		title,
+		// timeout id for delayed tooltips
+		tID,
+		// IE 5.5 or 6
+		IE = $.browser.msie && /MSIE\s(5\.5|6\.)/.test(navigator.userAgent),
+		// flag for mouse tracking
+		track = false;
+	
+	$.tooltip = {
+		blocked: false,
+		defaults: {
+			delay: 200,
+			fade: false,
+			showURL: true,
+			extraClass: "",
+			top: 15,
+			left: 15,
+			id: "tooltip"
+		},
+		block: function() {
+			$.tooltip.blocked = !$.tooltip.blocked;
+		}
+	};
+	
+	$.fn.extend({
+		tooltip: function(settings) {
+			settings = $.extend({}, $.tooltip.defaults, settings);
+			createHelper(settings);
+			return this.each(function() {
+					$.data(this, "tooltip", settings);
+					this.tOpacity = helper.parent.css("opacity");
+					// copy tooltip into its own expando and remove the title
+					this.tooltipText = this.title;
+					$(this).removeAttr("title");
+					// also remove alt attribute to prevent default tooltip in IE
+					this.alt = "";
+				})
+				//.mouseover(save)
+				//.mouseout(hide)
+				.mouseenter(save)
+				.mouseleave(hide)
+				.click(hide);
+		},
+		fixPNG: IE ? function() {
+			return this.each(function () {
+				var image = $(this).css('backgroundImage');
+				if (image.match(/^url\(["']?(.*\.png)["']?\)$/i)) {
+					image = RegExp.$1;
+					$(this).css({
+						'backgroundImage': 'none',
+						'filter': "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='" + image + "')"
+					}).each(function () {
+						var position = $(this).css('position');
+						if (position != 'absolute' && position != 'relative')
+							$(this).css('position', 'relative');
+					});
+				}
+			});
+		} : function() { return this; },
+		unfixPNG: IE ? function() {
+			return this.each(function () {
+				$(this).css({'filter': '', backgroundImage: ''});
+			});
+		} : function() { return this; },
+		hideWhenEmpty: function() {
+			return this.each(function() {
+				$(this)[ $(this).html() ? "show" : "hide" ]();
+			});
+		},
+		url: function() {
+			return this.attr('href') || this.attr('src');
+		}
+	});
+	
+	function createHelper(settings) {
+		// there can be only one tooltip helper
+		if( helper.parent )
+			return;
+		// create the helper, h3 for title, div for url
+		helper.parent = $('<div id="' + settings.id + '"><h3></h3><div class="body"></div><div class="url"></div></div>')
+			// add to document
+			.appendTo(document.body)
+			// hide it at first
+			.hide();
+			
+		// apply bgiframe if available
+		if ( $.fn.bgiframe )
+			helper.parent.bgiframe();
+		
+		// save references to title and url elements
+		helper.title = $('h3', helper.parent);
+		helper.body = $('div.body', helper.parent);
+		helper.url = $('div.url', helper.parent);
+	}
+	
+	function settings(element) {
+		return $.data(element, "tooltip");
+	}
+	
+	// main event handler to start showing tooltips
+	function handle(event) {
+		// show helper, either with timeout or on instant
+		if( settings(this).delay )
+			tID = setTimeout(show, settings(this).delay);
+		else
+			show();
+		
+		// if selected, update the helper position when the mouse moves
+		track = !!settings(this).track;
+		$(document.body).bind('mousemove', update);
+			
+		// update at least once
+		update(event);
+	}
+	
+	// save elements title before the tooltip is displayed
+	function save(event) {
+		// if this is the current source, or it has no title (occurs with click event), stop
+		if ( $.tooltip.blocked || this == current || (!this.tooltipText && !settings(this).bodyHandler) )
+			return;
+		
+		//console.log('save from ' + (event.fromElement ? event.fromElement.innerText : 'undefined') + ' to ' + (event.toElement ? event.toElement.innerText : 'undefined'));
+
+		// save current
+		current = this;
+		title = this.tooltipText;
+		
+		if ( settings(this).bodyHandler ) {
+			helper.title.hide();
+			var bodyContent = settings(this).bodyHandler.call(this);
+			if (bodyContent.nodeType || bodyContent.jquery) {
+				helper.body.empty().append(bodyContent)
+			} else {
+				helper.body.html( bodyContent );
+			}
+			helper.body.show();
+		} else if ( settings(this).showBody ) {
+			var parts = title.split(settings(this).showBody);
+			helper.title.html(parts.shift()).show();
+			helper.body.empty();
+			for(var i = 0, part; (part = parts[i]); i++) {
+				if(i > 0)
+					helper.body.append("<br/>");
+				helper.body.append(part);
+			}
+			helper.body.hideWhenEmpty();
+		} else {
+			helper.title.html(title).show();
+			helper.body.hide();
+		}
+		
+		// if element has href or src, add and show it, otherwise hide it
+		if( settings(this).showURL && $(this).url() )
+			helper.url.html( $(this).url().replace('http://', '') ).show();
+		else 
+			helper.url.hide();
+		
+		// add an optional class for this tip
+		helper.parent.addClass(settings(this).extraClass);
+
+		// fix PNG background for IE
+		if (settings(this).fixPNG )
+			helper.parent.fixPNG();
+			
+		handle.apply(this, arguments);
+	}
+	
+	// delete timeout and show helper
+	function show() {
+		tID = null;
+		if ((!IE || !$.fn.bgiframe) && settings(current).fade) {
+			if (helper.parent.is(":animated"))
+				helper.parent.stop().show().fadeTo(settings(current).fade, current.tOpacity);
+			else
+				helper.parent.is(':visible') ? helper.parent.fadeTo(settings(current).fade, current.tOpacity) : helper.parent.fadeIn(settings(current).fade);
+		} else {
+			helper.parent.show();
+		}
+		update();
+	}
+	
+	/**
+	 * callback for mousemove
+	 * updates the helper position
+	 * removes itself when no current element
+	 */
+	function update(event)	{
+		if($.tooltip.blocked)
+			return;
+		
+		if (event && event.target.tagName == "OPTION") {
+			return;
+		}
+		
+		// stop updating when tracking is disabled and the tooltip is visible
+		if ( !track && helper.parent.is(":visible")) {
+			$(document.body).unbind('mousemove', update)
+		}
+		
+		// if no current element is available, remove this listener
+		if( current == null ) {
+			$(document.body).unbind('mousemove', update);
+			return;	
+		}
+		
+		// remove position helper classes
+		helper.parent.removeClass("viewport-right").removeClass("viewport-bottom").removeClass("viewport-top");
+		
+		var left = helper.parent[0].offsetLeft;
+		var top = helper.parent[0].offsetTop;
+		if (event) {
+			// position the helper 15 pixel to bottom right, starting from mouse position
+			//left = event.pageX + settings(current).left;
+			left = 0;
+			top = event.pageY + settings(current).top;
+			if (current) {
+				top = Math.floor(current.offsetTop + $(current).height()) + 1;
+			}
+			//console.log('top set to ' + top);
+			var right='auto';
+			/*if (settings(current).positionLeft) {
+				right = $(window).width() - left;
+				left = 'auto';
+			}*/
+			helper.parent.css({
+				//left: left,
+				//right: right,
+				left: 0,
+				top: top,
+				width: '100%'
+			});
+		}
+		var v = viewport(),
+			h = helper.parent[0];
+		// check vertical position
+		if (v.y + v.cy < h.offsetTop + h.offsetHeight) {
+			top -= h.offsetHeight + 15 + settings(current).top;
+			helper.parent.css({top: top + 'px'}).addClass("viewport-bottom");
+		} else {
+			helper.parent.addClass("viewport-top");
+		}
+	}
+	
+	function viewport() {
+		return {
+			x: $(window).scrollLeft(),
+			y: $(window).scrollTop(),
+			cx: $(window).width(),
+			cy: $(window).height()
+		};
+	}
+	
+	// hide helper and restore added classes and the title
+	function hide(event) {
+		if($.tooltip.blocked)
+			return;
+		//console.log('hide from ' + (event.fromElement ? event.fromElement.innerText : 'undefined') + ' to ' + (event.toElement ? event.toElement.innerText : 'undefined'));
+		// clear timeout if possible
+		if(tID)
+			clearTimeout(tID);
+		// no more current element
+		current = null;
+		
+		var tsettings = settings(this);
+		function complete() {
+			helper.parent.removeClass( tsettings.extraClass ).hide().css("opacity", "");
+		}
+		if ((!IE || !$.fn.bgiframe) && tsettings.fade) {
+			if (helper.parent.is(':animated'))
+				helper.parent.stop().fadeTo(tsettings.fade, 0, complete);
+			else
+				helper.parent.stop().fadeOut(tsettings.fade, complete);
+		} else
+			complete();
+		
+		if( settings(this).fixPNG )
+			helper.parent.unfixPNG();
+	}
+	
+})(jQuery);
+
+	function intersectsRect(l, r) {
+		var inter = {
+			top: Math.max(l.top, r.top),
+			left: Math.max(l.left, r.left),
+			bottom: Math.min(l.bottom, r.bottom),
+			right: Math.min(l.right, r.right)
+		};
+		
+		if (inter.top >= inter.bottom) return false;
+		if (inter.left >= inter.right) return false;
+		return inter;
+	}
+	
+	function elementInViewport(el) {
+		var rect = el.getBoundingClientRect()
+		var windowRect = {
+			top: 0,
+			left: 0,
+			bottom: window.innerHeight,
+			right: window.innerWidth
+		};
+		
+		return !!intersectsRect(rect, windowRect);
+	}
+
+	RegExp.escape = function(text) {
+		return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+	}
+	
+	if (!String.prototype.trim) {
+		String.prototype.trim=function(){return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');};
+
+		String.prototype.ltrim=function(){return this.replace(/^\s+/,'');}
+
+		String.prototype.rtrim=function(){return this.replace(/\s+$/,'');}
+
+		String.prototype.fulltrim=function(){return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' ');}
+	}
+	
+	/******************/
+	
+	function compareStamp(l, r)
+	{
+		if (l.category != r.category) {
+			return l.category < r.category ? -1 : 1;
+		}
+		if (l.shortText != r.shortText) {
+			return l.shortText < r.shortText ? -1 : 1;
+		}
+		if (l.longText != r.longText) {
+			return l.longText < r.longText ? -1 : 1;
+		}
+		if (l.description != r.description) {
+			return l.description < r.description ? -1 : 1;
+		}
+		return 0;
+	}
+	
+	function icompareStamp(l, r)
+	{
+		if (l.category.toLowerCase() != r.category.toLowerCase()) {
+			return l.category.toLowerCase() < r.category.toLowerCase() ? -1 : 1;
+		}
+		if (l.shortText.toLowerCase() != r.shortText.toLowerCase()) {
+			return l.shortText.toLowerCase() < r.shortText.toLowerCase() ? -1 : 1;
+		}
+		if (l.longText.toLowerCase() != r.longText.toLowerCase()) {
+			return l.longText.toLowerCase() < r.longText.toLowerCase() ? -1 : 1;
+		}
+		if (l.description.toLowerCase() != r.description.toLowerCase()) {
+			return l.description < r.description ? -1 : 1;
+		}
+		return compareStamp(l, r);
+	}
+	
+	function filterStampByText(stamp, words)
+	{
+		var text = stamp.shortText + ' ' + stamp.longText;
+		text = text.toLowerCase();
+		for (var i = 0; i < words.length; i++) {
+			if (-1 == text.indexOf(words[i])) {
+				//alert(text + ' does not contain ' + words[i] + ' in ' + words);
+				return false;
+			}
+		}
+		//alert(text + ' DOES contain ' + words);
+		return true;
+	}
+	
+	/*
+	function filterStampByProgressiveText(stamp, searchText)
+	{
+		if (searchText.length == 0) {
+			return true;
+		}
+		
+		var text = stamp.shortText + ' ' + stamp.category + ' ' + stamp.longText;
+		text = text.toLowerCase();
+		
+		if (text.length > 0 ) {
+			var searchPos = 0;
+			for (var i = 0; i < text.length; i++) {
+				if (searchText[searchPos] == text[i]) {
+					searchPos++;
+					if (searchPos >= searchText.length) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	*/
+
+	function getAllStamps()
+	{
+		var stamps;
+		stamps = eval('(' + external.GetAvailableStampsJson() + ')');
+		
+		for (var x = 0; x < stamps.length; x++) {
+			stamps[x].category = stamps[x].category.trim();
+			stamps[x].shortText = stamps[x].shortText.trim();
+			stamps[x].longText = stamps[x].longText.trim();
+			stamps[x].description = stamps[x].description.trim();
+			if (stamps[x].longText == stamps[x].shortText) {
+				stamps[x].longText = "";
+			}
+		}
+		
+		stamps.sort(function(l,r) {
+			return icompareStamp(l, r);
+		});
+		
+		return stamps;
+	}
+	
+	var softHeader;
+	var softHeaderCategory;
+	var lastSoftHeaderCatElem;
+	var lastMouseDownElem;
+	
+	function updateSoftHeader()
+	{
+		var scrollTop = $(window).scrollTop();
+		var adjScrollTop = scrollTop + softHeader.height();
+		
+		var currentCatElem;
+		$('#list div.categoryHeaderRow').filter(':visible').each(function(ix, elem) {
+			if ($(this).offset().top <= adjScrollTop - 1) {
+				currentCatElem = $(this);
+			} else {
+				return false;
+			}
+		});
+		
+		if (lastSoftHeaderCatElem == currentCatElem) {
+			return;
+		}
+		lastSoftHeaderCatElem = currentCatElem;
+		
+		if (!currentCatElem) {
+			softHeaderCategory.text("");
+			softHeaderCategory.hide();
+			return;
+		}
+		
+		softHeaderCategory.text(currentCatElem.text());
+		softHeaderCategory.show();
+		softHeader.show();
+	}
+	
+	function loadStamps()
+	{
+		var curCategory;
+		var stampContainer;
+		$.each(getAllStamps(), function(ix, stamp) {
+			if (!stampContainer || stamp.category != curCategory) {
+				curCategory = stamp.category ? stamp.category : "";
+				var curCategoryRoot = $('<div class="category"/>');
+				
+				var categoryText = curCategory ? curCategory : "No category";
+				var categoryRow = $('<div class="categoryHeaderRow"/>')
+					.text(categoryText);
+
+				stampContainer = $('<div class="stamps"/>');
+				
+				categoryRow
+					.mousedown(function() {
+						lastMouseDownElem = this;
+					})
+					.mouseleave(function() {
+						if (lastMouseDownElem == this) {
+							lastMouseDownElem = null;
+						}
+					}).click(function() {
+						if (lastMouseDownElem != this) {
+							return;
+						}
+						$(this).parent().children(".stamps").slideToggle("fast", function() {
+							updateSoftHeader();
+							$("html").getNiceScroll().resize();
+						});
+					});
+				
+				categoryRow.appendTo(curCategoryRoot);
+				stampContainer.appendTo(curCategoryRoot);
+				
+				$("#list").append(curCategoryRoot);
+			}
+			
+			var newStamp = 
+				$(document.createElement('div')).attr({
+					'class': 'stampRow stampRowState'
+				});
+
+			newStamp.data("stamp", stamp);
+
+			if (stamp.hasImage) {
+				$(document.createElement('img'))
+					.attr('class', 'stampImage')
+					.attr('src', 'nx://emr/stamp/' + stamp.id + '.png')
+					.appendTo(newStamp);
+			}
+
+			$(document.createElement('div'))
+				.attr('class', 'stampType')
+				.css('color', stamp.color)
+				.text(stamp.shortText)
+				.appendTo(newStamp);
+
+			$(document.createElement('div'))
+				.attr('class', 'stampText')
+				.text(stamp.longText)
+				.appendTo(newStamp);
+
+			$(document.createElement('div'))
+				.attr('class', 'stampDescription')
+				.text(stamp.description)
+				.appendTo(newStamp);
+				
+			$(document.createElement('div'))
+				.attr('class', 'clearBoth')
+				.appendTo(newStamp);
+			newStamp
+				.mousedown(function() {
+					lastMouseDownElem = this;
+				})
+				.mouseleave(function() {
+					if (lastMouseDownElem == this) {
+						lastMouseDownElem = null;
+					}
+				})
+				.click(function() {
+					if (lastMouseDownElem != this) {
+						return;
+					}
+					try {
+						external.OnStampClicked($(this).data("stamp").id);
+					} catch (e) {
+						alert("OnStampClicked " + $(this).data("stamp").id);
+					}
+				});
+				
+				
+			
+			stampContainer.append(newStamp);
+			
+			// (a.walling 2012-08-28 08:37) - PLID 52323 - Associate tip with stamp
+			if (stamp.description.length > 0) {
+				newStamp.tooltip({
+					track: false,
+					delay: 200,
+					bodyHandler: function() {
+						return stamp.description;
+					}
+				});
+			}
+		});
+		
+		updateSoftHeader();
+		
+		$("html").getNiceScroll().resize();
+	}
+	
+	function splitTokens(str)
+	{
+		var splitStr = str.match(/\w+|"[^"]+"/g);
+		var i = splitStr.length;
+		while(i--){
+			splitStr[i] = splitStr[i].replace(/"/g,"");
+		}
+	}
+	
+	function updateVisibleCategoryRows()
+	{
+		$("#list > div.category").each(function() {
+			if ($(".stampRow:visible", this).length) {
+				$(this).children("div.categoryHeaderRow").show();
+			} else {
+				$(this).children("div.categoryHeaderRow").hide();
+			}
+		});
+	}
+	
+	function filterSearch()
+	{
+		$("#tooltip").hide();
+		var searchText = $("#searchText").val().toString().toLowerCase().trim();
+		
+		var toHide = [];
+		var toShow = [];
+		if (!searchText) {
+			$("#list div").filter(":hidden").not("div.stampDescription").show();
+		} else {
+			var bounds = {
+				bottom: window.innerHeight,
+				right: window.innerWidth
+			};
+			var rowsToShow = [];
+			var rowsToHide = [];
+			
+			var words = searchText.split(/\s+/g);
+			//searchText = searchText.split(/\s+/g).join(' ');
+			$("#list div.category").each(function() {
+				var found = 0;
+				$("div.stamps div.stampRow", this).each(function() {
+					if (filterStampByText($(this).data("stamp"), words)) {
+					//if (filterStampByProgressiveText($(this).data("stamp"), searchText)) {
+						rowsToShow.push($(this));
+						found++;
+					} else {
+						rowsToHide.push($(this));
+					}
+				});
+				
+				if (found) {
+					$("> div", this).filter(":hidden").show();
+				}
+			});
+			
+			$(rowsToHide).each(function() {
+				$(this).hide();
+			});
+			
+			$(rowsToShow).each(function() {
+				$(this).show();
+			});
+			updateVisibleCategoryRows();
+		}
+		
+		updateSoftHeader();
+		
+		$("html").getNiceScroll().resize();
+	}
+	
+	var postScrollTimer;
+
+	document.onselectstart = function() { return false; } 
+    $(function() {
+		softHeader = $('#softHeader');
+		softHeaderCategory = $('div.categoryHeaderRow', softHeader);
+		var hoverTimer = null;
+		
+		softHeaderCategory
+			.mousedown(function() {
+				lastMouseDownElem = this;
+			})
+			.mouseenter(function() {
+				hoverTimer = setTimeout(function() {
+					var expandCats = $("<div id='expandCats'>");
+					$('#list div.categoryHeaderRow').filter(':visible').each(function(ix, elem) {
+						$("<div class='categoryHeaderRow'>")
+							.text($(this).text())
+							.click(function(e) {
+								$("html").scrollTop($(elem).offset().top - $('.searchInput').height());//softHeader.height());
+								expandCats.slideUp('fast', function() { $(this).remove(); });
+								e.stopPropagation();
+								return false;
+							})
+							.appendTo(expandCats);
+					});
+					
+					softHeaderCategory.append(expandCats);
+					expandCats.slideDown('fast');
+				}, 200)
+			})
+			.mouseleave(function() {
+				if (lastMouseDownElem == this) {
+					lastMouseDownElem = null;
+				}
+				if (hoverTimer) {
+					clearTimeout(hoverTimer);
+					hoverTimer = null;
+				}
+				$("#expandCats").slideUp('fast', function() { $(this).remove(); });
+			}).click(function(e) {
+				if (lastMouseDownElem != this) {
+					return;
+				}
+				if (!lastSoftHeaderCatElem) return;
+				$("html").scrollTop(lastSoftHeaderCatElem.offset().top - $('.searchInput').height());
+				e.stopPropagation();
+				return false;
+			});
+		
+		$("#list").css("marginTop", $("#searchText").outerHeight() + 'px');
+		
+		
+		$("#searchText").keyup(function(e) {
+			if (e.keyCode == 27) {
+				$(this)
+					.val('')
+					.focus();
+			}
+			filterSearch();
+		}).focus();
+		$(document).keyup(function(e) {
+			if (e.keyCode == 27) {
+				$("#searchText")
+					.val('')
+					.focus();
+				filterSearch();
+			} else if (e.keyCode == 13) {
+				var matchedID = null;
+				$("div.stampRow:visible").each(function(ix, elem) {
+					var stampID = $(elem).data("stamp").id;
+					
+					if (!matchedID) {
+						matchedID = stampID;
+					} else if (matchedID != stampID) {
+						matchedID = null;
+						return false;
+					}
+				});
+				if (matchedID) {
+					external.OnStampClicked(matchedID);
+					return false;
+				}
+			}
+		}).focus();
+		
+		$("#searchClear").click(function() {
+			$("#searchText")
+				.val('')
+				.focus();
+			filterSearch();
+		});
+
+		loadStamps();
+		
+		// (a.walling 2012-08-28 08:37) - PLID 52324 - Limit updates to the soft header during scrolling operations
+		$(window).scroll(function() {
+			// (a.walling 2012-08-28 08:37) - PLID 52323 - Block tips during scroll
+			if (postScrollTimer) {
+				//return;
+				clearTimeout(postScrollTimer);
+			} else {
+				$.tooltip.blocked = true;
+			}
+			postScrollTimer = setTimeout(function() {
+				if (postScrollTimer) {
+					clearTimeout(postScrollTimer);
+					postScrollTimer = null;
+				}
+				
+				$.tooltip.blocked = false;
+				updateSoftHeader();
+			}, 15);
+			lastMouseDownElem = null;
+		});
+		updateSoftHeader();
+    });
+	
+	// (a.walling 2012-08-28 08:37) - PLID 52324 - Make scrollable
+	$(document).ready(function() {
+		$("html").niceScroll({touchbehavior:true});
+	});
+</script>
+</head>
+
+<body>
+
+<div id="list">
+</div>
+<div id="softHeader">
+	<div class="searchArea">
+		<input class="searchInput" name="searchText" id="searchText" placeholder="Search..." autofocus></input>
+	</div>
+	<div id="searchClear">x</div>
+	<div class="categoryHeaderRow"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,1092 @@
+<HTML XMLNS:IE>
+<HEAD>
+<TITLE>Print Preview</TITLE>
+<?IMPORT NAMESPACE="ie" IMPLEMENTATION="#default">
+<STYLE TYPE="text/css">
+.lorstyle
+{
+    background:white;
+    margin-top:1in;
+    margin-left:1in;
+    width:6in;
+    height:8in;
+    border:dashed 1 gray;
+}
+.pagestyle
+{ 
+    background:white;
+    border-left:1 solid black;
+    border-top:1 solid black;
+    border-right:2 solid black;
+    border-bottom:2 solid black;
+    width:8.5in;
+    height:11in;
+    margin:10px;
+    overflow:hidden;
+    left:-100in;
+}
+.headerstyle
+{
+    position:absolute;
+    top:.25in;
+    width:6in;
+    left:1in;
+	font-family: Calibri, Arial, Verdana, Times New Roman, Book Antiqua, Palatino, Serif;
+	font-size: 10pt;
+    border:dashed 1 gray;
+}
+.footerstyle
+{
+    position:absolute;
+    top:10.5in;
+    width:6in;
+    left:1in;
+	font-family: Calibri, Arial, Verdana, Times New Roman, Book Antiqua, Palatino, Serif;
+	font-size: 10pt;
+    border:dashed 1 gray;
+}
+#ui
+{
+    height:70px;
+    background-color:#cbe0ff;
+    margin:0px;
+    padding:0px; 
+	font-family: Calibri, Arial, Verdana, Times New Roman, Book Antiqua, Palatino, Serif;
+	font-size: 12pt;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#55BACEE7, endColorstr=#FFE6F0FF);
+}
+#ui button
+{
+	height:56px;
+}
+#ui button, #ui td
+{
+	color:green;
+	font-family: Calibri, Arial, Verdana, Times New Roman, Book Antiqua, Palatino, Serif;
+	font-size: 12pt;
+}
+#zoomcontainer
+{
+    zoom:100%;
+    width:100%;
+    position:absolute;
+}
+#pagecontainer
+{
+   width:100%;
+   overflow:auto; 
+   border:none; 
+   background-color:#e6f0ff;
+}
+.mmarker
+{
+    position:absolute;
+    top:100;
+    left:100;
+    background-color: #d4db8f;
+}
+</STYLE>
+<SCRIPT LANGUAGE="JScript">
+    var iNextPageToCreate = 1;
+    var oPageStyleClass;
+    var oLorStyleClass;
+    var oHeaderStyleClass;
+    var oFooterStyleClass;
+    var oMMarkerClass;
+    var sSrcID = null
+    var iStartingX;
+    var iStartingY;
+    var bMoveMMarkerLeft = false;
+    var bMoveMMarkerRight = false;
+    var bMoveMMarkerTop = false;
+    var bMoveMMarkerBottom = false;
+    var bMoveMMarkerHead = false;
+    var bMoveMMarkerFoot = false;
+    var iDeltaX = 0;
+    var iDeltaY = 0;
+    var fZoomNum = 1;
+    var iPixelToInchRatio;
+    var oPopup;
+    var oPopupBody;
+
+    var fMinMarginTop;
+    var fMinMarginBottom;
+    var adjMarginTop;
+    var adjMarginBottom;
+	
+	var adjHeadMargin = 0;
+	var adjFootMargin = 0;
+	
+	var initPrinterMarginTop = 0;
+	var initPrinterMarginBottom = 0;
+	var initPrinterMarginLeft = 0;
+	var initPrinterMarginRight = 0;
+
+	var hasPrompted = false;
+
+    // (r.gonet 06/13/2013) - PLID 56850 - Displays the page and page total relative to the current document rather than to all of the documents in the preview.
+	var displayPerDocumentPageCount = true;
+
+    function MouseDownHandler() {
+        if (event.button != 1) return;
+
+        sZoomNum = zoomcontainer.style.zoom;
+        sZoomNum = sZoomNum.substring(0, sZoomNum.length - 1);
+        iZoomNum = sZoomNum.valueOf(sZoomNum, 10);
+        fZoomNum = iZoomNum / 100
+        sSrcID = event.srcElement.id;
+        iPixelToInchRatio = ratiomarker.offsetLeft;
+		
+		// (a.walling 2010-06-29 11:16) - PLID 39420 - Handle header/footer margins
+		var theText = 0.0;
+
+        if (sSrcID == "mmarkerLeft") {
+            bMoveMMarkerLeft = true;
+            iStartingX = event.x;
+            iDeltaX = (mmarkerLeft.offsetLeft - event.x);
+            iDeltaY = 0;
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round((100 * (mmarkerLeft.offsetLeft - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Left<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerLeft.offsetLeft + 5), fZoomNum * (mmarkerLeft.offsetTop - 20),60, 32, zoomcontainer);
+
+            return;
+        }
+        if (sSrcID == "mmarkerRight") {
+            bMoveMMarkerRight = true;
+            iStartingX = event.x;
+            iDeltaX = (mmarkerRight.offsetLeft - event.x);
+            iDeltaY = 0;
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round((100 * (mmarkerRight.offsetLeft - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Right<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerRight.offsetLeft + 5) - 60, fZoomNum * (mmarkerRight.offsetTop - 20), 60, 32, zoomcontainer);
+
+            return;
+        }
+        if (sSrcID == "mmarkerTop") {
+            bMoveMMarkerTop = true;
+            iStartingY = event.y;
+            iDeltaX = 0;
+            iDeltaY = (mmarkerTop.offsetTop - event.y);
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round((100 * (mmarkerTop.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Top<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerTop.offsetLeft + 5) - 70, fZoomNum * (mmarkerTop.offsetTop + 5), 60, 32, zoomcontainer);
+
+            return;
+        }
+        if (sSrcID == "mmarkerBottom") {
+            bMoveMMarkerBottom = true;
+            iStartingY = event.y;
+            iDeltaX = 0;
+            iDeltaY = (mmarkerBottom.offsetTop - event.y);
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round(printer.pageHeight - (100 * (mmarkerBottom.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Bottom<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerTop.offsetLeft + 5) - 70, fZoomNum * (mmarkerBottom.offsetTop) - 10, 60, 32, zoomcontainer);
+
+            return;
+        }
+        if (sSrcID == "mmarkerHead") {
+            bMoveMMarkerHead = true;
+            iStartingY = event.y;
+            iDeltaX = 0;
+            iDeltaY = (mmarkerHead.offsetTop - event.y);
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round((100 * (mmarkerHead.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Header<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerTop.offsetLeft + 5) - 70, fZoomNum * (mmarkerHead.offsetTop + 5), 60, 32, zoomcontainer);
+
+            return;
+        }
+        if (sSrcID == "mmarkerFoot") {
+            bMoveMMarkerFoot = true;
+            iStartingY = event.y;
+            iDeltaX = 0;
+            iDeltaY = (mmarkerFoot.offsetTop - event.y);
+
+            oPopup = window.createPopup();
+            oPopupBody = oPopup.document.body;
+            theText = Math.round(printer.pageHeight - (100 * (mmarkerFoot.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Footer<br/>" + theText.toFixed(2) + " in";
+            oPopupBody.style.backgroundColor = "#ffff66";
+            oPopupBody.style.border = "1 solid black";
+            oPopupBody.style.fontSize = "12px";
+            oPopupBody.style.fontFamily = "Consolas, Courier New";
+            oPopup.show(fZoomNum * (mmarkerTop.offsetLeft + 5) - 70, fZoomNum * (mmarkerFoot.offsetTop) - 10, 60, 32, zoomcontainer);
+
+            return;
+        }
+
+        sSrcID = null;
+    }
+
+    function MouseMoveHandler() {
+        iPixelToInchRatio = ratiomarker.offsetLeft;
+        fZoomCompensationX = (event.x - iStartingX) * (1 / fZoomNum - 1);
+        fZoomCompensationY = (event.y - iStartingY) * (1 / fZoomNum - 1);
+
+		// (a.walling 2010-06-29 11:16) - PLID 39420 - Handle header/footer margins		
+		var theText = 0.0;
+
+        if (bMoveMMarkerLeft) {
+            if (event.x + iDeltaX + fZoomCompensationX >= mmarkerRight.offsetLeft - 10) return false;
+            if (event.x + iDeltaX + fZoomCompensationX <= iPixelToInchRatio * printer.unprintableLeft / 100 + 5) return false;
+            mmarkerLeft.style.left = event.x + iDeltaX + fZoomCompensationX;
+            theText = Math.round((100 * (mmarkerLeft.offsetLeft - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Left<br/>" + theText.toFixed(2) + " in";
+        }
+        else if (bMoveMMarkerRight) {
+            if (event.x + iDeltaX + fZoomCompensationX >= iPixelToInchRatio * (printer.pageWidth - printer.unprintableRight) / 100 + 5) return false;
+            if (event.x + iDeltaX + fZoomCompensationX <= mmarkerLeft.offsetLeft + 10) return false;
+            mmarkerRight.style.pixelLeft = event.x + iDeltaX + fZoomCompensationX;
+            theText = Math.round((printer.pageWidth - (100 * (mmarkerRight.offsetLeft - 5)) / iPixelToInchRatio)) / 100;
+            oPopupBody.innerHTML = "Right<br/>" + theText.toFixed(2) + " in";
+        }
+        else if (bMoveMMarkerTop) {
+            if (event.y + iDeltaY + fZoomCompensationY >= mmarkerBottom.offsetTop - 10) return false;
+			if (event.y + iDeltaY + fZoomCompensationY <= mmarkerHead.offsetTop + 10) return false;
+            mmarkerTop.style.pixelTop = event.y + iDeltaY + fZoomCompensationY;
+            theText = Math.round((100 * (mmarkerTop.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Top<br/>" + theText.toFixed(2) + " in";
+        }
+        else if (bMoveMMarkerBottom) {
+            if (event.y + iDeltaY + fZoomCompensationY >= mmarkerFoot.offsetTop - 10) return false;
+            if (event.y + iDeltaY + fZoomCompensationY <= mmarkerTop.offsetTop + 10) return false;
+            mmarkerBottom.style.pixelTop = event.y + iDeltaY + fZoomCompensationY;
+            theText = Math.round((printer.pageHeight - (100 * (mmarkerBottom.offsetTop - 5)) / iPixelToInchRatio)) / 100;
+            oPopupBody.innerHTML = "Bottom<br/>" + theText.toFixed(2) + " in";
+        }
+        else if (bMoveMMarkerHead) {
+            if (event.y + iDeltaY + fZoomCompensationY >= mmarkerBottom.offsetTop - 10) return false;
+            if (event.y + iDeltaY + fZoomCompensationY <= iPixelToInchRatio * printer.unprintableTop / 100 + 5) return false;
+            mmarkerHead.style.pixelTop = event.y + iDeltaY + fZoomCompensationY;
+            theText = Math.round((100 * (mmarkerHead.offsetTop - 5)) / iPixelToInchRatio) / 100;
+            oPopupBody.innerHTML = "Header<br/>" + theText.toFixed(2) + " in";
+        }
+        else if (bMoveMMarkerFoot) {
+            if (event.y + iDeltaY + fZoomCompensationY >= iPixelToInchRatio * (printer.pageHeight - printer.unprintableBottom) / 100 + 5) return false;
+            if (event.y + iDeltaY + fZoomCompensationY <= mmarkerTop.offsetTop + 10) return false;
+            mmarkerFoot.style.pixelTop = event.y + iDeltaY + fZoomCompensationY;
+            theText = Math.round((printer.pageHeight - (100 * (mmarkerFoot.offsetTop - 5)) / iPixelToInchRatio)) / 100;
+            oPopupBody.innerHTML = "Footer<br/>" + theText.toFixed(2) + " in";
+        }
+
+        return false;
+    }
+
+    function MouseUpHandler() {
+        if (!sSrcID) return;
+
+        iPixelToInchRatio = ratiomarker.offsetLeft;
+
+		// (a.walling 2010-06-29 11:16) - PLID 39420 - Handle header/footer margins
+        try {
+            switch (sSrcID) {
+                case "mmarkerLeft":
+                    printer.marginLeft = 100 * (mmarkerLeft.offsetLeft - 5) / iPixelToInchRatio;
+                    oPopup.hide();
+                    break;
+
+                case "mmarkerRight":
+                    printer.marginRight = printer.pageWidth - (100 * (mmarkerRight.offsetLeft - 5) / iPixelToInchRatio);
+                    oPopup.hide();
+                    break;
+
+                case "mmarkerTop":
+                    printer.marginTop = (100 * (mmarkerTop.offsetTop - 5) / iPixelToInchRatio) - adjHeadMargin;
+                    oPopup.hide();
+                    break;
+
+                case "mmarkerBottom":
+                    printer.marginBottom = (printer.pageHeight - (100 * (mmarkerBottom.offsetTop - 5) / iPixelToInchRatio)) - adjFootMargin;
+                    oPopup.hide();
+                    break;
+
+                case "mmarkerHead":
+					adjHeadMargin = (100 * (mmarkerHead.offsetTop - 5) / iPixelToInchRatio) - printer.unprintableTop;
+                    oPopup.hide();
+                    break;
+
+                case "mmarkerFoot":
+					adjFootMargin = (printer.pageHeight - (100 * (mmarkerFoot.offsetTop - 5) / iPixelToInchRatio)) - printer.unprintableBottom;
+                    oPopup.hide();
+                    break;
+					
+				default:
+					return;
+					break;
+            }
+        } catch (err) {
+        }
+		
+		try {		
+			oPopup.hide();
+			
+            InitClasses();
+            InitMMarkers();
+            iDeltaX = 0;
+            iDeltaY = 0;
+            bMoveMMarkerLeft = false;
+            bMoveMMarkerRight = false;
+            bMoveMMarkerTop = false;
+            bMoveMMarkerBottom = false;
+            bMoveMMarkerHead = false;
+            bMoveMMarkerFoot = false;
+
+            sSrcID = null;
+		} catch (err) {		
+		}
+    }
+
+    function FindStyleRule(styleName) {
+        for (i = 0; i < document.styleSheets.length; i++) {
+            for (j = 0; j < document.styleSheets(i).rules.length; j++) {
+                if (document.styleSheets(i).rules(j).selectorText == styleName)
+                    return document.styleSheets(i).rules(j);
+            }
+        }
+    }
+
+    function InitClasses() {
+        oPageStyleClass.style.width = printer.pageWidth / 100 + "in";
+        oPageStyleClass.style.height = printer.pageHeight / 100 + "in";
+
+        adjMarginTop = printer.marginTop;
+        adjMarginBottom = printer.marginBottom;
+
+        if (adjMarginTop < fMinMarginTop) {
+            adjMarginTop = fMinMarginTop;
+        }
+
+        if (adjMarginBottom < fMinMarginBottom) {
+            adjMarginBottom = fMinMarginBottom;
+        }
+
+        adjMarginTop += printer.unprintableTop;
+        adjMarginBottom += printer.unprintableBottom;
+
+		// (a.walling 2010-06-29 11:16) - PLID 39420 - Handle header/footer margins		
+		adjMarginTop += adjHeadMargin;
+		adjMarginBottom += adjFootMargin;
+		
+        oLorStyleClass.style.marginTop = adjMarginTop / 100 + "in";
+        oLorStyleClass.style.marginLeft = printer.marginLeft / 100 + "in";
+        oLorStyleClass.style.width = (printer.pageWidth - (printer.marginLeft + printer.marginRight)) / 100 + "in";
+        oLorStyleClass.style.height = (printer.pageHeight - (adjMarginTop + adjMarginBottom)) / 100 + "in";
+        oHeaderStyleClass.style.left = printer.marginLeft / 100 + "in";
+        oHeaderStyleClass.style.top = printer.unprintableTop / 100 + "in";
+        oHeaderStyleClass.style.width = oLorStyleClass.style.width;
+        oFooterStyleClass.style.left = printer.marginLeft / 100 + "in";
+        oFooterStyleClass.style.width = oLorStyleClass.style.width;
+        oFooterStyleClass.style.top = null;
+        oFooterStyleClass.style.bottom = printer.unprintableBottom / 100 + "in";
+		
+		oHeaderStyleClass.style.marginTop = adjHeadMargin / 100 + "in";
+		oFooterStyleClass.style.marginBottom = adjFootMargin / 100 + "in";
+    }
+
+    // (a.walling 2009-11-23 12:08) - PLID 36395 - Global array for all document sources + header/footer information
+    var allDocuments;
+    var currentDocumentIndex;
+    var lastCreatedInitialLayoutRectDocumentIndex;
+    var allDocumentsPageTotals;
+    var iTotalPagesPerDocument;
+	
+	// (a.walling 2010-06-30 09:27) - PLID 39421 - Save initial printer margins and restore saved
+	function InitPrinter() {			
+		initPrinterMarginTop = printer.marginTop;
+		initPrinterMarginBottom = printer.marginBottom;
+		initPrinterMarginLeft = printer.marginLeft;
+		initPrinterMarginRight = printer.marginRight;
+		
+		try {
+			var wshShell = new ActiveXObject("WScript.Shell");
+			var valueString = wshShell.RegRead("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplateHeaderMargins");
+			var values = valueString.split(";");
+			if (values.length == 2) {
+				try {
+					adjHeadMargin = parseFloat(values[0]);
+					adjFootMargin = parseFloat(values[1]);
+				} catch (err) {
+				}			
+			}		
+		} catch (err) {
+		}	
+		
+		try {
+			var wshShell = new ActiveXObject("WScript.Shell");
+			var valueString = wshShell.RegRead("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplatePageMargins");
+			var values = valueString.split(";");
+			if (values.length == 4) {
+				try {
+					printer.marginTop = parseFloat(values[0]);
+					printer.marginBottom = parseFloat(values[1]);
+					printer.marginLeft = parseFloat(values[2]);
+					printer.marginRight = parseFloat(values[3]);
+				} catch (err) {
+				}			
+			}		
+		} catch (err) {
+		}	
+	}
+
+    function Init() {
+        lastCreatedInitialLayoutRectDocumentIndex = -1;
+        currentDocumentIndex = 0;
+		
+		InitPrinter();
+
+        // (a.walling 2009-11-23 12:09) - PLID 36395 - This special tag will be replaced by the document definition generated by the host
+
+		//{{NXDOCUMENTDEFINTION}}//
+        
+		// (r.gonet 06/13/2013) - PLID 56850 - Placeholder for the initialization of the displayPerDocumentPageCount variable
+		//  This is determined by Practice since it changes when the user Prints the Entire History.
+        //{{NX_SET_DISPLAYPERDOCUMENTPAGECOUNT}}//
+
+		allDocuments.layoutComplete = false;
+
+		// (d.lange 2013-03-11 17:34) - PLID 55523 - Initialize an array for storing the page total for each document
+		allDocumentsPageTotals = new Array(allDocuments.length);
+        
+        document.attachEvent("onmousedown", MouseDownHandler);
+        document.attachEvent("onmouseup", MouseUpHandler);
+        document.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerLeft.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerRight.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerTop.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerBottom.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerHead.attachEvent("onmousemove", MouseMoveHandler);
+        mmarkerFoot.attachEvent("onmousemove", MouseMoveHandler);
+
+        AddFirstPage();
+
+        zoomcontainer.style.zoom = "100%";
+        ui.style.width = document.body.clientWidth;
+        //ui.style.height = "60px";
+        //the height may change if the screen is too narrow and the ui buttons require two rows,
+        //so use the offset height.
+        pagecontainer.style.height = document.body.clientHeight - ui.offsetHeight;
+
+        oPageStyleClass = FindStyleRule(".pagestyle");
+        oLorStyleClass = FindStyleRule(".lorstyle");
+        oHeaderStyleClass = FindStyleRule(".headerstyle");
+        oFooterStyleClass = FindStyleRule(".footerstyle");
+        oMMarkerClass = FindStyleRule(".mmarker");
+
+        InitClasses();
+        InitMMarkers();
+
+        oMMarkerClass.style.display = "none";
+        oLorStyleClass.style.border = "dashed 1 white";
+        oHeaderStyleClass.style.border = "dashed 1 white";
+        oFooterStyleClass.style.border = "dashed 1 white";
+        marginbutton.value = "Show Margins";
+    }
+
+    function InitMMarkers() {
+        mmarkerLeft.style.top = oLorStyleClass.style.marginTop;
+        mmarkerRight.style.top = oLorStyleClass.style.marginTop;
+        mmarkerLeft.style.left = oLorStyleClass.style.marginLeft;
+        mmarkerRight.style.left = (printer.pageWidth - printer.marginRight) / 100 + "in";
+        mmarkerTop.style.top = oLorStyleClass.style.marginTop;
+        mmarkerBottom.style.top = (printer.pageHeight - adjMarginBottom) / 100 + "in";
+        mmarkerTop.style.left = oLorStyleClass.style.marginLeft;
+        mmarkerBottom.style.left = oLorStyleClass.style.marginLeft;
+		
+		mmarkerHead.style.top = (printer.unprintableTop + adjHeadMargin) / 100 + "in";
+        mmarkerFoot.style.top = (printer.pageHeight - ((printer.unprintableBottom + adjFootMargin))) / 100 + "in";
+		mmarkerHead.style.left = oLorStyleClass.style.marginLeft;
+        mmarkerFoot.style.left = oLorStyleClass.style.marginLeft;
+
+        mmarkerLeft.style.pixelTop -= 2;
+        mmarkerLeft.style.pixelLeft += 6;
+        mmarkerRight.style.pixelTop -= 2;
+        mmarkerRight.style.pixelLeft += 5;
+        mmarkerTop.style.pixelTop += 6;
+        mmarkerTop.style.pixelLeft -= 2;
+        mmarkerBottom.style.pixelTop += 5;
+        mmarkerBottom.style.pixelLeft -= 2;
+		
+        mmarkerHead.style.pixelTop += 6;
+        mmarkerHead.style.pixelLeft -= 2;
+        mmarkerFoot.style.pixelTop += 5;
+        mmarkerFoot.style.pixelLeft -= 2;
+    }
+
+    function CheckPrint() {
+        switch (dialogArguments.__IE_PrintType) {
+            case "Prompt":
+                if (hasPrompted) {
+                    break;
+                }
+                hasPrompted = true;
+                if (printer.showPrintDialog()) {
+                    PrintPrep();
+                } else {
+                    window.close();
+                }
+                break;
+            case "NoPrompt":
+                if (hasPrompted) {
+                    break;
+                }
+                hasPrompted = true;
+                PrintPrep();
+                break;
+            case "Preview":
+            default:
+                break;
+        }
+    }
+
+    function PrintPrep() {
+        if (oLorStyleClass.style.border = "dashed 1 gray") reset = true;
+        oLorStyleClass.style.border = "dashed 1 white";
+        oHeaderStyleClass.style.border = "dashed 1 white";
+        oFooterStyleClass.style.border = "dashed 1 white";
+
+        if (layoutrect1.contentDocument.readyState == "complete") {
+            // This block will be called when printing with user prompt
+            // because the Print dialog box gives time for the content
+            // document to complete loading
+            layoutrect1.contentDocument.onreadystatechange = null;
+            PrintNow();
+        }
+        else {
+            // This block will usually be called when printing w/o user prompt
+            // and sets an event handler that listens for the loading of the content
+            // document before printing. Sometimes, however, the content document
+            // will be loaded in time for the previous block to execute
+            layoutrect1.contentDocument.onreadystatechange = PrintWhenContentDocComplete;
+        }
+
+        if (reset) { 
+			oLorStyleClass.style.border = "dashed 1 gray";
+			oHeaderStyleClass.style.border = "dashed 1 gray";
+			oFooterStyleClass.style.border = "dashed 1 gray";
+		}
+    }
+
+    function PrintWhenContentDocComplete() {
+        if (layoutrect1.contentDocument.readyState == "complete") {
+            layoutrect1.contentDocument.onreadystatechange = null;
+            PrintNow();
+        }
+    }
+
+    function PrintNow() {        
+        if (layoutrect1.contentDocument.readyState != "complete") {
+            layoutrect1.contentDocument.onreadystatechange = PrintWhenContentDocComplete;
+        }
+        else {            
+            layoutrect1.contentDocument.onreadystatechange = null
+            InitClasses();
+            InitMMarkers();
+            var startPage;
+            var endPage;
+            var oDeviceRectCollection = document.all.tags("DEVICERECT");
+
+            if (dialogArguments.__IE_PrintType == "NoPrompt" || printer.selectedPages == false) {
+                startPage = 1;
+                endPage = oDeviceRectCollection.length;
+            }
+            else if (printer.currentPage == true) {
+                alert("For safety reasons, printing the current page is disabled. Please manually enter a page range or print the entire document.");
+                return;
+            }
+            else {
+                startPage = printer.pageFrom;
+                endPage = printer.pageTo;
+                if (startPage > endPage) {
+                    alert("Error: Start page greater than end page");
+                    return;
+                }
+                if (startPage > oDeviceRectCollection.length) {
+                    alert("Error: Start page greater than number of pages in print job.");
+                    return;
+                }
+                if (endPage > oDeviceRectCollection.length) {
+                    alert("Warning: End page greater than number of pages in print job. Continuing Print Job.");
+                    endPage = oDeviceRectCollection.length;
+                }
+            }
+
+            try {
+                printer.startDoc("Printing NexTech Practice EMR Document...");
+
+                //(r.wilson 8/5/2013) PLID 51292 -
+                for (var n = 0; n < printer.copies; n++) {
+                    for (i = startPage - 1; i < endPage; i++)
+                        printer.printPage(oDeviceRectCollection[i]);
+                }
+
+                printer.stopDoc();
+
+                window.close();
+            } catch (err) {
+                alert("Document could not be printed! (" + err.description + ")");
+            }
+        }
+    }
+
+    function AddFirstPage() {
+        // (a.walling 2009-11-23 12:09) - PLID 36395 - Use the first document definition's source (may be 'document' for current displayed document)        
+        newHTML = "<IE:DEVICERECT ID='page1' MEDIA='print' CLASS='pagestyle'>";
+        newHTML += "<IE:LAYOUTRECT ID='layoutrect1' CONTENTSRC='" + allDocuments[currentDocumentIndex].source + "' ONLAYOUTCOMPLETE='OnRectComplete()' NEXTRECT='layoutrect2' CLASS='lorstyle'/>";
+        newHTML += "</IE:DEVICERECT>";
+
+        // (a.walling 2009-11-23 12:10) - PLID 36395 - And keep track of the last document for which we have created the initial layout rect
+        lastCreatedInitialLayoutRectDocumentIndex = currentDocumentIndex;
+
+        zoomcontainer.insertAdjacentHTML("afterBegin", newHTML);
+
+        headfoot.textHead = printer.header;
+        headfoot.textFoot = printer.footer;
+        headfoot.url = dialogArguments.__IE_BrowseDocument.URL;
+        headfoot.title = dialogArguments.__IE_BrowseDocument.title;
+        headfoot.page = 1;
+        AddHeaderAndFooterToPage(1, 1);
+
+        iNextPageToCreate = 2;
+
+        iTotalPagesPerDocument = 1;
+        allDocumentsPageTotals[currentDocumentIndex] = iTotalPagesPerDocument;
+    }
+
+    function OnRectComplete() {
+        if (event.contentOverflow == true) {
+            AddNewPage();
+        } else {
+            if (allDocuments.layoutComplete) {
+                // (a.walling 2009-11-23 12:10) - PLID 36395 - the last document in our set, fix up the page totals and etc and print if necessary
+                headfoot.pageTotal = document.all.tags("DEVICERECT").length;
+
+                AddPageTotalToPages();
+
+                ShowFilledPagesAndHideExcessPages();
+
+                setTimeout("CheckPrint();", 100);
+            } else if (currentDocumentIndex == (allDocuments.length - 1)) {
+                // (a.walling 2009-11-23 12:10) - PLID 36395 - the last document in our set, fix up the page totals and etc and print if necessary
+                headfoot.pageTotal = document.all.tags("DEVICERECT").length;
+
+                AddPageTotalToPages();
+
+                ShowFilledPagesAndHideExcessPages();
+
+                allDocuments.layoutComplete = true;
+                //TES 5/18/2012 - PLID 50509 - We still need to know what document we're on, there may still be more pages to print
+                //currentDocumentIndex = 0;
+                lastCreatedInitialLayoutRectDocumentIndex = -1;
+
+                setTimeout("CheckPrint();", 100);
+            } else {
+                // (a.walling 2009-11-23 12:10) - PLID 36395 - There are other documents; so process the next one
+                currentDocumentIndex = currentDocumentIndex + 1;
+                AddNewPage();
+            }
+        }
+    }
+
+    function OnRectCompleteSimple() {
+        if (event.contentOverflow == true) {
+            return;
+        }
+        if (currentDocumentIndex == (allDocuments.length - 1)) {
+            // (a.walling 2009-11-23 12:10) - PLID 36395 - the last document in our set, fix up the page totals
+            headfoot.pageTotal = parseInt(event.srcElement.parentElement.id.substring(4), 10);
+
+            AddPageTotalToPages();
+
+            ShowFilledPagesAndHideExcessPages();
+
+            allDocuments.layoutComplete = true;
+            //TES 5/18/2012 - PLID 50509 - We still need to know what document we're on, there may still be more pages to print
+            //currentDocumentIndex = 0;
+            lastCreatedInitialLayoutRectDocumentIndex = -1;
+        }
+    }
+
+    function ShowFilledPagesAndHideExcessPages() {
+        
+        for (i = 1; i <= headfoot.pageTotal; i++)
+            document.all("page" + i).style.position = "static";
+
+        var i = headfoot.pageTotal + 1;
+
+        while (document.all("page" + i)) {
+            document.all("page" + i).style.position = "absolute";
+            i++;
+        }
+    }
+
+    function AddHeaderAndFooterToPage(pageNum, pageNumPerDoc) {
+        // (a.walling 2009-11-23 12:10) - PLID 36395 - Use the header and footer information for the current document
+        var newHeader = allDocuments[currentDocumentIndex].header;
+        var newFooter = allDocuments[currentDocumentIndex].footer;
+
+        // (a.walling 2009-09-24 10:11) - PLID 33531 - use a global regular expression to replace all occurrences. a string or non-global regexp will only replace the first occurence.
+        // (d.lange 2013-03-11 16:38) - PLID 55523 - Display the page number based on the current document page total
+		// (r.gonet 06/13/2013) - PLID 56850 - Use the per document page count only if we are told to do so, otherwise use the global count.
+        var modHeader = newHeader.replace(/\{\{NXPAGENUM\}\}/gm, displayPerDocumentPageCount ? pageNumPerDoc : pageNum);
+        var modFooter = newFooter.replace(/\{\{NXPAGENUM\}\}/gm, displayPerDocumentPageCount ? pageNumPerDoc : pageNum);
+        
+
+        document.all("page" + pageNum).insertAdjacentHTML("afterBegin", modHeader);
+        document.all("page" + pageNum).insertAdjacentHTML("beforeEnd", modFooter);
+
+        if (!fMinMarginTop) {
+            if (ratiomarker) {
+                iPixelToInchRatio = ratiomarker.offsetLeft;
+                if (nxheader) {
+                    fMinMarginTop = Math.round((100 * (nxheader.offsetHeight)) / iPixelToInchRatio);
+                } else {
+                    fMinMarginTop = 0;
+                }
+            }
+        }
+
+        if (!fMinMarginBottom) {
+            if (ratiomarker) {
+                iPixelToInchRatio = ratiomarker.offsetLeft;
+                if (nxfooter) {
+                    fMinMarginBottom = Math.round((100 * (nxfooter.offsetHeight)) / iPixelToInchRatio);
+                } else {
+                    fMinMarginBottom = 0;
+                }
+            }
+        }
+    }
+
+    function AddNewPage() {
+        document.all("layoutrect" + (iNextPageToCreate - 1)).onlayoutcomplete = OnRectCompleteSimple;
+        headfoot.page = iNextPageToCreate;
+        newContentSource = "";
+
+        // Increment the page of the current document
+        iTotalPagesPerDocument = iTotalPagesPerDocument + 1;
+        
+        // (a.walling 2009-11-23 12:10) - PLID 36395 - The new content source may be blank if we are simply adding a new page to an existing document.
+        // However, if we are now printing a new document, we need to create the initial layout rect with the contentsrc explitly defined
+        if (lastCreatedInitialLayoutRectDocumentIndex != currentDocumentIndex && !allDocuments.layoutComplete) {
+            newContentSource = "CONTENTSRC = '" + allDocuments[currentDocumentIndex].source + "' ";
+
+            lastCreatedInitialLayoutRectDocumentIndex = currentDocumentIndex;
+
+            // Reset the total page count since we've started generating pages for the next document
+            iTotalPagesPerDocument = 1;
+        }
+        newHTML = "<IE:DEVICERECT ID='page" + iNextPageToCreate + "' MEDIA='print' CLASS='pagestyle'>";
+        newHTML += "<IE:LAYOUTRECT ID='layoutrect" + iNextPageToCreate + "' " + newContentSource + "ONLAYOUTCOMPLETE='OnRectComplete()' NEXTRECT='layoutrect" + (iNextPageToCreate + 1) + "'  CLASS='lorstyle'/>";
+        newHTML += "</IE:DEVICERECT>";
+
+        zoomcontainer.insertAdjacentHTML("beforeEnd", newHTML);
+        AddHeaderAndFooterToPage(iNextPageToCreate, iTotalPagesPerDocument);
+        headfoot.pageTotal = iNextPageToCreate;
+        iNextPageToCreate++;
+        
+        // Store the page total for the current document
+        allDocumentsPageTotals[currentDocumentIndex] = iTotalPagesPerDocument;
+    }
+
+    function AddPageTotalToPages() {
+		// (r.gonet 06/13/2013) - PLID 56850 - If we have been told to use the per document
+		//  page count, calculate the counts here and assign assign them to the tags that need them.
+        if (displayPerDocumentPageCount == true) {
+            // (d.lange 2013-03-12 17:13) - PLID 55523 - Iterate through the pages to determine the document page totals
+            for (i = 1; i <= headfoot.pageTotal; i++) {
+                // Determine the document set for the current page and get the page total
+                var iPageTotal = 0;
+                var iTotalDocumentPages = 0;
+                for (j = 0; j < allDocumentsPageTotals.length; j++) {
+                    iTotalDocumentPages = allDocumentsPageTotals[j] + iTotalDocumentPages;
+
+                    if (i <= iTotalDocumentPages) {
+                        iPageTotal = allDocumentsPageTotals[j];
+                        break;
+                    }
+                }
+
+                // Get the span tags for the page and assign the page set total
+                var pageSpanTags = document.getElementById("page" + i).getElementsByTagName("span");
+                for (k = 0; k < pageSpanTags.length; k++) {
+                    if (pageSpanTags[k].className == "hfPageTotal") {
+                        pageSpanTags[k].innerText = iPageTotal;
+                    }
+                }
+            }
+        } else {
+			// (r.gonet 06/13/2013) - PLID 56850 - We have been told to use the global counts rather than per document page counts.
+            var iAllDocumentsPageTotal = 0;
+            for (j = 0; j < allDocumentsPageTotals.length; j++) {
+                iAllDocumentsPageTotal = iAllDocumentsPageTotal + allDocumentsPageTotals[j];
+            }
+            // (r.gonet 06/13/2013) - PLID 56850 - Get the span tags for the page and assign the page count
+            for (i = 1; i <= headfoot.pageTotal; i++) {
+                var pageSpanTags = document.getElementById("page" + i).getElementsByTagName("span");
+                for (k = 0; k < pageSpanTags.length; k++) {
+                    if (pageSpanTags[k].className == "hfPageTotal") {
+                        pageSpanTags[k].innerText = iAllDocumentsPageTotal;
+                    }
+                }
+            }
+        }
+    }
+
+    function ResizeApp() {
+        ui.style.width = document.body.clientWidth;
+        if (document.body.clientHeight - ui.offsetHeight > 0) {
+            pagecontainer.style.height = document.body.clientHeight - ui.offsetHeight;
+        } else {
+            pagecontainer.style.height = document.body.clientHeight;
+        }
+    }
+
+    function Zoomer(string) {
+        if (string == "in") {
+            currZoom = zoomcontainer.style.zoom;
+            currZoom = currZoom.substring(0, currZoom.length - 1);
+            currZoom = parseInt(currZoom, 10);
+            newZoom = currZoom + 5;
+
+            if (newZoom > 10000) return;
+
+            zoomcontainer.style.zoom = newZoom + "%";
+            zoomnumber.value = newZoom;
+        }
+        else if (string == "out") {
+            currZoom = zoomcontainer.style.zoom;
+            currZoom = currZoom.substring(0, currZoom.length - 1);
+            currZoom = parseInt(currZoom, 10);
+            newZoom = currZoom - 5;
+
+            if (newZoom < 1) newZoom = 1;
+
+            zoomcontainer.style.zoom = newZoom + "%";
+            zoomnumber.value = newZoom;
+        }
+        else {
+            if (event.srcElement.id != "zoomnumber") return;
+            if (event.keyCode != 13) return;
+
+            var newZoom = zoomnumber.value;
+            numValue = parseInt(newZoom, 10);
+
+            if (numValue != newZoom) return;
+            if (newZoom > 10000) return;
+            if (newZoom < 1) return;
+
+            zoomcontainer.style.zoom = newZoom + "%";
+        }
+    }
+
+    function DoPageSetup() {
+        printer.showPageSetupDialog();
+        InitClasses();
+        InitMMarkers();
+    }
+
+    function DoPrintFromPreview() {
+        if (printer.showPrintDialog()) {
+            PrintPrep();
+        }
+    }
+
+    function ShowHideMargins() {
+        if (marginbutton.value == "Show Margins") {
+            oMMarkerClass.style.display = "block";
+            oLorStyleClass.style.border = "dashed 1 gray";
+			oHeaderStyleClass.style.border = "dashed 1 gray";
+			oFooterStyleClass.style.border = "dashed 1 gray";
+            marginbutton.value = "Hide Margins";
+        }
+        else {
+            oMMarkerClass.style.display = "none";
+            oLorStyleClass.style.border = "dashed 1 white";
+			oHeaderStyleClass.style.border = "dashed 1 white";
+			oFooterStyleClass.style.border = "dashed 1 white";
+            marginbutton.value = "Show Margins";
+        }
+    }
+
+	// (a.walling 2010-06-30 09:27) - PLID 39421 - Save header and page margins
+	function PersistMargins() {
+		PersistHeaderMargins();
+		PersistPageMargins();
+		
+		alert("Margins have been saved.");
+	}
+	
+	function PersistHeaderMargins() {
+		try {
+			var initValues=[printer.unprintableTop, printer.unprintableBottom];			
+			var values=[adjHeadMargin, adjFootMargin];
+			
+			var initValueString = initValues.join(";");
+			var valueString = values.join(";");
+			
+			if (initValueString == valueString) {
+				SafeClearHeaderMargins();
+				return;
+			}
+			
+			var wshShell = new ActiveXObject("WScript.Shell");
+			wshShell.RegWrite("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplateHeaderMargins", values.join(";"), "REG_SZ");
+			
+		} catch (err) {
+			alert(err.description);
+		}
+	}
+	
+	function PersistPageMargins() {
+		try {
+			var initValues=[initPrinterMarginTop, initPrinterMarginBottom, initPrinterMarginLeft, initPrinterMarginRight];
+			var values=[printer.marginTop, printer.marginBottom, printer.marginLeft, printer.marginRight];
+			
+			var initValueString = initValues.join(";");
+			var valueString = values.join(";");
+			
+			if (initValueString == valueString) {
+				SafeClearPageMargins();
+				return;
+			}
+			
+			var wshShell = new ActiveXObject("WScript.Shell");
+			wshShell.RegWrite("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplatePageMargins", values.join(";"), "REG_SZ");
+			
+		} catch (err) {
+			alert(err.description);
+		}
+	}
+	
+	function SafeClearPageMargins() {
+		try {
+			var wshShell = new ActiveXObject("WScript.Shell");
+			wshShell.RegDelete("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplatePageMargins");
+		} catch (err) {
+		}
+	}
+	
+	function SafeClearHeaderMargins() {
+		try {
+			var wshShell = new ActiveXObject("WScript.Shell");
+			wshShell.RegDelete("HKEY_CURRENT_USER\\Software\\NexTech\\Practice\\Settings\\NxPrintTemplateHeaderMargins");
+		} catch (err) {
+		}
+	}
+	
+	function ResetMargins() {
+		try {
+			adjHeadMargin = 0;
+			adjFootMargin = 0;
+			printer.marginTop = initPrinterMarginTop;
+			printer.marginBottom = initPrinterMarginBottom;
+			printer.marginLeft = initPrinterMarginLeft;
+			printer.marginRight = initPrinterMarginRight;
+			
+			SafeClearPageMargins();
+			SafeClearHeaderMargins();
+			
+		} catch (err) {
+		}
+		
+		try {								
+			InitClasses();
+			InitMMarkers();
+			iDeltaX = 0;
+			iDeltaY = 0;
+			bMoveMMarkerLeft = false;
+			bMoveMMarkerRight = false;
+			bMoveMMarkerTop = false;
+			bMoveMMarkerBottom = false;
+			bMoveMMarkerHead = false;
+			bMoveMMarkerFoot = false;
+		} catch (err) {		
+		}
+
+		alert("Margins have been reset.");
+	}
+	
+</SCRIPT>
+<HEAD>
+<BODY ONLOAD="Init()" ONRESIZE="ResizeApp()" SCROLL="no">
+
+    <IE:TEMPLATEPRINTER ID="printer" MEDIA="print"/>
+    <IE:HEADERFOOTER ID="headfoot"/>
+
+    <DIV ID="ui" ALIGN="CENTER">
+		<TABLE STYLE="text-align:center; width:100%;"><TR>
+			<TD><NOBR><SPAN STYLE="color:black; font-size:1.8em;">NexTech EMR</SPAN></NOBR></TD>
+			<TD WIDTH='150px'><BUTTON ONMOUSEUP="DoPrintFromPreview()"><TABLE STYLE="text-align:center;"><TR><TD><IMG SRC="nxres://0/PNG/#1057" HEIGHT="46px"></TD><TD><STRONG>Print...</STRONG></TD></TR></TABLE></BUTTON></TD>
+			<TD STYLE="text-align:left"><BUTTON ONMOUSEUP="DoPageSetup()" STYLE="width:120px">Page Setup...</BUTTON></TD>
+			<TD STYLE="text-align:right">
+				<BUTTON NAME="marginbutton" ONMOUSEUP="ShowHideMargins()" STYLE="width:120px;">Hide Margins</BUTTON>
+			</TD>
+			<TD>
+				<TABLE STYLE="text-align:center; height:100%"><TR><TD>
+				<BUTTON ONMOUSEUP="PersistMargins()" STYLE="width:120px;height:26px;">Save Margins</BUTTON>
+				</TD></TR><TR><TD>
+				<BUTTON ONMOUSEUP="ResetMargins()" STYLE="width:120px;height:26px;">Reset Margins</BUTTON>
+				</TR></TD></TABLE>
+			</TD>
+			<TD STYLE="text-align:left">
+				<span style="white-space:nowrap;">
+				    <BUTTON ONMOUSEUP="Zoomer('in')" STYLE="width:50px;height:34px;">In</BUTTON>
+				    <span style="width:60px;"><span style="color:black;">Zoom%:</span><br />
+				    <INPUT ID="zoomnumber" TYPE="TEXT" VALUE="100" SIZE="3" MAXLENGTH="4" ONKEYUP="Zoomer('amount')">&nbsp;</span>
+				    <BUTTON ONMOUSEUP="Zoomer('out')" STYLE="width:50px;height:34px;">Out</BUTTON>
+				</span>
+			</TD>
+		</TR></TABLE>
+    </DIV>
+
+    <DIV ID="pagecontainer">
+        <DIV ID="zoomcontainer">
+        <!-- Dynamically created pages go here. -->
+        <IMG ID="mmarkerLeft" CLASS="mmarker" STYLE="cursor:col-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="mmarkerRight" CLASS="mmarker" STYLE="cursor:col-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="mmarkerTop" CLASS="mmarker" STYLE="cursor:row-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="mmarkerBottom" CLASS="mmarker" STYLE="cursor:row-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="mmarkerHead" CLASS="mmarker" STYLE="cursor:row-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="mmarkerFoot" CLASS="mmarker" STYLE="cursor:row-resize;" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        <IMG ID="ratiomarker" CLASS="mmarker" STYLE="visibility:hidden;left:1in;top:1in" WIDTH="10" HEIGHT="10" BORDER="0"/>
+        </DIV>
+    </DIV>
+
+</BODY>
+</HTML>
+
+

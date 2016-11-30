@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://secure.newcropaccounts.com/interfaceV7"
+  targetNamespace="http://secure.newcropaccounts.com/interfaceV7" 
+  xmlns:NCStandard="http://secure.newcropaccounts.com/interfaceV7:NCStandard"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:import namespace="http://secure.newcropaccounts.com/interfaceV7:NCStandard"
+            schemaLocation="NCStandard.xsd"/>
+	<!-- Composite elements -->
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="address1" type="NCStandard:AlphaNumericRequired_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="address2" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="city" type="NCStandard:AlphaNumericRequired_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="state" type="NCStandard:StateCodes" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zip" type="NCStandard:ZipCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zip4" type="NCStandard:Zip4Code" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="country" type="NCStandard:CountryCodes" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressOptionalType">
+		<xs:sequence>
+			<xs:element name="address1" type="NCStandard:AlphaNumericOptional_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="address2" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="city" type="NCStandard:AlphaNumericOptional_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="state" type="NCStandard:StateCodesOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="zip" type="NCStandard:ZipCodeOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="zip4" type="NCStandard:Zip4Code" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="country" type="NCStandard:CountryCodes" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonNameType">
+		<xs:sequence>
+			<xs:element name="last" type="NCStandard:AlphaNumericRequired_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="first" type="NCStandard:AlphaNumericRequired_35" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="middle" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="prefix" type="NCStandard:PersonNamePrefix" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="suffix" type="NCStandard:PersonNameSuffix" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactType">
+		<xs:sequence>
+			<xs:element name="homeTelephone" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="workTelephone" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="cellularTelephone" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pagerTelephone" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fax" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="email" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="backOfficeTelephone" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="backOfficeFax" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PatientCharacteristicsType">
+		<xs:sequence>
+			<xs:element name="dob" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="gender" type="NCStandard:GenderType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="height" type="NCStandard:NumericWithDecimalOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="heightUnits" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="weight" type="NCStandard:NumericWithDecimalOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="weightUnits" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="language" type="NCStandard:LanguageType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PatientAllergyType">
+		<xs:sequence>
+			<xs:element name="allergyID" type="NCStandard:AlphaNumericOptional_10" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="allergyTypeID" type="NCStandard:DrugDatabaseType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="allergySeverityTypeID" type="NCStandard:AllergySeverityType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="allergyComment" type="NCStandard:AlphaNumericOptional_200" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="conceptID" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="conceptType" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="PatientAllergyFreeformType">
+    <xs:sequence>
+      <xs:element name="allergyName" type="NCStandard:AlphaNumericRequired_70" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="allergySeverityTypeID" type="NCStandard:AllergySeverityType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="allergyComment" type="NCStandard:AlphaNumericOptional_200" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="ID" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="PatientHealthplanType">
+		<xs:sequence>
+			<xs:element name="healthplanID" type="NCStandard:NumericOptional" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="healthplanTypeID" type="NCStandard:HealthplanType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="group" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="PatientHealthplanFreeformType">
+    <xs:sequence>
+      <xs:element name="healthplanName" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientDiagnosisType">
+		<xs:sequence>
+			<xs:element name="diagnosisID" type="NCStandard:AlphaNumericRequired_10" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="diagnosisType" type="NCStandard:DiagnosisType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="onsetDate" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="diagnosisName" type="NCStandard:AlphaNumericOptional_255" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="recordedDate" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PatientIdentifierType">
+		<xs:sequence>
+			<xs:element name="patientID" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="patientIDType" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Top-level elements -->
+	<xs:complexType name="CredentialsType">
+		<xs:sequence>
+			<xs:element name="partnerName" type="NCStandard:AlphaNumericRequired_30" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="name" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="password" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="productName" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="productVersion" type="NCStandard:AlphaNumericRequired_30" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="CurrentFeatureType">
+    <xs:sequence>
+      <xs:element name="feature" type="NCStandard:FeatureType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="featureStatus" type="NCStandard:FeatureStatusType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="featureExpiration" type="NCStandard:FeatureExpirationType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="featureExpirationDate" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="featureClientSpecified" type="NCStandard:AlphaNumericRequired_30" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="UserRoleType">
+		<xs:sequence>
+			<xs:element name="user" type="NCStandard:UserType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="role" type="NCStandard:RoleType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="name" type="NCStandard:AlphaNumericRequired_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="password" type="NCStandard:AlphaNumericEncryptedRequired_100" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Features" type="CurrentFeatureType" minOccurs="0" maxOccurs="5"/>
+    </xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DestinationType">
+		<xs:sequence>
+			<xs:element name="requestedPage" type="NCStandard:RequestedPageType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="logoutPage" type="NCStandard:URLRequired" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sessionTimeoutInMinutes" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="messageTransactionID" type="NCStandard:AlphaNumericRequired_70" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountType">
+		<xs:sequence>
+			<xs:element name="accountName" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="siteID" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AccountAddress" type="AddressType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="accountPrimaryPhoneNumber" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="accountPrimaryFaxNumber" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="LocationType">
+		<xs:sequence>
+			<xs:element name="locationName" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="locationShortName" type="NCStandard:AlphaNumericRequired_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LocationAddress" type="AddressType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="primaryPhoneNumber" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="primaryFaxNumber" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pharmacyContactNumber" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:string"/>
+	</xs:complexType>
+  <xs:complexType name="LocationTreeType">
+    <xs:sequence>
+      <xs:element name="locationName" type="NCStandard:AlphaNumericRequired_50" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="locationShortName" type="NCStandard:AlphaNumericRequired_11" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="level" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="LicensedPrescriberType">
+		<xs:sequence>
+			<xs:element name="LicensedPrescriberName" type="PersonNameType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dea" type="NCStandard:AlphaNumericRequired_30" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="prescriberStatus" type="NCStandard:PrescriberStatus" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="upin" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="licenseState" type="NCStandard:StateCodes" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="licenseNumber" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberNetwork" type="NCStandard:PrescriberNetwork" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberStartDateTime" type="NCStandard:DateTimeFormatCCYYMMDDHHMM" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberStopDateTime" type="NCStandard:DateTimeFormatCCYYMMDDHHMM" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="npi" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="freeformCredentials" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+  <xs:complexType name="MidlevelPrescriberType">
+    <xs:sequence>
+      <xs:element name="LicensedPrescriberName" type="PersonNameType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="dea" type="NCStandard:AlphaNumericRequired_30" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberStatus" type="NCStandard:PrescriberStatus" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="upin" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="licenseState" type="NCStandard:StateCodes" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="licenseNumber" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberNetwork" type="NCStandard:PrescriberNetwork" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberStartDateTime" type="NCStandard:DateTimeFormatCCYYMMDDHHMM" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriberStopDateTime" type="NCStandard:DateTimeFormatCCYYMMDDHHMM" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="npi" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="freeformCredentials" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="ID" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+	<xs:complexType name="StaffType">
+		<xs:sequence>
+			<xs:element name="StaffName" type="PersonNameType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="license" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="npi" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="InterestedPartyType">
+		<xs:sequence>
+			<xs:element name="InterestedPartyName" type="PersonNameType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InterestedPartyAddress" type="AddressOptionalType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InterestedPartyContact" type="ContactType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dea" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="upin" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="licenseState" type="NCStandard:StateCodes" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="licenseNumber" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="npi" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="PatientType">
+		<xs:sequence>
+			<xs:element name="PatientName" type="PersonNameType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="medicalRecordNumber" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="socialSecurityNumber" type="NCStandard:SSNBasic" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="memo" type="NCStandard:AlphaNumericOptional_210" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PatientAddress" type="AddressOptionalType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PatientContact" type="ContactType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PatientCharacteristics" type="PatientCharacteristicsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PatientAllergies" type="PatientAllergyType" minOccurs="0" maxOccurs="50"/>
+			<xs:element name="PatientHealthplans" type="PatientHealthplanType" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="PatientDiagnosis" type="PatientDiagnosisType" minOccurs="0" maxOccurs="100"/>
+			<xs:element name="PatientDiagnosisSearch" type="NCStandard:AlphaNumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PatientIdentifier" type="PatientIdentifierType" minOccurs="0" maxOccurs="10"/>
+      <xs:element name="PatientFreeformHealthplans" type="PatientHealthplanFreeformType" minOccurs="0" maxOccurs="5"/>
+      <xs:element name="EpisodeIdentifier" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EncounterIdentifier" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PatientFreeformAllergy" type="PatientAllergyFreeformType" minOccurs="0" maxOccurs="50" />
+      <xs:element name="PatientFormulary" type="PatientFormularyType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PatientPharmacies" type="PatientPharmacyType" minOccurs="0" maxOccurs="5"/>
+      <xs:element name="DrugSetID" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+  <xs:complexType name="ExternalDrugOverrideType">
+    <xs:sequence>
+      <xs:element name="externalDrugConcept" type="NCStandard:DrugInformationOptional_105" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugName" type="NCStandard:DrugInformationOptional_80" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugStrength" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugStrengthUOM" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugStrengthWithUOM" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugDosageForm" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugRoute" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugIdentifier" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugIdentifierType" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugSchedule" type="NCStandard:DrugScheduleType" minOccurs="1" maxOccurs="1"/>      
+      <xs:element name="externalDrugOverTheCounter" type="NCStandard:DrugOTCType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalDrugNdc" type="NCStandard:AlphaNumericRequired_11" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>    
+  </xs:complexType>
+	<xs:complexType name="NewPrescriptionType">
+		<xs:sequence>
+			<xs:element name="pharmacyIdentifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drugIdentifier" type="NCStandard:AlphaNumericRequired_11" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drugIdentifierType" type="NCStandard:DrugDatabaseType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dispenseNumber" type="NCStandard:NumericWithDecimalRequired_15" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dosage" type="NCStandard:AlphaNumericRequired_140" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="refillCount" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="substitution" type="NCStandard:DrugSubstitutionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pharmacistMessage" type="NCStandard:AlphaNumericOptional_210" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalOverrideDrug" type="ExternalDrugOverrideType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="renewalRequestIdentifier" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="codifiedSigType" type="CodifiedSigType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prn" type="NCStandard:DrugTakeAsNeededType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="dispenseNumberQualifier" type="NCStandard:AlphaNumericRequired_2" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="daysSupply" type="NCStandard:NumericRequired_3" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriptionAuditDelivery" type="NCStandard:PrescriptionAuditDeliveryType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="refillQuantityQualifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="NewPrescriptionImageType">
+		<xs:sequence>
+			<xs:element name="imageDataType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="imageDataFormat" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="imageDataWidth" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="imageDataHeight" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="imageDataSize" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="imageData" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="NewPrescriptionWithImagesType">
+		<xs:sequence>
+			<xs:element name="pharmacyIdentifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugName" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugStrength" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugStrengthUOM" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugRoute" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugForm" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugIdentifier" type="NCStandard:AlphaNumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drugIdentifierType" type="NCStandard:DrugDatabaseType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dispenseNumber" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dosage" type="NCStandard:AlphaNumericOptional_140" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="refillCount" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="substitution" type="NCStandard:DrugSubstitutionType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pharmacistMessage" type="NCStandard:AlphaNumericOptional_210" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="images" type="NewPrescriptionImageType" minOccurs="0" maxOccurs="4"/>
+		</xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="PrescriptionRenewalResponseType">
+		<xs:sequence>
+			<xs:element name="renewalRequestIdentifier" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="responseCode" type="NCStandard:ResponseCodeType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="refillCount" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="drugSchedule" type="NCStandard:DrugScheduleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="responseDenyCode" type="NCStandard:ResponseDenyCodeType" minOccurs="0" maxOccurs="1"/>      
+      <xs:element name="messageToPharmacist" type="NCStandard:AlphaNumericOptional_70" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="refillQuantityQualifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" form="unqualified" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="PrescriptionRenewalRequestType">
+		<xs:sequence>
+			<xs:element name="pharmacyIdentifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drugNDC" type="NCStandard:NumericOptional" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="drug" type="NCStandard:AlphaNumericRequired_70" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dispenseNumber" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dosage" type="NCStandard:AlphaNumericOptional_140" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastFillDate" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="writtenDate" type="NCStandard:DateFormatCCYYMMDD" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="daysSupply" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="substitution" type="NCStandard:DrugSubstitutionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="refills" type="NCStandard:AlphaNumericOptional_10" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pharmacistMessage" type="NCStandard:AlphaNumericOptional_210" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="NCStandard:AlphaNumericRequired_40"/>
+	</xs:complexType>
+  <xs:complexType name="CodifiedSigType">
+    <xs:sequence>
+      <xs:element name="ActionType" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="NumberType" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FormType" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="RouteType" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FrequencyType" type="NCStandard:NumericRequired" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientFormularyType">
+    <xs:sequence>
+      <xs:element name="eligibilityGuid" type="NCStandard:AlphaNumericRequired_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="eligibilityIndex" type="NCStandard:NumericRequired" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="drugIdentifier" type="NCStandard:AlphaNumericRequired_11" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="drugIdentifierType" type="NCStandard:DrugDatabaseType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="statusDisplayed" type="NCStandard:AlphaNumericRequired_30" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientPharmacyType">
+    <xs:sequence>
+      <xs:element name="pharmacyIdentifier" type="NCStandard:AlphaNumericRequired_10" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DrugSetType">
+    <xs:sequence>
+      <xs:element name="drugSetName" type="NCStandard:AlphaNumericRequired_40" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="drugSetType" type="NCStandard:DrugSetType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="drugSetStatus" type="NCStandard:DrugSetStatusType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="drug" type="NewPrescriptionType" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
+    <xs:attribute name="ID" form="unqualified" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="OutsidePrescriptionType">
+		<xs:sequence>
+			<xs:element name="externalId" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pharmacyIdentifier" type="NCStandard:AlphaNumericOptional_10" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pharmacyPhone" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pharmacyFax" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="date" type="NCStandard:AlphaNumericOptional_35" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="doctorName" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="drug" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dosage" type="NCStandard:AlphaNumericOptional_80" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dispenseNumber" type="NCStandard:NumericWithDecimalOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="sig" type="NCStandard:AlphaNumericOptional_140" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="refillCount" type="NCStandard:NumericOptional" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="substitution" type="NCStandard:DrugSubstitutionType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pharmacistMessage" type="NCStandard:AlphaNumericOptional_210" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="drugIdentifier" type="NCStandard:AlphaNumericRequired_11" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="drugIdentifierType" type="NCStandard:DrugDatabaseType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriptionType" type="NCStandard:AlphaNumericRequired_30" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="externalOverrideDrug" type="ExternalDrugOverrideType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="renewalRequestIdentifier" type="NCStandard:AlphaNumericOptional_40" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="codifiedSigType" type="CodifiedSigType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prn" type="NCStandard:DrugTakeAsNeededType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prescriptionStatus" type="NCStandard:PrescriptionStatusType" minOccurs="0" maxOccurs="1" />
+      <xs:element name="prescriptionSubStatus" type="NCStandard:PrescriptionSubStatusType" minOccurs="0" maxOccurs="1" />
+      <xs:element name="prescriptionArchiveStatus" type="NCStandard:PrescriptionArchiveType" minOccurs="0" maxOccurs="1" />
+      <xs:element name="dispenseNumberQualifier" type="NCStandard:AlphaNumericRequired_2" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="daysSupply" type="NCStandard:NumericRequired_3" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="ID" type="NCStandard:AlphaNumericOptional_40"/>
+	</xs:complexType>
+	<!--
+	 NCScript Definition
+	 -->
+	<xs:element name="NCScript">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Credentials" type="CredentialsType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="UserRole" type="UserRoleType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Destination" type="DestinationType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Account" type="AccountType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Location" type="LocationType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="LocationTree" type="LocationTreeType" minOccurs="0" maxOccurs="10"/>
+        <xs:element name="LicensedPrescriber" type="LicensedPrescriberType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Staff" type="StaffType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="SupervisingDoctor" type="LicensedPrescriberType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="SupervisingDoctorLocation" type="LocationType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="MidlevelPrescriber" type="MidlevelPrescriberType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Patient" type="PatientType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NewPrescription" type="NewPrescriptionType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PrescriptionRenewalResponse" type="PrescriptionRenewalResponseType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="OutsidePrescription" type="OutsidePrescriptionType" minOccurs="0" maxOccurs="60"/>
+				<xs:element name="NewPrescriptionWithImages" type="NewPrescriptionWithImagesType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="DrugSet" type="DrugSetType" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--
+	 NCRenewal Definition
+	 -->
+	<xs:element name="NCRenewal">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Credentials" type="CredentialsType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Account" type="AccountType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Location" type="LocationType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="LicensedPrescriber" type="LicensedPrescriberType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Staff" type="StaffType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Patient" type="PatientType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="PrescriptionRenewalRequest" type="PrescriptionRenewalRequestType" minOccurs="1" 
+
+maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <NoDependencies>MarketingRc.h;AdministratorRc.h;BillingRc.h;ContactsRc.h;EmrRc.h;EmrRc2.h;FinancialRc.h;InventoryRc.h;LetterWritingRc.h;NxStandardRc.h;PatientsRc.h;PracticeRc.h;ReportsRc.h;SchedulerRc.h</NoDependencies>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup />
+</Project>

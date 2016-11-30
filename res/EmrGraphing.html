@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<title>Graphing</title>
+<link type="text/css" href="CSS/jquery-ui.css" rel="Stylesheet" />
+
+<style type="text/css">
+body {
+	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+	max-width: 6in;
+}
+
+a, a:active, a:selected, a:visited { 
+	border: none;
+	outline: none;
+}
+
+.hiddenGraph {
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.uiOptionButton {
+	float: right;
+}
+
+.graphTitle {
+	padding: 2px;
+	color: #1c94c4;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.hiddenGraph .graphTitle {
+	color: #6facc4;
+	font-weight: normal;
+	font-style: italic;
+}
+
+#options {
+	width: 99%;
+	padding-left: 1%;
+	margin-bottom: 16px;
+	font-size: .8em;
+	overflow: auto;
+}
+
+.graph {
+	width: 99%;
+	padding-left: 1%;
+	margin-bottom: 4px;
+	border: 1px solid #dddddd;
+}
+
+.content {
+	width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 8px;
+}
+
+.context {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.headerIcon {
+	float: right;
+	cursor: pointer;
+	margin: 2px;
+}
+
+@media print {
+	#options {
+		display: none !important;
+	}
+
+	.graph {
+		width: 100%;
+		padding: 0px;
+		margin: 0xp;
+		border: none !important;
+	}
+	
+	.content {
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.context {
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	
+	.hiddenGraph {
+		display: none !important;
+	}
+	
+	.headerIcon { 
+		display: none !important;
+	}
+}
+
+</style>
+
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="JS/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="JS/jquery.js"></script>
+<script type="text/javascript" src="JS/jquery-ui.js"></script>
+<script type="text/javascript" src="JS/flot.js"></script>
+<script type="text/javascript">
+    //(a.wilson 5-1-2012) PLID 50081 - function to support tooltip generation.
+    function showTooltip(x, y, contents) {
+        var tooltip = $("#tooltip");
+        var newTip = false;
+
+        if (tooltip.length == 0) {
+            newTip = true;
+
+            tooltip = $('<div id="tooltip"></div>').css({
+                position: 'absolute',
+                visibility: 'hidden',
+                display: 'block',
+                border: '1px solid #8EBFFF',
+                padding: '2px',
+                'background-color': '#EDF5FF',
+                opacity: 0.80
+            });
+        }
+        //ensure we are not recreating the tooltip each frame.
+        if (newTip) {
+            tooltip.appendTo("body");
+        }
+        
+        tooltip.text(contents);
+        //ensure the tooltip displays within the graph.
+        var tipPosTop = 0;
+        var tipPosLeft = 0;
+                
+        var tipHeight = tooltip.height();
+        var tipWidth = tooltip.width();
+
+        var pad = 15;
+
+        var tipAboveTop = y - pad - tipHeight;
+        var tipBelowBottom = y + pad + tipHeight;
+        
+        var docVisibleTop = document.documentElement.scrollTop;
+        var docVisibleBottom = docVisibleTop + document.documentElement.clientHeight;
+        
+        var tipAboveOverflow = tipAboveTop - docVisibleTop;
+        var tipBelowOverflow = docVisibleBottom - tipBelowBottom;
+        
+        if (tipAboveOverflow >= 0) {
+            tipPosTop = y - pad - tipHeight;
+        } else if (tipBelowOverflow >= 0) {
+            tipPosTop = y + pad;
+        } else {
+            if (tipBelowOverflow < tipAboveOverflow) {
+                tipPosTop = y - pad - tipHeight;
+            } else {
+                tipPosTop = y + pad;
+            }
+        }
+        
+        var docVisibleLeft = document.documentElement.scrollLeft;
+        var docVisibleRight = docVisibleLeft + document.documentElement.clientWidth;
+        
+        var docVisibleWidth = docVisibleRight - docVisibleLeft;
+
+        var tipCenterLeft = x - Math.round(tipWidth / 2);
+        var tipCenterRight = tipCenterLeft + tipWidth;
+        
+        if (tipCenterRight > docVisibleRight) {
+            var offset = tipCenterRight - docVisibleRight;
+            tipCenterRight -= offset;
+            tipCenterLeft -= offset;
+        }
+        
+        if (tipCenterLeft < docVisibleLeft) {
+            var offset = docVisibleLeft - tipCenterLeft;
+            tipCenterRight += offset;
+            tipCenterLeft += offset;
+        }
+
+        tipPosLeft = tipCenterLeft;
+
+        tooltip.css({ left: tipPosLeft, top: tipPosTop });
+
+        if (tooltip.css("visibility") == "hidden") {
+            tooltip.css("visibility", "visible").hide().fadeIn("slow");
+        }
+    }
+	
+	function findGraph(emrGraphID) {
+		return $("#g" + emrGraphID);
+	}
+	
+	function findGraphContent(emrGraphID) {
+		return findGraph(emrGraphID).find(".content");
+	}
+	
+	function loadGraph(emrGraphID) {
+		var graphContent = findGraphContent(emrGraphID);
+		var graphContext = graphContent.find(".context");
+		
+		if (graphContent.length == 0 || graphContext.length == 0) {
+			collapseGraph(emrGraphID);
+			return;
+		}
+		
+		var loader = external.LoadGraphData(emrGraphID);
+		
+		if (loader === null) {
+			collapseGraph(emrGraphID);
+			return;
+		}
+		
+		var previousPoint = null;
+		loader.WhenDataReady = function() {
+			graphContext.height(300);
+			var options = eval('(' + loader.GetGraphOptionsJson() + ')');
+			var data = eval('(' + loader.GetGraphDataJson() + ')');
+			$.plot(graphContext, data, options);
+		};
+		
+		//(a.wilson 5-1-2012) PLID 50081 - bind the graph with tooltips.
+		graphContent.bind("plothover", function(event, pos, item) {
+			if (item) {
+				if (previousPoint != item.dataIndex) {
+					previousPoint = item.dataIndex;
+					//ensure the data is displayed properly (value - date)
+					var x = item.datapoint[0];
+					var y = 0;
+
+					if (Math.abs(item.datapoint[1].toFixed(2) - item.datapoint[1].toFixed(0)) == 0) {
+						y = item.datapoint[1].toFixed(0);
+					} else {
+						y = item.datapoint[1].toFixed(2);
+					}
+
+					var dateVal = new Date(0);
+					dateVal.setUTCSeconds(x / 1000);
+
+					var tipText = y + " - " + dateVal.toLocaleDateString();
+
+					showTooltip(item.pageX, item.pageY, tipText);
+				}
+			}
+			else {  //remove tooltip if we are not over point.
+				$("#tooltip").remove();
+				previousPoint = null;
+			}
+		});
+		loader.WhenDataEmpty = function() {
+			graphContext.text("No results");
+			graphContent.height("auto");
+		};
+		loader.Load();
+	}
+	
+	function showGraph(emrGraphID) {
+		
+		var graph = findGraph(emrGraphID);
+		
+		if (graph.length == 0) {
+			return;
+		}
+		
+		// (a.walling 2012-05-02 12:17) - PLID 50156 - Keep track of hidden state
+		graph.data('isHidden', false);
+		graph.removeClass('hiddenGraph');
+		
+		$('<div class="content"><div class="context"></div></div>').appendTo(graph);
+		
+		loadGraph(emrGraphID);
+	}
+	
+	function collapseGraph(emrGraphID) {
+		findGraphContent(emrGraphID).remove();
+	}
+	
+	// (a.walling 2012-05-02 12:17) - PLID 50156 - This actually hides the graph, as compared to collapseGraph, which just gets rid of the content
+	function closeGraph(emrGraphID) {
+		collapseGraph(emrGraphID);
+		var graph = findGraph(emrGraphID);
+		graph.data('isHidden', true);
+		graph.hide();
+		graph.addClass('hiddenGraph');
+	}
+	
+	// (a.walling 2012-05-01 09:41) - PLID 50090 - Let external know the new set of visible graphs
+	function notifyVisibleGraphs() {
+		var visibleGraphs = $(".content:visible").map(function() {
+			return $(this).parent().attr('id');
+		}).get().join(',');
+		
+		external.UpdateVisibleGraphs(visibleGraphs);
+	}
+	
+	// (a.walling 2012-05-02 12:17) - PLID 50156 - Let external know the new set of hidden graphs
+	function notifyHiddenGraphs() {
+		var hiddenGraphs = $(".graph").filter(function() {
+			return $(this).data('isHidden') === true;
+		}).map(function() {
+			return $(this).attr('id');
+		}).get().join(',');
+		
+		external.UpdateHiddenGraphs(hiddenGraphs);
+	}
+	
+	function toggleGraph(emrGraphID) {
+		if (findGraphContent(emrGraphID).length == 0) {
+			// (a.walling 2012-05-02 12:17) - PLID 50156 - Toggling a hidden graph effectively means showing it, no longer hidden
+			if (findGraph(emrGraphID).data('isHidden') === true) {
+				showGraph(emrGraphID);
+				notifyHiddenGraphs();
+			} else {
+				showGraph(emrGraphID);
+			}
+		} else {
+			collapseGraph(emrGraphID);
+		}
+		
+		// (a.walling 2012-05-01 09:41) - PLID 50090 - Let external know the new set of visible graphs
+		notifyVisibleGraphs();
+	}
+	
+	function isShowAll() {
+		return $("#showAllCheck").is(":checked");
+	}
+	
+	function toggleShowAll() {
+		if (isShowAll()) {
+			$(".graph:hidden").show();
+		} else {
+			// (a.walling 2012-05-02 12:17) - PLID 50156 - Hide what once was hidden
+			$(".graph").filter(function() { 
+				return $(this).data('isHidden') === true; 
+			}).hide();
+		}
+	}
+	
+	function getAvailableGraphs() {
+		return eval('(' + external.GetAvailableGraphsJson() + ')');
+	}
+	
+	// (a.walling 2012-05-02 18:12) - PLID 50157 - Need to ignore clicks if sorting
+	var sortingGraphs = false;
+	
+	// (a.walling 2012-05-01 09:41) - PLID 50090 - Create graph element, with icon to collapse
+	// (a.walling 2012-05-02 12:17) - PLID 50156 - also X icon to close / hide
+	function createGraph(emrGraphID, emrGraphName) {
+		var newGraph = $('<div class="graph ui-corner-all" id="g' + emrGraphID + '"></div>');
+				
+		$('<span class="headerIcon ui-icon ui-icon-minusthick" title="Expand or collapse this graph"></span>').click(function() {
+			if (sortingGraphs) { return; } // (a.walling 2012-05-02 18:12) - PLID 50157 - Ignore clicks if sorting
+			toggleGraph(emrGraphID);
+		}).appendTo(newGraph);
+		
+		$('<span class="headerIcon ui-icon ui-icon-closethick" title="Hide this graph"></span>').click(function() {
+			if (sortingGraphs) { return; } // (a.walling 2012-05-02 18:12) - PLID 50157 - Ignore clicks if sorting
+			closeGraph(emrGraphID);
+			notifyHiddenGraphs();
+			notifyVisibleGraphs();
+		}).appendTo(newGraph);
+		
+		$('<div class="graphTitle"></div>').text(emrGraphName).click(function() {
+			if (sortingGraphs) { return; } // (a.walling 2012-05-02 18:12) - PLID 50157 - Ignore clicks if sorting
+			toggleGraph(emrGraphID);
+		}).disableSelection().appendTo(newGraph);
+		
+		return newGraph;
+	}
+	
+	// (a.walling 2012-05-01 09:41) - PLID 50090 - Reloads all graphs and their visibility state from external
+	function reloadGraphs()
+	{
+		var graphContainer = $("#graphs");
+		
+		graphContainer.hide();
+		graphContainer.empty();
+		
+		$.each(getAvailableGraphs(), function(ix, graph) {
+			var newGraph = createGraph(graph.id, graph.name);
+			
+			// (a.walling 2012-05-02 12:17) - PLID 50156 - Keep track of hidden state
+			newGraph.data('isHidden', graph.isHidden);
+			
+			if (graph.isHidden) {
+				newGraph.addClass('hiddenGraph');
+			}
+			
+			graphContainer.append(newGraph);
+		});
+		
+		// (a.walling 2012-05-02 12:17) - PLID 50156 - Hide hidden graphs (if not showing all)
+		if (!isShowAll()) {
+			$(".graph").filter(function() { return $(this).data('isHidden'); }).hide();
+		}
+		
+		graphContainer.show();
+		
+		// (a.walling 2012-05-02 18:12) - PLID 50157 - Enable sorting
+		graphContainer.sortable({
+			distance: 16,
+			revert: true,
+			start: function() { sortingGraphs = true; }, 
+			stop: function() { sortingGraphs = false; }, 
+			update: function() {
+				sortingGraphs = false;
+				var newSort = $(this).sortable('toArray');
+				external.UpdateGraphSortOrder(newSort); // (a.walling 2012-05-02 18:12) - PLID 50157 - Notify external when sort order changes
+			}
+		});
+		
+		// (a.walling 2012-05-01 09:41) - PLID 50090 - Now show and load all graphs which were last marked as being visible
+		$.each(external.GetVisibleGraphs().split(','), function(ix, graphID) {
+			showGraph(graphID.substr(1));
+		});
+	}
+
+    $(function() {
+		
+		// (a.walling 2012-05-02 12:17) - PLID 50156 - Toggle button to show all hidden graphs
+		$('<input type="Checkbox" id="showAllCheck" title="Show all hidden graphs"></input><label for="showAllCheck">Show All</label>').appendTo("#options");
+		
+		$("#showAllCheck").button({
+			icons: {
+				primary: "ui-icon-search"
+			}
+		}).change(function() {
+			$(this).blur();
+			toggleShowAll();
+		}).disableSelection();
+	
+		$('<a href="#" id="configure" class="uiOptionButton" title="Create and edit graphs">Configure</a>').button({
+			icons: {
+				primary: "ui-icon-gear"
+			}
+		}).click(function() {
+			$(this).blur();
+			external.Configure();
+			reloadGraphs();
+		}).disableSelection().appendTo("#options");
+	
+		$('<a href="#" id="print" class="uiOptionButton" title="Print the current graph view">Print</a>').button({
+			icons: {
+				primary: "ui-icon-print"
+			}
+		}).click(function() {
+			$(this).blur();
+			external.PrintPreview();
+		}).disableSelection().appendTo("#options");
+		
+		$('<a href="#" id="refreshAll" class="uiOptionButton" title="Reload all graphs from data">Refresh All</a>').button({
+			icons: {
+				primary: "ui-icon-refresh"
+			}
+		}).click(function() {
+			$(this).blur();
+			reloadGraphs();
+		}).disableSelection().appendTo("#options");
+		
+		$('<div class="clearBoth"></div>').appendTo("#options");
+		
+		reloadGraphs();
+    });
+</script>
+</head>
+
+<body>
+
+<div id="content">
+    
+	<div id="options">
+	</div>
+    
+	<div id="graphs">
+	</div>
+
+</div>
+</body>
+</html>

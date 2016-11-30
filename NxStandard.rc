@@ -1,0 +1,162 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "NxStandardRc.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "NxStandardRc.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROGRESS_DLG DIALOG 0, 0, 233, 113
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Install Progress"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,91,92,50,14
+    CONTROL         "Progress1",IDC_CURRENT_THREAD_PROGRESS,
+                    "msctls_progress32",WS_BORDER,8,31,219,6
+    CONTROL         "Progress2",IDC_OVERALL_PROGRESS,"msctls_progress32",WS_BORDER,7,65,219,14
+    CTEXT           "Current Thread Progress\nHello",IDC_CURRENT_THREAD_PROGRESS_LABEL,7,13,219,15
+    CTEXT           "Overall Progress",IDC_OVERALL_PROGRESS_LABEL,7,55,219,8
+END
+
+IDD_INPUT_DLG DIALOGEX 0, 0, 226, 100
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_RESULT_EDIT,16,39,191,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INPUT_MASKED_RESULT,16,39,191,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RESULT_NUM_EDIT,16,39,191,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "...",IDC_BROWSE_BTN,208,39,11,14,NOT WS_VISIBLE
+    LTEXT           "",IDC_NXINPUT_PROMPT_LOWER_LABEL,16,55,191,10,0,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "&OK",IDOK,7,68,62,25
+    PUSHBUTTON      "O&ther",IDABORT,83,68,62,25
+    PUSHBUTTON      "&Cancel",IDCANCEL,157,68,62,25
+    CTEXT           "Static",IDC_NXINPUT_PROMPT_LABEL,16,15,191,10,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+END
+
+IDD_USAGETRACKINGDLG DIALOG 0, 0, 320, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,179,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,263,179,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PROGRESS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 226
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_INPUT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_USAGETRACKINGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

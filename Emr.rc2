@@ -1,0 +1,403 @@
+//
+// EMR.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+#include "EmrRc2.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+// ... and sometimes you want to make a change to the .rc2 to ensure the resource is recompiled
+// ... you reached for the secret too soon
+// ... beware the jabberwock
+
+IDR_EMRFRAME MENU
+{
+	POPUP "Document"
+	{
+		MENUITEM "Save",							ID_EMR_SAVE
+		MENUITEM "Save all",						ID_EMR_SAVE_ALL
+		MENUITEM "Close",							ID_EMR_CLOSE
+	}
+	POPUP "Add object"
+	{
+		MENUITEM SEPARATOR
+		MENUITEM "Add item",                        ID_EMR_ADD_ITEM
+		MENUITEM SEPARATOR
+		MENUITEM "New topic",                       ID_EMR_NEW_TOPIC
+		MENUITEM "Import topics",                   ID_EMR_IMPORT_TOPICS
+		MENUITEM "New subtopic",                    ID_EMR_NEW_SUBTOPIC
+		MENUITEM "Import subtopics",                ID_EMR_IMPORT_SUBTOPICS
+		MENUITEM SEPARATOR
+		MENUITEM "New EMN",                         ID_EMR_NEW_EMN
+	}
+	POPUP "Add data"
+	{
+		MENUITEM "New todo task",					ID_EMR_NEW_TODO
+		MENUITEM "New recording",					ID_EMR_NEW_RECORDING
+	}
+	POPUP "View"
+	{
+		MENUITEM "Preview pane",					ID_EMR_VIEW_PREVIEW_PANE
+		MENUITEM "Tree pane",						ID_EMR_VIEW_TREE_PANE
+		MENUITEM "Photos pane",						ID_EMR_VIEW_PHOTOS_PANE
+	}
+}
+
+IDR_POPUP_MDITABS MENU 
+{
+    POPUP "Jabberwock"
+    {
+        MENUITEM "&Tabbed document",            ID_MDI_TABBED_DOCUMENT
+        MENUITEM SEPARATOR
+        MENUITEM "New &horizontal tab group",   ID_MDI_NEW_HORZ_TAB_GROUP
+        MENUITEM "New &vertical tab group",     ID_MDI_NEW_VERT_GROUP
+        MENUITEM "Move to ne&xt tab group",     ID_MDI_MOVE_TO_NEXT_GROUP
+        MENUITEM "Move to p&revious tab group", ID_MDI_MOVE_TO_PREV_GROUP
+    }
+}
+
+IDR_POPUP_DROP_MDITABS MENU 
+{
+    POPUP "Jabberwock"
+    {
+        MENUITEM "New &horizontal tab group",   ID_MDI_NEW_HORZ_TAB_GROUP
+        MENUITEM "New &vertical tab group",     ID_MDI_NEW_VERT_GROUP
+        MENUITEM "Move to ne&xt tab group",     ID_MDI_MOVE_TO_NEXT_GROUP
+        MENUITEM "Move to p&revious tab group", ID_MDI_MOVE_TO_PREV_GROUP
+    }
+}
+
+IDR_POPUP_EMR_TOPIC MENU
+{
+    POPUP "EMR topic"
+	{
+        MENUITEM "Add &image",		ID_EMR_ADD_IMAGE
+        MENUITEM "&Add new item",	ID_EMR_ADD_ITEM
+        MENUITEM "Add &text macro",	ID_EMR_ADD_TEXT_MACRO
+        MENUITEM "Add &signature",	ID_EMR_ADD_YOUR_SIGNATURE
+		MENUITEM "Add another &user's signature",	ID_EMR_ADD_OTHER_USERS_SIGNATURE
+	}
+}
+
+// tooltips in the format "Description\nTitle"
+
+STRINGTABLE 
+{
+    IDR_EMRFRAME                                "NexEMR\nTopic"
+		
+/// Frame UI
+    ID_MDI_NEW_VERT_GROUP						"Creates a new vertical tab group"
+    ID_MDI_NEW_HORZ_TAB_GROUP					"Creates a new horizontal tab group"
+    ID_MDI_MOVE_TO_PREV_GROUP					"Moves the current view to the previous tab group"
+    ID_MDI_MOVE_TO_NEXT_GROUP					"Moves the current view to the next tab group"
+    ID_MDI_TABBED_DOCUMENT						"Tabbed window"
+
+/// EMR / Frame
+	ID_EMR_SAVE									"Save this EMN\nSave"
+	ID_EMR_SAVE_ALL								"Save all modified EMNs\nSave All"
+	ID_EMR_SAVE_AND_CLOSE						"Save all modified EMNs and close the EMR window\nSave and Close"
+	ID_EMR_CLOSE								"Close the EMR window\nClose"
+	ID_EMR_NEW_EMN								"Create a new EMN from a template\nNew EMN"
+	ID_EMR_DESCRIPTION							"Overall description of this EMR\nEMR Description"
+
+		// panes
+	ID_EMR_VIEW_TREE_PANE						"Show the tree of all EMNs and topics within this EMR\nTopic List"
+	ID_EMR_VIEW_PREVIEW_PANE					"Show a live preview of the current EMN\nPreview Pane"
+	ID_EMR_VIEW_PHOTOS_PANE						"Show photos attached to this patient and EMR\nPhotos"
+	ID_EMR_VIEW_CLASSIC_BUTTON_PANE				"Show the classic buttons\nClassic Buttons"
+	ID_EMR_VIEW_MU_PROGRESS_PANE				"Show the progress of meaningful use measures\nMeaningful Use Progress"
+	ID_EMR_VIEW_GRAPHING_PANE					"Show the graphing interface for this patient\nGraphing"
+
+		// views / dialogs
+	ID_EMR_VIEW_PIC								"Open the Procedure Information Center\nPIC"
+	ID_EMR_VIEW_HISTORY							"Show patient history documents\nHistory"
+	ID_EMR_VIEW_LABS							"Show patient lab requests and results\nLabs"
+	//ID_EMR_VIEW_ASC								"Show ASC fields\nASC"
+
+		// ui / layout
+	//ID_EMR_VIEW_FULLSCREEN						""
+
+		// popups
+	ID_EMR_VIEW_GRAPHS							"Chart patient EMR data\nEMR Graphs"
+	ID_EMR_VIEW_MEDALLERGY						"Display medications, allergies and prescriptions for this EMR in a new window\nMedication and allergy viewer"
+	ID_EMR_VIEW_CAMERABARCODE					"Show EMR barcode for Ricoh cameras\nEMR Barcode"
+	ID_EMR_VIEW_EYEMAGINATIONS					"Launch the Eyemaginations application\nEyemaginations"
+	ID_EMR_VIEW_RECALL							"Create a Patient Recall\nPatient Recall"
+	ID_EMR_VIEW_DEVICE_IMPORT					"Import files and data from external devices\nDevice Import"
+	//ID_EMR_VIEW_EPRESCRIBING						""
+	ID_EMR_VIEW_DRUGINTERACTIONS				"View interactions between this patient's drugs, allergies, and diagnoses.\nDrug Interactions"
+	
+		// misc
+	ID_EMR_VIEW_MESSAGE_BAR						"Display messages from NexEMR\nMessages"
+	ID_EMR_RESET_LAYOUT							"Reset layout of panes to default\nReset Layout"
+
+/// EMN
+	ID_EMR_EDIT_MODE							"Allow editing the layout and positioning of this EMN\nEdit Mode"
+
+		// status
+	ID_EMR_EMN_WRITE_ACCESS						"Acquire or release exclusive write access to EMR data\nWrite Access"
+	ID_EMR_EMN_STATUS							"Completion status assigned to this EMN\nStatus"
+	ID_EMR_EMN_CHART							"Chart assigned to this EMN\nChart"
+	ID_EMR_EMN_CATEGORY							"Category assigned to this EMN\nCategory"
+
+		// info
+	ID_EMR_EMN_MORE_INFO						"Open the More Info tab for this EMN\nMore Info Tab"
+	ID_EMR_EMN_DESCRIPTION						"General description of this EMN\nDescription"
+	ID_EMR_EMN_NOTES							"Other notes or information for this EMN\nNotes"
+	ID_EMR_EMN_LOCATION							"The location assigned to this EMN\nLocation"
+	ID_EMR_EMN_PROVIDER							"Primary provider assigned to this EMN\nPrimary Provider"
+	ID_EMR_EMN_SECONDARY_PROVIDER				"Secondary providers assigned to this EMN\nSecondary Provider"
+	ID_EMR_EMN_ASSISTANT						"Other assistants assigned to this EMN\nAssistants"
+	ID_EMR_EMN_OTHER_PROVIDERS					"Other providers assigned to this EMN\nOther Providers"
+	ID_EMR_SHOW_CONFIDENTIAL_INFO				"Display confidential information\nConfidential Info"
+	ID_EMR_WOUND_CARE_AUTO_CODING				"Perform automatic coding for Wound Care\nWound Care Coding"
+	ID_EMR_EMN_APPOINTMENT						"Appointment linked with this EMN\nEMN Appointment"
+	//ID_EMR_EMN_CODES								""
+
+		// create
+	ID_EMR_NEW_TODO								"Create and assign a new ToDo task\nNew ToDo Task"
+	ID_EMR_NEW_RECORDING						"Record and attach a new audio recording\nNew Audio Recording"
+
+		// auditing
+	ID_EMR_SHOW_EMR_AUDIT_HISTORY				"Display history of modifications to the entire EMR\nEMR Audit History"
+	ID_EMR_SHOW_EMN_AUDIT_HISTORY				"Display history of modifications to this EMN\nEMN Audit History"
+
+		// Classic Button Pane
+	ID_EMR_POSITION_TOPICS						"Display and modify the positioning of spawned topics\nPosition Topics"
+	ID_EMR_DEBUG								"Open one of your six mouths and sing the song that will vanquish all software defects\nDebug"
+	//ID_EMR_ADD_TOPICS_BTN_MENU					"Add topics\nAdd Topics"
+	//ID_EMR_PROBLEM_LIST_BTN_MENU				"Problem list\nProblem List"
+
+		// EM Checklist 
+	ID_EMR_EM_CHECKLIST							"Open the E/M checklist\nE/M Checklist"
+	ID_EMR_EM_VISITTYPE							"Choose the visit type associated with this EMN\nE/M Visit Type"
+
+		// dates
+	ID_EMR_EMN_DATE								"Date of this EMN\nDate"
+	ID_EMR_EMN_DATE_CREATED						"Creation time of this EMN\nDate Created"
+	ID_EMR_EMN_DATE_MODIFIED					"Last modification time of this EMN\nDate Modified"
+
+		// patient
+	ID_EMR_PATIENT_SUMMARY						"View a summary of this patient's information\nPatient Summary"
+	ID_EMR_UPDATE_DEMOGRAPHICS					"Update demographics for this EMN with the current information in the General 1 tab\nUpdate Demographics"
+	ID_EMR_EMN_PATIENT_NAME						"Patient name as recorded for this EMN\nPatient Name"
+	ID_EMR_EMN_PATIENT_AGE						"Patient age as recorded for this EMN's date\nPatient Age"
+	ID_EMR_EMN_PATIENT_GENDER					"Patient gender as recorded for this EMN\nPatient Gender"
+
+		// procedures
+	ID_EMR_EMN_PROCEDURES						"Procedures associated with this EMN\nProcedures"
+
+		// codes
+	//ID_EMR_NEW_CHARGE							""
+	//ID_EMR_NEW_DIAG_CODE						""
+	
+		// problems
+	ID_EMR_SHOW_PROBLEMS						"Display all problems for this EMR\nShow Problems"
+	ID_EMR_ADD_NEW_PROBLEM						"Create and associate new problem records\nNew Problem"
+	ID_EMR_LINK_PROBLEM							"Associate with an existing problem record\nLink Problem"
+	ID_EMR_ADD_NEW_PROBLEM_TO_EMR				"Create new problem record for this EMR\nNew Problem for EMR"
+	ID_EMR_ADD_NEW_PROBLEM_TO_EMN				"Create new problem record for this EMN\nNew Problem for EMN"
+	ID_EMR_ADD_NEW_PROBLEM_TO_TOPIC				"Create new problem record for this topic\nNew Problem for Topic"
+	ID_EMR_LINK_PROBLEM_TO_EMR					"Link existing problem record to this EMR\nLink Problem to EMR"
+	ID_EMR_LINK_PROBLEM_TO_EMN					"Link existing problem record to this EMN\nLink Problem to EMN"
+	ID_EMR_LINK_PROBLEM_TO_TOPIC				"Link existing problem record to this Topic\nLink Problem to Topic"
+
+		//asc
+	ID_EMR_ASC_ADMISSION_TIME					"ASC Admission Time for this EMN\nAdmission Time"
+	ID_EMR_ASC_DISCHARGE_TIME					"ASC Discharge Time for this EMN\nDischarge Time"
+	ID_EMR_ASC_DISCHARGE_STATUS					"ASC Discharge Status for this EMN\nDischarge Status"
+
+/// Topic
+		// items
+	ID_EMR_ADD_ITEM								"Add a new item to the current topic\nAdd Item"
+	ID_EMR_ADD_IMAGE							"Add a new blank image to the current topic\nAdd Image"
+	ID_EMR_ADD_TEXT_MACRO						"Add a new text item with macro content\nAdd Text Macro"
+	ID_EMR_ADD_SIGNATURE						"Add a new signature image\nAdd Signature"
+		ID_EMR_ADD_YOUR_SIGNATURE					"Add your signature image\nAdd Your Signature"
+		ID_EMR_ADD_OTHER_USERS_SIGNATURE			"Add another user's signature image\nAdd Another User's Signature"
+
+		// subtopics
+    ID_EMR_NEW_TOPIC                            "Add a new topic\nAdd Topic"
+    ID_EMR_NEW_SUBTOPIC                         "Add a new subtopic\nAdd Subtopic"
+    ID_EMR_IMPORT_TOPICS                        "Import topics from another template\nImport Topics"
+    ID_EMR_IMPORT_SUBTOPICS                     "Import topics beneath the current topic from another template\nImport Subtopics"
+	
+		// navigation
+	ID_EMR_TOPIC_LIST							"Navigate among topics in this EMN\nTopic List"
+	ID_EMR_FIRST_TOPIC							"Move to the beginning of this EMN\nFirst Topic"
+	ID_EMR_PREVIOUS_TOPIC						"Move to the previous topic\nPrevious Topic"
+	ID_EMR_NEXT_TOPIC							"Move to the next topic\nNext Topic"
+	ID_EMR_LAST_TOPIC							"Move to the end of this EMN\nLast Topic"
+	
+/// Preview pane
+	ID_EMR_PREVIEW_PANE_PRINT					"Print the preview pane directly to printer\nPrint"
+	ID_EMR_PREVIEW_PANE_PRINT_PREVIEW			"Preview the preview pane's printed layout\nPrint Preview"
+	ID_EMR_PREVIEW_PANE_PRINT_MULTIPLE			"Print or preview multiple EMNs\nPrint Multiple EMNs"
+
+	ID_EMR_PREVIEW_PANE_CONFIGURE				"Configure advanced preview pane display and formatting options\nConfigure"
+	ID_EMR_PREVIEW_PANE_AUTO_SCROLL				"Automatically scroll the preview pane to the active topic\nAuto Scroll"
+
+/// Status bar
+	ID_EMR_STATUS_TOTAL_TIME_OPEN				"Total accumulated length of time this EMN has been open among all sessions\nTotal Time"
+	ID_EMR_STATUS_CURRENT_TIME_OPEN				"Length of time this EMN has been open during this session\nCurrent Time"
+
+///Progress Bar
+	//ID_EMR_PROGRESS_PANE_BAR					""
+	//ID_EMR_PROGRESS_PANE_STATUS_LABEL			""
+	//ID_EMR_PROGRESS_PANE_SHOW_DETAILS			""
+	//ID_EMR_PROGRESS_PANE_CONFIGURE			""
+
+/// Photos
+		// Filtering
+	//ID_EMR_PHOTO_FILTER_CATEGORY				""
+	//ID_EMR_PHOTO_FILTER_DATE					""
+	//ID_EMR_PHOTO_FILTER_PROCEDURE				""
+		// Sorting
+	//ID_EMR_PHOTO_SORT							""
+	//ID_EMR_PHOTO_SORT_CATEGORY					""
+	//ID_EMR_PHOTO_SORT_ATTACHDATE				""
+	//ID_EMR_PHOTO_SORT_PROCEDURE					""
+	//ID_EMR_PHOTO_SORT_STAFF						""
+	//ID_EMR_PHOTO_SORT_NOTE						""
+	//ID_EMR_PHOTO_SORT_ASCENDING					""
+	//ID_EMR_PHOTO_SORT_SERVICEDATE				""
+		// Grouping
+	//ID_EMR_PHOTO_GROUP							""
+	//ID_EMR_PHOTO_GROUP_CATEGORY					""
+	//ID_EMR_PHOTO_GROUP_PROCEDURE				""
+		// Display
+	//ID_EMR_PHOTO_DISPLAY_LABELS					""
+		//Toolbar
+	ID_PHOTO_VIEW_SINGLE		"Previews one image at a time\nPreview One Image"
+	ID_PHOTO_VIEW_SIDEBYSIDE	"Previews two images at a time, side by side\nPreview Two Images (Side By Side)"
+	ID_PHOTO_VIEW_TOPBOTTOM		"Previews two images at a time, top and bottom\nPreview Two Images (Top / Bottom)"
+	ID_PHOTO_VIEW_FOURGRID		"Previews four images at a time\nPreview Four Images"
+	ID_PHOTO_SELECT_ALL			"Selects all current images\nSelect All Images"
+
+
+/// Print / Merging
+		// Actions
+	ID_EMR_MERGE_FROM_PACKET					"Create a set of Word documents from multiple templates using merged data from this EMR\nMerge from Packet"
+		ID_EMR_MERGE_FROM_PACKET_TO_WORD		"Merge from packet to Word\nMerge Packet to Word"
+		ID_EMR_MERGE_FROM_PACKET_TO_PRINTER		"Merge from packet directly to printer\nMerge Packet to Printer"
+
+	ID_EMR_MERGE_FROM_TEMPLATE					"Create a Word document from a template using merged data from this EMR\nMerge from Template"
+		ID_EMR_MERGE_FROM_TEMPLATE_TO_WORD		"Merge from template to Word\nMerge Template to Word"
+		ID_EMR_MERGE_FROM_TEMPLATE_TO_PRINTER	"Merge from template directly to printer\nMerge Template to Printer"
+
+	ID_EMR_MERGE_EDIT_PACKET					"Choose and arrange templates within a packet\nEdit Packet"
+	ID_EMR_MERGE_EDIT_TEMPLATE					"Edit the selected template within Word\nEdit Template"
+	ID_EMR_MERGE_NEW_TEMPLATE					"Create a new, blank template and edit within Word\nNew Blank Template"
+	ID_EMR_MERGE_COPY_TEMPLATE					"Create a new copy of an existing template and edit within Word\nCopy to New Template"
+
+		// Selections
+	//ID_EMR_MERGE_PACKET_COMBO					""
+	//ID_EMR_MERGE_TEMPLATE_COMBO					""
+
+		// Options
+	ID_EMR_MERGE_ADVANCED_SETUP					"Modify default template categories and other advanced options\nAdvanced Setup"
+	//ID_EMR_MERGE_REFRESH						""
+
+	//ID_EMR_MERGE_OPTIONS_BEGIN
+		ID_EMR_MERGE_OPTIONS_REVERSE_ORDER		"Merge templates within a packet in reverse order\nReverse Order"
+		ID_EMR_MERGE_OPTIONS_SEPARATE_HISTORY	"Store documents as separate items within the patient's history\nSeparate History"
+
+		ID_EMR_MERGE_OPTIONS_SAVE_TO_HISTORY	"Save the merged document in the patient's history\nSave to History"
+		ID_EMR_MERGE_OPTIONS_TO_PRINTER			"Merge directly to the printer by default\nMerge to Printer"
+		ID_EMR_MERGE_OPTIONS_ALL_EMNS			"Merge using all EMNs\nMerge all EMNs"
+	//ID_EMR_MERGE_OPTIONS_END
+
+	/// Single EMN Merge
+
+	ID_EMR_EMN_MERGE_FROM_TEMPLATE					"Create a Word document from a template using data from this EMN\nMerge from Template"
+		ID_EMR_EMN_MERGE_FROM_TEMPLATE_TO_WORD		"Merge from template to Word\nMerge Template to Word"
+		ID_EMR_EMN_MERGE_FROM_TEMPLATE_TO_PRINTER	"Merge from template directly to printer\nMerge Template to Printer"
+		
+	ID_EMR_EMN_MERGE_FROM_OTHER					"Create a Word document from a selected template using data from this EMN\nMerge Other Template"
+		ID_EMR_EMN_MERGE_FROM_OTHER_TO_WORD		"Choose a template and merge to Word\nMerge Other Template to Word"
+		ID_EMR_EMN_MERGE_FROM_OTHER_TO_PRINTER	"Choose a template and merge directly to printer\nMerge Other Template to Printer"
+
+	ID_EMR_EMN_MERGE_EDIT_TEMPLATE				"Edit templates within Word\nEdit Template"
+	// ID_EMR_EMN_MERGE_TEMPLATE_COMBO			""
+	// ID_EMR_EMN_MERGE_TEMPLATE_MAKE_DEFAULT   // set dynamically
+
+	ID_EMR_CARE_SUMMARY							"Generate a CCDA Summary of Care document\nSummary of Care"
+	ID_EMR_CLINICAL_SUMMARY						"Generate a CCDA Clinical Summary document\nClinical Summary"
+	ID_EMR_CARE_SUMMARY_CUSTOMIZED				"Generate a customized CCDA Summary of Care document\nCustomized Summary of Care"
+	ID_EMR_CLINICAL_SUMMARY_CUSTOMIZED			"Generate a customized CCDA Clinical Summary document\nCustomized Clinical Summary"
+
+	//ID_EMR_TEMPLATE_HIDE_TITLE
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+IDR_EMRFRAME                            PNG     "res\\emrframe.png"
+IDB_EMRFRAME_LARGE                      PNG		"res\\emrframe_large.png"
+IDB_EMRFRAME_SMALL                      PNG		"res\\emrframe_small.png"
+IDB_EMRFRAME_TOOLIMAGES_LARGE           PNG		"res\\emrframe_tools_large.png"
+IDB_EMRFRAME_TOOLIMAGES_SMALL           PNG		"res\\emrframe_tools_small.png"
+IDB_EMRFRAME_STATUSBARIMAGES_SMALL      PNG		"res\\emrframe_statusbar_small.png"
+
+ui-bg_diagonals-thick_18_b81900_40x40.png    PNG    "res\\ui-bg_diagonals-thick_18_b81900_40x40.png"
+ui-bg_diagonals-thick_20_666666_40x40.png    PNG    "res\\ui-bg_diagonals-thick_20_666666_40x40.png"
+ui-bg_flat_10_000000_40x100.png    PNG    "res\\ui-bg_flat_10_000000_40x100.png"
+ui-bg_glass_100_f6f6f6_1x400.png    PNG    "res\\ui-bg_glass_100_f6f6f6_1x400.png"
+ui-bg_glass_100_fdf5ce_1x400.png    PNG    "res\\ui-bg_glass_100_fdf5ce_1x400.png"
+ui-bg_glass_65_ffffff_1x400.png    PNG    "res\\ui-bg_glass_65_ffffff_1x400.png"
+ui-bg_gloss-wave_35_f6a828_500x100.png    PNG    "res\\ui-bg_gloss-wave_35_f6a828_500x100.png"
+ui-bg_highlight-soft_100_eeeeee_1x100.png    PNG    "res\\ui-bg_highlight-soft_100_eeeeee_1x100.png"
+ui-bg_highlight-soft_75_ffe45c_1x100.png    PNG    "res\\ui-bg_highlight-soft_75_ffe45c_1x100.png"
+ui-icons_222222_256x240.png    PNG    "res\\ui-icons_222222_256x240.png"
+ui-icons_228ef1_256x240.png    PNG    "res\\ui-icons_228ef1_256x240.png"
+ui-icons_ef8c08_256x240.png    PNG    "res\\ui-icons_ef8c08_256x240.png"
+ui-icons_ffd27a_256x240.png    PNG    "res\\ui-icons_ffd27a_256x240.png"
+ui-icons_ffffff_256x240.png    PNG    "res\\ui-icons_ffffff_256x240.png"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// JS
+//
+
+// (a.walling 2012-04-11 15:50) - PLID 49594 - minified, packaged javascript files (by name)
+
+jquery.js                    JS       "res\\jquery.min.js"
+excanvas.js                  JS       "res\\excanvas.min.js"
+flot.js                      JS       "res\\flot.min.pkg.js"
+jquery-ui.js                 JS       "res\\jquery-ui-1.8.18.custom.min.js"
+jquery-nicescroll.js         JS       "res\\jquery-nicescroll-2.9.6.min.js"
+jquery.zoom.js				 JS		  "res\\jquery.zoom.js"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// CSS
+//
+jquery-ui.css                CSS      "res\\jquery-ui-1.8.18.custom.css"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+EmrGraphing.html             HTML     "res\\EmrGraphing.html"
+StampSearch.html             HTML     "res\\StampSearch.html"
+OmrReview.html				 HTML	  "res\\OmrReview.html"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ZIP
+//
+CKEditor.zip				 ZIP	  "..\\..\\NexTechSDK\Main\CKEditor.zip"

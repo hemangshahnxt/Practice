@@ -1,0 +1,1113 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.visionweb.com/vwservices/services/SPOrderService">
+
+<xsd:element name="ORDER_MSG" type="ORDERMSGTYPE"/>
+
+<xsd:complexType name="ORDERMSGTYPE">
+		<xsd:sequence>
+			<xsd:element name="HEADER" type="HEADERTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="SP_ORDER" type="SPORDERTYPE" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+</xsd:complexType>
+
+<!--********************************-->
+<!--*	  		   HEADER TYPE				 *-->
+<!--********************************-->
+<xsd:complexType name="HEADERTYPE">
+<xsd:sequence>
+	<xsd:element name="DELIVERY" type="DELIVERYTYPE" minOccurs="0" maxOccurs="1" />
+</xsd:sequence>
+		<xsd:attribute name="SubmitterId" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="OrderType" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="SP" />
+						<xsd:enumeration value="FR" />
+						<xsd:enumeration value="SF" />
+						<xsd:enumeration value="CP" />
+						<xsd:enumeration value="CO" />
+					</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="Login" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="4" />
+						<xsd:maxLength value="20" />
+					</xsd:restriction>
+				</xsd:simpleType>
+	 </xsd:attribute>
+
+		<xsd:attribute name="Password" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:minLength value="4" />
+							<xsd:maxLength value="36" />
+					</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+		<xsd:attribute name="SubmitterOrderId" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40" />
+					</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+	 <xsd:attribute name="VersionNum" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:minLength value="3" />
+							<xsd:maxLength value="4" />
+					</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+	 <xsd:attribute name="SupplierId" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:minLength value="4" />
+							<xsd:maxLength value="4" />
+					</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+	 <xsd:attribute name="SubmitterGuid" use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40" />
+					</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+	<xsd:attribute name="SubmittedDate"  use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:dateTime">
+				</xsd:restriction>
+			</xsd:simpleType>
+ </xsd:attribute>
+
+</xsd:complexType>
+
+	<!--********************************-->
+  <!--*	  		   DELIVERY TYPE		   *-->
+  <!--********************************-->
+  <xsd:complexType name="DELIVERYTYPE">
+    <xsd:sequence>
+      <xsd:element name="DELIVERY_METHOD" type="DELIVERYMETHODTYPE" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ADDRESS" type="ADDRESSTYPE" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="DeliveryTo">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Default" />
+          <xsd:enumeration value="Patient" />
+          <xsd:enumeration value="Office" />
+          <xsd:enumeration value="Alternate" />
+          <xsd:enumeration value="Bureau" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="AttentionTo">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RequestedDate">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:dateTime">
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="PurchaseOrder">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Employee">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Department">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Requisition">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <!--********************************-->
+  <!--*	  	DELIVERY METHOD TYPE	   *-->
+  <!--********************************-->
+  <xsd:complexType name="DELIVERYMETHODTYPE">
+    <xsd:attribute name="Id" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Name" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Price" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="([0-9]*\.[0-9]{2})" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Convert">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+ 
+
+<!--*******************************-->
+<!--*  SP ORDER	 TYPE				   	  *-->
+<!--*******************************-->
+
+<xsd:complexType name="SPORDERTYPE">
+		<xsd:sequence>
+			<xsd:element name="REDO_INFORMATION" type="REDOINFORMATIONTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ACCOUNT" type="ACCOUNTTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="RX_DETAILS" type="RXDETAILSTYPE" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+
+		<xsd:attribute name="CreationDate"   use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:dateTime">
+						</xsd:restriction>
+				</xsd:simpleType>
+	 		</xsd:attribute>
+
+		<xsd:attribute name="PoNum">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="Type"  use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Redo" />
+						<xsd:enumeration value="Resubmit" />
+						<xsd:enumeration value="New" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="Status"  use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Pending" />
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+</xsd:complexType>
+
+<!--********************************-->
+<!--*  REDO_INFORMATION TYPE		   *-->
+<!--********************************-->
+
+<xsd:complexType name="REDOINFORMATIONTYPE">
+		<xsd:attribute name="OriginalOrderNumber" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1" />
+					<xsd:maxLength value="8" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="SupplierInvoiceNumber" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1" />
+					<xsd:maxLength value="20" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="Eye"  use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="R" />
+						<xsd:enumeration value="L" />
+						<xsd:enumeration value="B" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="LmsCode" use="required">
+				<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="60" />
+					</xsd:restriction>
+				</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="VwCode" use="required">
+				<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="25" />
+					</xsd:restriction>
+				</xsd:simpleType>
+		</xsd:attribute>
+</xsd:complexType>
+
+<!--*******************************-->
+<!--*  ACCOUNT TYPE				   			*-->
+<!--*******************************-->
+
+<xsd:complexType name="ACCOUNTTYPE">
+		<xsd:attribute name="CbsId"   use="required">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:long"></xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+  <xsd:attribute name="DropShipAccountId"   use="optional">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="16" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+</xsd:complexType>
+
+<!--*******************************-->
+<!--*  RX DETAIL TYPE				   		*-->
+<!--*******************************-->
+<xsd:complexType name="RXDETAILSTYPE">
+		<xsd:sequence>
+			<xsd:element name="PATIENT" type="PATIENTTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="JOB" type="JOBTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="FRAME" type="FRAMETYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="POSITION" type="POSITIONTYPE" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="OTHER" type="OTHERTYPE" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+
+</xsd:complexType>
+
+<!--********************************-->
+<!--*	  		   PATIENT TYPE			   *-->
+<!--********************************-->
+<xsd:complexType name="PATIENTTYPE">
+	<xsd:sequence>
+				<xsd:element name="PERSONALIZED_DATA" type="PERSONALIZEDDATATYPE" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="ADDRESS" type="ADDRESSTYPE" minOccurs="0" maxOccurs="1" />
+	</xsd:sequence>
+	<xsd:attribute name="LastName"  use="required">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="30" />
+					<xsd:minLength value="1" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="FirstName" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="30" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+</xsd:complexType>
+
+<!--********************************-->
+<!--*	 PERSONALIZED_DATA TYPE		   *-->
+<!--********************************-->
+<xsd:complexType name="PERSONALIZEDDATATYPE">
+ 		<xsd:attribute name="Patient_initials"  use="required">
+		   <xsd:simpleType>
+		      <xsd:restriction base="xsd:string">
+		      		<xsd:minLength value="1" />
+				<xsd:maxLength value="4" />
+		      </xsd:restriction>
+		   </xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="HE_coeff"  use="optional">
+			<xsd:simpleType>			
+			  <xsd:restriction base="xsd:float">
+			  <xsd:minInclusive value="0.01"/>
+			  <xsd:maxInclusive value="0.99"/>
+			</xsd:restriction>
+		 		</xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="ST_coeff"  use="optional">
+			<xsd:simpleType>			
+			 <xsd:restriction base="xsd:float">
+				<xsd:minInclusive value="0.01"/>
+			  	<xsd:maxInclusive value="0.99"/>
+			  </xsd:restriction>
+			</xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="Progression_Length" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="14" />
+						<xsd:enumeration value="16" />
+						<xsd:enumeration value="18" />
+				</xsd:restriction>
+			</xsd:simpleType>
+	  </xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--*********************************-->
+<!--*	  		   JOB TYPE							*-->
+<!--*********************************-->
+<xsd:complexType name="JOBTYPE">
+		<xsd:attribute name="Type"  use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="FTC" />
+						<xsd:enumeration value="UNC" />
+						<xsd:enumeration value="FUN" />
+						<xsd:enumeration value="RED" />
+						<xsd:enumeration value="PAC" />
+						<xsd:enumeration value="SPA" />
+						<xsd:enumeration value="TBP" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="SpecialInstructions" use="optional">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--*****************************-->
+<!--* 			FRAME TYPE					*-->
+<!--*****************************-->
+<xsd:complexType name="FRAMETYPE">
+	<xsd:sequence>
+		<xsd:element name="FRAME_SUPPLIER" type="FRAMESUPPLIERTYPE" minOccurs="0" maxOccurs="1" />
+		<xsd:element name="PACKAGE" type="PACKAGETYPE" minOccurs="0" maxOccurs="1" />
+	</xsd:sequence>
+
+<xsd:attribute name="Number" use="required">
+	<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1" />
+					<xsd:maxLength value="2" />					
+			</xsd:restriction>
+	</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="Brand" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="20" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="Model" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="50" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="Color" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="50" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="EyeSize" use="optional">
+	<xsd:simpleType>
+			<xsd:restriction base="xsd:integer" />
+	</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="SKU" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="15" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="TempleTypeName" use="optional">
+	<xsd:simpleType>
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="TempleType" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="10" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="TempleLength" use="optional">
+	<xsd:simpleType>
+		<xsd:restriction base="xsd:integer" />
+	</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="LmsCode" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="60" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+
+<xsd:attribute name="VwCode" use="required">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="25" />
+			</xsd:restriction>
+		</xsd:simpleType>
+</xsd:attribute>
+</xsd:complexType>
+
+
+<!--********************************-->
+<!--*	 FRAME SUPPLIER TYPE			   *-->
+<!--********************************-->
+<xsd:complexType name="FRAMESUPPLIERTYPE">
+
+		<xsd:attribute name="Name"  use="required">
+		   <xsd:simpleType>
+		      <xsd:restriction base="xsd:string">
+				<xsd:length value="10" />
+		      </xsd:restriction>
+		   </xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="Code"  use="required">
+		 		<xsd:simpleType>
+		 		  <xsd:restriction base="xsd:string">
+		 				<xsd:length value="30" />
+		 		  </xsd:restriction>
+		 		</xsd:simpleType>
+		 </xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--********************************-->
+<!--*	 PACKAGE TYPE 						   *-->
+<!--********************************-->
+<xsd:complexType name="PACKAGETYPE">
+
+		<xsd:attribute name="Name"  use="required">
+		   <xsd:simpleType>
+		      <xsd:restriction base="xsd:string">
+				<xsd:length value="50" />
+		      </xsd:restriction>
+		   </xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="Code"  use="required">
+		 		<xsd:simpleType>
+		 		  <xsd:restriction base="xsd:string">
+		 				<xsd:maxLength value="15" />
+		 		  </xsd:restriction>
+		 		</xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="Safety">
+			 <xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="0" />
+						<xsd:enumeration value="1" />
+					</xsd:restriction>
+			 </xsd:simpleType>
+		 </xsd:attribute>
+
+</xsd:complexType>
+
+
+
+<!--*****************************-->
+<!--* 	POSITION TYPE						*-->
+<!--	***************************-->
+<xsd:complexType name="POSITIONTYPE">
+		<xsd:sequence>
+			<xsd:element name="PRESCRIPTION" type="PRESCRIPTIONTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="BASECURVE" type="BASECURVETYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="EQUITHIN" type="EQUITHINTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="CRIBBING" type="CRIBBINGTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LENS" type="LENSTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="SHAPE" type="SHAPETYPE" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+
+		<xsd:attribute name="Eye"   use="required">
+			 <xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="R" />
+						<xsd:enumeration value="L" />
+					</xsd:restriction>
+			 </xsd:simpleType>
+		 </xsd:attribute>
+
+		 <xsd:attribute name="FarHalfPd" use="required">
+		 		<xsd:simpleType>
+			 		<xsd:restriction base="xsd:string" />
+				</xsd:simpleType>
+	 	 </xsd:attribute>
+
+		 <xsd:attribute name="NearHalfPd">
+		 	<xsd:simpleType>
+					<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+	 	</xsd:attribute>
+
+	 	 <xsd:attribute name="SegHeight">
+				<xsd:simpleType>
+						<xsd:restriction base="xsd:string" />
+				</xsd:simpleType>
+	 	</xsd:attribute>
+
+	 	<xsd:attribute name="OpticalCenter" use="optional">
+					<xsd:simpleType>
+							<xsd:restriction base="xsd:string" />
+					</xsd:simpleType>
+	 	</xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--******************************-->
+<!--*	 PRESCRIPTION TYPE			   *-->
+<!--******************************-->
+<xsd:complexType name="PRESCRIPTIONTYPE">
+		<xsd:sequence>
+			<xsd:element name="CYLINDER" type="CYLINDERTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ADDITION" type="ADDITIONTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PRISM" type="PRISMTYPE" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+
+		<xsd:attribute name="Sphere" use="required"> <!-- Sphere power in dioptries / -99.75 to +99.75 by 0.25 dioptry step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+						<xsd:minInclusive value="-99.75"/>
+						<xsd:maxInclusive value="99.75"/>
+				</xsd:restriction>
+		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--*****************************-->
+<!--*	 BASECURVE TYPE			   		*-->
+<!--*****************************-->
+<xsd:complexType name="BASECURVETYPE">
+		<xsd:attribute name="Value" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					<xsd:minInclusive value='0.0'/>
+					<xsd:maxInclusive value='40.0'/> <!-- Min value: greater than 0; Max value: less than or equal to 20 -->
+				</xsd:restriction>
+		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--***************************-->
+<!--*	 EQUITHIN TYPE			   	*-->
+<!--***************************-->
+<xsd:complexType name="EQUITHINTYPE">
+		<xsd:attribute name="Value" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					<xsd:minExclusive value='0.00'/>
+					<xsd:maxInclusive value='10.0'/> <!-- Min value: greater than 0; Max value: less than or equal to 10 -->
+				</xsd:restriction>
+		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+
+<!--***************************-->
+<!--*	 CRIBBING TYPE			   	*-->
+<!--***************************-->
+<xsd:complexType name="CRIBBINGTYPE">
+		<xsd:attribute name="Value" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Yes" />
+					<xsd:enumeration value="No" />
+				</xsd:restriction>
+		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   CYLINDER TYPE		   *-->
+<!--*********************************-->
+<xsd:complexType name="CYLINDERTYPE">
+
+		<xsd:attribute name="Value" use="required"> <!-- Cylinder power in dioptries / -99.75 to +99.75 by 0.25 dioptry step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+						<xsd:minInclusive value="-99.75"/>
+						<xsd:maxInclusive value="99.75"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+		<xsd:attribute name="Axis" use="required"> <!-- Orientation of the sphere power within the TABO method / 0 to 180 by 1 degre radius step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:integer">
+							<xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="180"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--********************************-->
+<!--*	  		   ADDITION TYPE		   *-->
+<!--********************************-->
+<xsd:complexType name="ADDITIONTYPE">
+
+		<xsd:attribute name="Value" use="required"> <!-- Addition power in dioptries / +0.00 to +99.75 by 0.25 dioptry step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="99.75"/>
+				</xsd:restriction>
+	 		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--******************************-->
+<!--*	  		   PRISM TYPE			   *-->
+<!--******************************-->
+<xsd:complexType name="PRISMTYPE">
+
+		<xsd:attribute name="Value" use="required"> <!-- Decentration1 value in mm / +0.00 to +99.75 by 0.1 mm step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="99.75"/>
+				</xsd:restriction>
+	 		</xsd:simpleType>
+	 </xsd:attribute>
+
+		<xsd:attribute name="Axis" use="required"> <!-- Orientation of the sphere power within the TABO method / 0 to 359 by 1 degre radius step -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="359"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+		<xsd:attribute name="AxisStr"> <!-- String value of the Axis: Angle value or IN/OUT/UP/DOWN -->
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--*******************************-->
+<!--	* LENS TYPE 								*-->
+<!--	*****************************-->
+<xsd:complexType name="LENSTYPE">
+		<xsd:sequence>
+			<xsd:element name="DIAMETER" type="DIAMETERTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="DESIGN" type="DESIGNTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="MATERIAL" type="MATERIALTYPE" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="SEGMENT" type="SEGMENTTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TREATMENTS" type="TREATMENTSTYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="THICKNESS" type="THICKNESSTYPE" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+
+	<xsd:attribute name="Name">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="80" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+</xsd:complexType>
+
+<!--*****************************-->
+<!--	*  DIAMETER TYPE 					*-->
+<!--*****************************-->
+<xsd:complexType name="DIAMETERTYPE">
+
+	<xsd:attribute name="Commercial" use="required">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="20" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+		<xsd:attribute name="Physical" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float" />
+			</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--*****************************-->
+<!--	* DESIGN TYPE 						*-->
+<!--*****************************-->
+<xsd:complexType name="DESIGNTYPE">
+	<xsd:attribute name="LmsCode" use="optional">
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="60" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	 </xsd:attribute>
+
+	 <xsd:attribute name="VwCode" use="required">
+	 		<xsd:simpleType>
+	 				<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25" />
+					</xsd:restriction>
+	 		</xsd:simpleType>
+	 </xsd:attribute>
+
+</xsd:complexType>
+
+<!--*******************************-->
+<!--*  MATERIAL TYPE 							*-->
+<!--*******************************-->
+<xsd:complexType name="MATERIALTYPE">
+	<xsd:attribute name="LmsCode" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="60" />
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="VwCode" use="required" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="25" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   SEGMENT TYPE		   *-->
+<!--*********************************-->
+<xsd:complexType name="SEGMENTTYPE">
+
+	<xsd:attribute name="X" type="xsd:integer" use="required"/>
+
+	<xsd:attribute name="Y" type="xsd:integer" use="required"/>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   TREATMENTS TYPE		   *-->
+<!--*********************************-->
+<xsd:complexType name="TREATMENTSTYPE">
+
+	<xsd:sequence>
+		<xsd:element name="TREATMENT" type="TREATMENTTYPE" minOccurs="0" maxOccurs="unbounded" />
+	</xsd:sequence>
+
+	<xsd:attribute name="Comment" type="xsd:string"/>
+
+</xsd:complexType>
+
+
+<!--*********************************-->
+	<!-- *TREATMENT TYPE *-->
+	<!--********************************-->
+<xsd:complexType name="TREATMENTTYPE">
+	<xsd:attribute name="LmsCode" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="60" />
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="VwCode" use="required" >
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="25" />
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Value" use="optional" >
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:float">
+						<xsd:minExclusive value='0.01'/>
+						<xsd:maxInclusive value='9.99'/> <!-- Need to decide the value limits -->
+					</xsd:restriction>
+				</xsd:simpleType>
+	</xsd:attribute>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   THICKNESS TYPE		   *-->
+<!--*********************************-->
+<xsd:complexType name="THICKNESSTYPE">
+<xsd:attribute name="Value" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					  <xsd:minInclusive value="0.1"/>
+					  <xsd:maxInclusive value="9.9"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="Type" use="required"> <!-- DRS: Dress (defaul without selection), CTR:Center ,DRL:Drilling point thickness, SFY: Safety -->
+		<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DRS" />
+						<xsd:enumeration value="CTR" />
+						<xsd:enumeration value="DRL" />
+						<xsd:enumeration value="SFY" />
+				</xsd:restriction >
+		</xsd:simpleType>
+	</xsd:attribute>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   SHAPE TYPE	   *-->
+<!--*********************************-->
+<xsd:complexType name="SHAPETYPE">
+
+	<xsd:attribute name="A" type="xsd:float" use="required"/>
+
+	<xsd:attribute name="B" type="xsd:float" use="required"/>
+
+	<xsd:attribute name="HalfDbl" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:float">
+					<xsd:minExclusive value='0'/>
+					<xsd:maxInclusive value='20.0'/>
+				</xsd:restriction>
+			</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="ED" type="xsd:float" use="optional"/>
+
+	<xsd:attribute name="Points" use="optional">
+				<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="252" />
+							<xsd:minLength value="252" />
+					</xsd:restriction>
+				</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="TracerID" use="optional">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="PHI" />
+							<xsd:enumeration value="OMA" />
+					</xsd:restriction >
+			</xsd:simpleType>
+	</xsd:attribute>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   OTHER TYPE							   *-->
+<!--*********************************-->
+<xsd:complexType name="OTHERTYPE">
+		<xsd:sequence>
+			<xsd:element name="PCCOM" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OMA" type="OMATYPE" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="XYPOINTS" type="XYPOINTSTYPE" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+</xsd:complexType>
+
+
+<!--*********************************-->
+<!--*	  		   XYPOINTS TYPE  *-->
+<!--*********************************-->
+<xsd:complexType name="XYPOINTSTYPE">
+	<xsd:sequence>
+				<xsd:element name="XYPOINT" type="XYPOINTTYPE" minOccurs="1" maxOccurs="unbounded" />
+	</xsd:sequence>
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   XYPOINT TYPE   *-->
+<!--*********************************-->
+<xsd:complexType name="XYPOINTTYPE">
+
+	<xsd:attribute name="X" type="xsd:integer" use="required" />
+
+	<xsd:attribute name="Y" type="xsd:integer" use="required" />
+
+	<xsd:attribute name="Z" type="xsd:integer" use="optional"/>
+
+</xsd:complexType>
+
+
+<!--*********************************-->
+<!--*	  		   OMA TYPE  *-->
+<!--*********************************-->
+<xsd:complexType name="OMATYPE">
+	<xsd:sequence>
+				<xsd:element name="DATA" type="xsd:string" minOccurs="1" maxOccurs="1" />
+	</xsd:sequence>
+
+	<xsd:attribute name="Reading" type="xsd:integer" use="required" />
+
+</xsd:complexType>
+
+<!--*********************************-->
+<!--*	  		   ADDRESS TYPE							   *-->
+<!--*********************************-->
+
+<xsd:complexType name="ADDRESSTYPE">
+
+	<xsd:attribute name="Street_Number">
+			 <xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6" />
+					</xsd:restriction>
+			 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Street_Name" use="required">
+				 <xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="30" />
+						</xsd:restriction>
+				 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Other">
+					 <xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30" />
+							</xsd:restriction>
+					 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Suite">
+						 <xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10" />
+								</xsd:restriction>
+						 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Zipcode" use="required">
+		 <xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10" />
+				</xsd:restriction>
+		 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="City" use="required">
+						 <xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30" />
+								</xsd:restriction>
+						 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="State" use="required">
+							 <xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="2" />
+									</xsd:restriction>
+							 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Country" use="required">
+								 <xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="2" />
+										</xsd:restriction>
+								 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Tel" use="required">
+									 <xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20" />
+											</xsd:restriction>
+									 </xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:attribute name="Extension">
+									 <xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="10" />
+											</xsd:restriction>
+									 </xsd:simpleType>
+	</xsd:attribute>
+</xsd:complexType>
+
+
+
+</xsd:schema>
+
+

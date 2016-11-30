@@ -1,0 +1,322 @@
+connect '/C={NX$COMMPORT}'
+
+if result <> 2 goto connectfailure
+
+
+{NX$SHOWTT} 
+
+settitle 'OHIP Connection'
+
+setecho 1
+
+lasterror = 'OK'
+
+ 
+
+setdir '{NX$DIRECTORY}'
+
+changedir '{NX$DIRECTORY}'
+
+logopen '{NX$DIRECTORY}\comm.log' 0 0
+
+ 
+
+sendln 'AT'
+
+pause 1
+
+sendln 'ATM1'
+
+pause 1
+
+sendln 'ATL3'
+
+pause 1
+
+ 
+
+sendln 'ATDT{NX$PHONENUM}'
+
+timeout = 120
+
+wait 'Please log on' 'NO CARRIER' 'BUSY'
+
+ 
+
+if result=0 goto errtimeout_prelogin
+
+ 
+
+if result=2 goto noconnect
+
+if result=3 goto busy
+
+ 
+
+timeout = 30
+
+sendln '{NX$USERNAME}'
+
+pause 2
+
+; if result=0 goto errtimeout_prelogin
+
+
+
+sendln '{NX$PASSWORD}'
+ 
+
+
+wait 'RETURN' 'Invalid' 'Enter a new'
+
+if result=0 goto errtimeout_prelogin
+
+if result=1 goto successfullogin
+
+if result=2 goto badpass
+
+if result=3 goto trychangepass
+
+
+:trychangepass
+
+if {NX$CHANGEPASS} = 1 goto changepass
+
+if {NX$CHANGEPASS} = 0 goto neednewpass
+
+
+:changepass
+
+sendln '{NX$NEWPASSWORD}'
+
+wait 'password again'
+
+if result=0 goto errtimeout_prelogin
+
+sendln '{NX$NEWPASSWORD}'
+
+
+wait 'RETURN' 'Invalid' 'do not match' 'previously used'
+
+if result=0 goto errtimeout_prelogin
+
+if result=1 goto successfullogin
+
+if result=2 goto badpass
+
+if result=3 goto badpass
+
+if result=4 goto enteredoldpass
+
+
+
+:successfullogin
+
+sendln ''
+
+
+
+wait 'Service'
+
+if result=0 goto errtimeout
+
+ 
+
+sendln '1'
+
+ 
+
+wait '10-DOWNLOAD'
+
+if result=0 goto errtimeout
+
+ 
+
+send '**********Z'
+
+send #$1B
+
+send #$30
+
+
+iReportsDownloaded = 0
+
+
+:trydownload
+
+wait 'PREPARE' 'Service'
+
+if result=1 goto download
+
+if result=2 goto deletereports
+
+if result=0 goto errtimeout
+
+
+:download 
+
+zmodemrecv
+
+if result=0 goto downloaderror
+
+pause 2
+
+sendln ''
+
+iReportsDownloaded = iReportsDownloaded + 1
+
+goto trydownload
+
+
+
+:deletereports
+
+{NX$SKIPDELETEREPORTS}
+
+
+if iReportsDownloaded = 0 goto logoff
+
+
+sendln '1'
+
+wait '10-DOWNLOAD'
+
+if result=0 goto errtimeout
+
+send '**********Z'
+
+send #$1B
+
+send #$39
+
+sendln 'Yes'
+
+pause 2
+
+send #$1B
+
+send #$33
+
+wait 'Service'
+
+if result=0 goto errtimeout
+
+
+
+:logoff
+
+sendln '4'
+
+if iReportsDownloaded > 0 then
+
+	lasterror = 'Reports have been successfully downloaded.'
+
+	setexitcode 1
+
+else
+
+	lasterror = 'No reports are available to download.'
+
+	setexitcode 2
+
+endif
+
+goto end
+
+ 
+
+:errtimeout
+
+lasterror = 'Error: Timeout'
+
+setexitcode -1
+
+goto end
+
+ 
+
+:noconnect
+
+lasterror = 'No Answer'
+
+setexitcode -2
+
+goto end
+
+ 
+
+:busy
+
+lasterror = 'Line Busy'
+
+setexitcode -3
+
+goto end
+
+ 
+
+:badpass
+
+lasterror = 'Invalid password'
+
+setexitcode -4
+
+goto end
+
+ 
+
+:downloaderror
+
+lasterror = 'Reports download failed.'
+
+setexitcode -5
+
+goto end
+
+
+:connectfailure
+
+lasterror = 'Failed to connect to modem.'
+
+setexitcode -6
+
+goto end
+
+
+:neednewpass
+
+lasterror = 'A new password is needed.'
+
+setexitcode -7
+
+goto end
+
+
+:enteredoldpass
+
+lasterror = 'Cannot use old passwords.'
+
+setexitcode -8
+
+goto end
+
+
+:errtimeout_prelogin
+
+lasterror = 'Error: Timeout Before Login'
+
+setexitcode -9
+
+goto end
+
+
+:end
+
+disconnect
+
+logclose
+
+closett
+
+messagebox lasterror 'Download Process Completed'
+

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:NCStandard="http://secure.newcropaccounts.com/interfaceV7:NCStandard"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://secure.newcropaccounts.com/interfaceV7:NCStandard"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Standard datatypes that do not have a minimum length -->
+	<xs:simpleType name="AlphaNumericOptional">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9#(]*[a-zA-Z0-9 '.,()#:/\-@_%\r\n]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="DrugInformationOptional">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9 '.,\[\]()#:;/\-%+!=&amp;&lt;&gt;&quot;]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="NumericOptional">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NumericWithDecimalOptional">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9.]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <!-- Standard datatypes that are required (i.e. minimum length of 1 letter or number) -->
+	<xs:simpleType name="AlphaNumericRequired">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" fixed="true"/>
+			<xs:pattern value="[a-zA-Z0-9#(][a-zA-Z0-9 '().,#:/\-@_%]*"/>      
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NumericRequired">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" fixed="true"/>
+			<xs:pattern value="[0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NumericWithDecimalRequired">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" fixed="true"/>
+			<xs:pattern value="[0-9.]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <!-- Standard datatypes that are required and encrypted (i.e. minimum length of 1 letter or number) -->
+  <xs:simpleType name="AlphaNumericEncryptedRequired">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" fixed="true"/>
+      <xs:pattern value="[a-zA-Z0-9+= /]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Standard datatypes that support URLs -->
+  <xs:simpleType name="URLRequired">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="10" fixed="true"/>
+      <xs:maxLength value="1200"/>
+      <xs:pattern value="[a-zA-Z0-9:/.\-_?#@%]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Derived Datatypes - Required -->
+  <xs:simpleType name="AlphaNumericRequired_2">
+    <xs:restriction base="NCStandard:AlphaNumericRequired">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericRequired_10">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="AlphaNumericRequired_11">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_30">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_35">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_40">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_50">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_70">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericRequired_140">
+		<xs:restriction base="NCStandard:AlphaNumericRequired">
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="NumericWithDecimalRequired_15">
+    <xs:restriction base="NCStandard:NumericWithDecimalRequired">
+      <xs:maxLength value="15"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericRequired_3">
+    <xs:restriction base="NCStandard:NumericRequired">
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Derived Datatypes - Optional -->
+	<xs:simpleType name="AlphaNumericOptional_10">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericOptional_35">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlphaNumericOptional_40">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="AlphaNumericOptional_70">
+    <xs:restriction base="NCStandard:AlphaNumericOptional">
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericOptional_80">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="AlphaNumericOptional_105">
+    <xs:restriction base="NCStandard:AlphaNumericOptional">
+      <xs:maxLength value="105"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugInformationOptional_80">
+    <xs:restriction base="NCStandard:DrugInformationOptional">
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugInformationOptional_105">
+    <xs:restriction base="NCStandard:DrugInformationOptional">
+      <xs:maxLength value="105"/>
+    </xs:restriction>
+  </xs:simpleType>  
+  <xs:simpleType name="AlphaNumericOptional_140">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="AlphaNumericOptional_200">
+    <xs:restriction base="NCStandard:AlphaNumericOptional">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="AlphaNumericOptional_210">
+		<xs:restriction base="NCStandard:AlphaNumericOptional">
+			<xs:maxLength value="210"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="AlphaNumericOptional_255">
+    <xs:restriction base="NCStandard:AlphaNumericOptional">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Derived Datatypes - Required -->
+  <xs:simpleType name="AlphaNumericEncryptedRequired_100">
+    <xs:restriction base="NCStandard:AlphaNumericEncryptedRequired">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Date/Time Datatypes -->
+	<xs:simpleType name="DateFormatCCYYMMDD">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="((((18|19|20)\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|((\d{2}[02468][048]|\d{2}[13579][26]))0229)){0,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="DateTimeFormatCCYYMMDDHHMM"> <!-- CCYYMMDD:HH:MM -->
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(((((19|20)\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|((\d{2}[02468][048]|\d{2}[13579][26]))0229)):(([0-1][0-9])|([1-2][0-3])):([0-5][0-9])){0,12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- State/Country Validation -->
+	<xs:simpleType name="StateCodes">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(A[ELKSZRAP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StateCodesOptional">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(A[ELKSZRAP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])|()"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodes">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="((US)|(CA)|(MX))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Zip/Postal Code Validation -->
+	<xs:simpleType name="SSNBasic">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Zip/Postal Code Validation -->
+	<xs:simpleType name="ZipCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Zip/Postal Code Validation -->
+	<xs:simpleType name="ZipCodeOptional">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{5}|()"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Zip4Code">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Enumeration Datatypes -->
+	<xs:simpleType name="UserType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LicensedPrescriber"/>
+			<xs:enumeration value="Staff"/>
+			<xs:enumeration value="InterestedParty"/>
+			<xs:enumeration value="SupervisingDoctor"/>
+			<xs:enumeration value="MidlevelPrescriber"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RoleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="doctor"/>
+			<xs:enumeration value="nurse"/>
+			<xs:enumeration value="admin"/>
+			<xs:enumeration value="manager"/>
+			<xs:enumeration value="nurseNoRx"/>
+			<xs:enumeration value="doctorNoRx"/>
+			<xs:enumeration value="doctorReadOnly"/>
+			<xs:enumeration value="nurseReadOnly"/>
+			<xs:enumeration value="interestedPartyReadOnly"/>
+			<xs:enumeration value="supervisingDoctor"/>
+			<xs:enumeration value="midlevelPrescriber"/>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestedPageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="compose"/>
+			<xs:enumeration value="admin"/>
+			<xs:enumeration value="manager"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="ws-rx-send"/>
+			<xs:enumeration value="ws-rx-bulk"/>
+			<xs:enumeration value="ws-rx-bulk-no-match"/>
+			<xs:enumeration value="ws-renewal-send"/>
+      <xs:enumeration value="ws-register-licensedPrescriber"/>
+			<xs:enumeration value="ws-image-rx-send"/>
+			<xs:enumeration value="ws-pbm-eligibility"/>
+      <xs:enumeration value="medentry"/>
+      <xs:enumeration value="patientDetail"/>
+      <xs:enumeration value="transmit"/>      
+      <xs:enumeration value="resource"/>
+      <xs:enumeration value="maintainHealthplans"/>
+      <xs:enumeration value="ws-register"/>
+      <xs:enumeration value="route"/>
+      <xs:enumeration value="rxhistory-external"/>
+      <xs:enumeration value="renewal-confirmation"/>
+      <xs:enumeration value="ws-process-renewal"/>
+      <xs:enumeration value="rxdetail"/>
+      <xs:enumeration value="renewal"/>
+      <xs:enumeration value="ws-gen-test-renewal"/>
+      <xs:enumeration value="dosing"/>
+      <xs:enumeration value="formulary-coverage-detail"/>
+      <xs:enumeration value="ws-patient-bulk"/>
+      <xs:enumeration value="ws-rx-audit"/>
+      <xs:enumeration value="user-agreement"/>
+      <xs:enumeration value="reports-rx-daily"/>
+      <xs:enumeration value="staywell"/>
+      <xs:enumeration value="lab-orders"/>
+      <xs:enumeration value="lab-results"/>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DrugSubstitutionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DispenseAsWritten"/>
+			<xs:enumeration value="SubstitutionAllowed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersonNamePrefix">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ms."/>
+			<xs:enumeration value="Ms"/>
+			<xs:enumeration value="Miss"/>
+			<xs:enumeration value="Mr."/>
+			<xs:enumeration value="Mr"/>
+			<xs:enumeration value="Mrs."/>
+			<xs:enumeration value="Mrs"/>
+			<xs:enumeration value="Dr."/>
+			<xs:enumeration value="Dr"/>
+      <xs:enumeration value="Sr."/>
+      <xs:enumeration value="Sr"/>
+      <xs:enumeration value="Sra."/>
+      <xs:enumeration value="Sra"/>
+      <xs:enumeration value="Fr"/>
+      <xs:enumeration value="Rev"/>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersonNameSuffix">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DDS"/>
+			<xs:enumeration value="DO"/>
+			<xs:enumeration value="Jr"/>
+			<xs:enumeration value="LVN"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="NP"/>
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="RN"/>
+			<xs:enumeration value="Sr"/>
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="II"/>
+			<xs:enumeration value="III"/>
+			<xs:enumeration value="PhD"/>
+			<xs:enumeration value="PharmD"/>
+			<xs:enumeration value="RPh"/>
+      <xs:enumeration value="MA"/>
+      <xs:enumeration value="OD"/>
+      <xs:enumeration value="CNP"/>
+      <xs:enumeration value="CNM"/>
+      <xs:enumeration value="RPAC"/>
+      <xs:enumeration value="FACC"/>
+      <xs:enumeration value="FACP"/>
+      <xs:enumeration value="LPN"/>
+      <xs:enumeration value="Jr."/>
+      <xs:enumeration value="Sr."/>
+      <xs:enumeration value="Esq."/>
+      <xs:enumeration value="Esq"/>
+      <xs:enumeration value="IV"/>
+      <xs:enumeration value="DPM"/>
+      <xs:enumeration value="PAC"/>
+      <xs:enumeration value="CNS"/>
+      <xs:enumeration value="RD"/>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GenderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="U"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LanguageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Arabic"/>
+			<xs:enumeration value="Chinese"/>
+			<xs:enumeration value="Chinese (Simplified)"/>
+			<xs:enumeration value="Creole"/>
+			<xs:enumeration value="English"/>
+			<xs:enumeration value="French"/>
+			<xs:enumeration value="German"/>
+			<xs:enumeration value="Greek"/>
+			<xs:enumeration value="Italian"/>
+			<xs:enumeration value="Japanese"/>
+			<xs:enumeration value="Korean"/>
+			<xs:enumeration value="Polish"/>
+			<xs:enumeration value="Portuguese"/>
+			<xs:enumeration value="Russian"/>
+			<xs:enumeration value="Spanish"/>
+			<xs:enumeration value="Tagalog"/>
+			<xs:enumeration value="Turkish"/>
+			<xs:enumeration value="Vietnamese"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DrugDatabaseType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FDA"/>
+			<xs:enumeration value="FDB"/>
+			<xs:enumeration value="RXNORM"/>
+      <xs:enumeration value="Z"/>
+      <xs:enumeration value="Y"/>
+      <xs:enumeration value="MULTUM"/>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HealthplanType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Summary"/>
+			<xs:enumeration value="Detail"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DiagnosisType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ICD9"/>
+			<xs:enumeration value="ICD9CM"/>
+			<xs:enumeration value="ICD10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrescriberStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active"/>
+			<xs:enumeration value="Inactive"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="PrescriberNetwork">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SureScripts"/>
+      <xs:enumeration value="RxHub"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AllergySeverityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unspecified"/>
+      <xs:enumeration value="Mild"/>
+      <xs:enumeration value="Moderate"/>
+      <xs:enumeration value="Severe"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Connect"/>
+      <xs:enumeration value="Advanced"/>
+      <xs:enumeration value="Formulary"/>
+      <xs:enumeration value="Fax"/>
+      <xs:enumeration value="ClientSpecified"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureExpirationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ExpirationDate"/>
+      <xs:enumeration value="Recurring"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugOTCType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Yes"/>
+      <xs:enumeration value="No"/>
+      <xs:enumeration value="Both"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugScheduleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResponseCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Accept"/>
+      <xs:enumeration value="Deny"/>
+      <xs:enumeration value="UnableToProcess"/>
+      <xs:enumeration value="Undetermined"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResponseDenyCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PatientUnknownToThePrescriber"/>
+      <xs:enumeration value="PatientNeverUnderPrescriberCare"/>
+      <xs:enumeration value="PatientNoLongerUnderPrescriberCare"/>
+      <xs:enumeration value="PatientHasRequestedRefillTooSoon"/>
+      <xs:enumeration value="MedicationNeverPrescribedForThePatient"/>
+      <xs:enumeration value="PatientShouldContactPrescriberFirst"/>
+      <xs:enumeration value="RefillNotAppropriate"/>
+      <xs:enumeration value="PatientHasPickedUpPrescription"/>
+      <xs:enumeration value="PatientHasPickedUpPartialFillOfPrescription"/>
+      <xs:enumeration value="PatientHasNotPickedUpPrescriptionDrugReturnedToStock"/>
+      <xs:enumeration value="ChangeNotAppropriate"/>
+      <xs:enumeration value="PatientNeedsAppointment"/>
+      <xs:enumeration value="PrescriberNotAssociatedWithThisPracticeOrLocation"/>
+      <xs:enumeration value="NoAttemptWillBeMadeToObtainPriorAuthorization"/>      
+      <xs:enumeration value="DeniedNewPrescriptionToFollow"/>
+      <xs:enumeration value="RequestAlreadyRespondedToByOtherMeans"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugTakeAsNeededType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Yes"/>
+      <xs:enumeration value="No"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Current"/>
+      <xs:enumeration value="Pending"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionSubStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InProcess"/>
+      <xs:enumeration value="NeedsDoctorReview"/>
+      <xs:enumeration value="NeedsStaffReview"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionArchiveType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Yes"/>
+      <xs:enumeration value="No"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionAuditDeliveryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Print"/>
+      <xs:enumeration value="Fax"/>
+      <xs:enumeration value="ElectronicRetail"/>
+      <xs:enumeration value="ElectronicMailOrder"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugSetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CPOE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DrugSetStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

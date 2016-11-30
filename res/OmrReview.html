@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <title>OMR Review</title>
+        
+        <style type="text/css">
+			html, body, .zoom
+		    {
+			   height: 100%;
+			   margin: 0px;
+			   padding: 0px;
+		    }
+               
+            span.zoom 
+		    {
+                display: block;
+            }
+           
+		    #imgview {
+				max-height: 100%;
+            }
+        </style>
+        
+        <script type="text/javascript" src="JS/jquery.js"></script>        <script type="text/javascript" src="JS/jquery.zoom.js"></script>               		<script type="text/javascript">
+		    $(function() {
+		        // standard onload initialization from jquery
+		        external.WhenImageReady = function() {
+		            // update the img src for the img element #imgview, or whatever else if you want to plugin another jquery library
+		            $('#imgview').attr('src', external.GetImageUrl());
+		            $('#imgspan').zoom({ on:'grab' });
+		        }
+		    });		</script>
+    </head>
+
+	<body>
+	    <span class='zoom' id='imgspan'>
+	        <img src="" id='imgview' alt="OMR Form"/>
+	    </span>
+	</body>
+</html>

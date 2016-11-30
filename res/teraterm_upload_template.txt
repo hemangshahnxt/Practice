@@ -1,0 +1,276 @@
+connect '/C={NX$COMMPORT}'
+
+if result <> 2 goto connectfailure
+
+
+{NX$SHOWTT} 
+
+settitle 'OHIP Connection'
+
+setecho 1
+
+lasterror = 'OK'
+
+ 
+
+setdir '{NX$DIRECTORY}'
+
+changedir '{NX$DIRECTORY}'
+
+logopen '{NX$DIRECTORY}\comm.log' 0 0
+
+ 
+
+sendln 'AT'
+
+pause 1 
+
+sendln 'ATM1'
+
+pause 1
+
+sendln 'ATL3'
+
+pause 1
+
+ 
+
+sendln 'ATDT{NX$PHONENUM}'
+
+timeout = 120
+
+wait 'Please log on' 'NO CARRIER' 'BUSY'
+
+ 
+
+if result=0 goto errtimeout_prelogin
+
+ 
+
+if result=2 goto noconnect
+
+if result=3 goto busy
+
+ 
+
+timeout = 30
+
+sendln '{NX$USERNAME}'
+
+pause 2
+
+; if result=0 goto errtimeout_prelogin
+
+ 
+
+sendln '{NX$PASSWORD}'
+
+ 
+
+wait 'RETURN' 'Invalid' 'Enter a new'
+
+if result=0 goto errtimeout_prelogin
+
+if result=1 goto successfullogin
+
+if result=2 goto badpass
+
+if result=3 goto trychangepass
+
+
+:trychangepass
+
+if {NX$CHANGEPASS} = 1 goto changepass
+
+if {NX$CHANGEPASS} = 0 goto neednewpass
+
+
+:changepass
+
+sendln '{NX$NEWPASSWORD}'
+
+wait 'password again'
+
+if result=0 goto errtimeout_prelogin
+
+sendln '{NX$NEWPASSWORD}'
+
+
+wait 'RETURN' 'Invalid' 'do not match' 'previously used'
+
+if result=0 goto errtimeout_prelogin
+
+if result=1 goto successfullogin
+
+if result=2 goto badpass
+
+if result=3 goto badpass
+
+if result=4 goto enteredoldpass
+
+
+
+:successfullogin
+
+sendln ''
+
+ 
+
+wait 'Service'
+
+if result=0 goto errtimeout
+
+
+
+sendln '3'
+
+
+
+wait 'Function'
+
+if result=0 goto errtimeout
+
+ 
+
+sendln '1'
+
+ 
+
+wait 'accept'
+
+if result=0 goto errtimeout
+
+ 
+
+send 'T'
+
+sendln '{NX$FILENAME}'
+
+
+wait 'BEGIN'
+
+if result=0 goto errtimeout
+
+
+pause 3
+
+
+zmodemsend '{NX$FILEPATH}' 0
+
+if result=0 goto uploaderror
+
+
+pause 2
+
+
+wait 'Function'
+
+if result=0 goto errtimeout
+
+sendln '4'
+
+lasterror = 'File successfully uploaded.'
+
+setexitcode 1
+
+goto end
+
+
+
+:errtimeout
+
+lasterror = 'Error: Timeout'
+
+setexitcode -1
+
+goto end
+
+ 
+
+:noconnect
+
+lasterror = 'No Answer'
+
+setexitcode -2
+
+goto end
+
+ 
+
+:busy
+
+lasterror = 'Line Busy'
+
+setexitcode -3
+
+goto end
+
+ 
+
+:badpass
+
+lasterror = 'Invalid password'
+
+setexitcode -4
+
+goto end
+
+ 
+
+:uploaderror
+
+lasterror = 'File upload failed.'
+
+setexitcode -5
+
+goto end
+
+
+:connectfailure
+
+lasterror = 'Failed to connect to modem.'
+
+setexitcode -6
+
+goto end
+
+
+
+:neednewpass
+
+lasterror = 'A new password is needed.'
+
+setexitcode -7
+
+goto end
+
+
+:enteredoldpass
+
+lasterror = 'Cannot use old passwords.'
+
+setexitcode -8
+
+goto end
+
+
+:errtimeout_prelogin
+
+lasterror = 'Error: Timeout Before Login'
+
+setexitcode -9
+
+goto end
+
+
+
+:end
+
+disconnect
+
+logclose
+
+closett
+
+messagebox lasterror 'Upload Process Completed'
+
